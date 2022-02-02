@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl,Validators } from '@angular/forms';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import {MatSnackBar, MatSnackBarConfig} from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SnackbarComponent } from 'src/app/shared/snackbar/snackbar.component';
 
 @Component({
   selector: 'app-reset',
@@ -9,15 +10,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./reset.component.css']
 })
 export class ResetComponent implements OnInit {
-  
+
+    data!:string|null
     emailId!:FormControl
 
-  constructor(private router: Router, private snackBar:MatSnackBar) { 
+  constructor(
+    private router: Router, 
+    private snackBar:MatSnackBar,
+    private route:ActivatedRoute) { 
+
     this.createResetForm();
   }
 
   ngOnInit(): void {
+    const param = this.route.snapshot.paramMap.get('data')
+    if (param == 'username'){
+      this.data = 'Username'
+    } else if (param == 'password'){
+      this.data = 'Password'
+    } else {
+      this.router.navigateByUrl('/auth/login')
+    }
   }
+
 
   createResetForm(){
     this.emailId = new FormControl("", [
@@ -26,10 +41,19 @@ export class ResetComponent implements OnInit {
     ]);
   }
 
-  reset(){
+  reset(e:Event){
+    e.preventDefault();
+
     if (this.emailId.invalid) return
-      this.snackBar.open("Credentials have been sent to you by SMS", "Back to login!");
-      // this.router.navigateByUrl('/auth/login')
+
+    this.snackBar.openFromComponent(SnackbarComponent,{
+      data: {
+        message : `${this.data} has been sent to you by mail`,
+        btn: "OK",
+        action: "reset"
+      }
+    });
+
   }
 
 }

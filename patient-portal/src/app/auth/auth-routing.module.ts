@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: '',
     children: [
-      { path: 'reset', component: ResetComponent },
+      { path: 'reset/:data', component: ResetComponent },
       { path: 'register', component: RegisterComponent }]
   },
 

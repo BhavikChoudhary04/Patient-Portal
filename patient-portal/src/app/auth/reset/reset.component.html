@@ -1,19 +1,21 @@
 <div class="reset-card-position">
   <mat-card class="reset-card">
     <mat-card-header>
-      <mat-card-title>Reset Credentials</mat-card-title>
+      <mat-card-title>Forgot {{data}}</mat-card-title>
     </mat-card-header>
 
-    <form  novalidate (submit)="reset()">
-        <mat-form-field class="" appearance="fill">
-          <mat-label>Email</mat-label>
-          <input type="text" matInput
-                 [formControl] = "emailId">
-          <mat-error *ngIf="emailId.invalid">
-            Please enter a 10 digit phone number
-          </mat-error>
-        </mat-form-field>
-        <button  mat-raised-button color="accent" >Reset</button>
-      </form>
-</mat-card>
+    <form (submit)="reset($event)">
+      <mat-form-field class="" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input type="text" matInput [formControl]="emailId">
+        <mat-error *ngIf="emailId.invalid">
+          Please enter a 10 digit phone number
+        </mat-error>
+      </mat-form-field>
+
+      <button class="btn-align" mat-button type="reset">Cancel</button>
+      <button class="btn-align" mat-raised-button color="accent" type="submit">Submit</button>
+    </form>
+    <!-- [disabled]="emailId.invalid"  -->
+  </mat-card>
 </div>
