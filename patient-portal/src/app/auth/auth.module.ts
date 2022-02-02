@@ -10,7 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [AuthComponent, LoginComponent],
@@ -24,6 +24,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatIconModule,
     MatButtonModule,
     MatSnackBarModule,
+    MatCardModule
   ],
   exports: [LoginComponent],
   providers: [],
