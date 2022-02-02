@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ResetComponent implements OnInit {
   
-    phnNumber!:FormControl
+    emailId!:FormControl
 
   constructor(private router: Router, private snackBar:MatSnackBar) { 
     this.createResetForm();
@@ -20,18 +20,16 @@ export class ResetComponent implements OnInit {
   }
 
   createResetForm(){
-    this.phnNumber = new FormControl("", [
-      Validators.required, 
-      Validators.minLength(10), 
-      Validators.maxLength(10),
-      Validators.pattern('^[6-9][0-9]+')
+    this.emailId = new FormControl("", [
+      Validators.required,
+      Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
     ]);
   }
 
   reset(){
-    if (this.phnNumber.errors) return
+    if (this.emailId.invalid) return
       this.snackBar.open("Credentials have been sent to you by SMS", "Back to login!");
-      this.router.navigateByUrl('/auth/login')
+      // this.router.navigateByUrl('/auth/login')
   }
 
 }

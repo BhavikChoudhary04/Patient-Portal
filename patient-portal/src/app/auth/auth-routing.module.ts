@@ -5,9 +5,13 @@ import { RegisterComponent } from './register/register.component';
 import { ResetComponent } from './reset/reset.component';
 
 const routes: Routes = [
-  { path: '', component: AuthComponent },
-  { path: 'reset', component: ResetComponent },
-  { path: 'register', component: RegisterComponent }
+  {
+    path: '',
+    children: [
+      { path: 'reset', component: ResetComponent },
+      { path: 'register', component: RegisterComponent }]
+  },
+
 
 ];
 
