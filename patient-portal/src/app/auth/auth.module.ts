@@ -9,12 +9,14 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AuthComponent } from './auth.component';
+import { LoginComponent } from './login/login.component';
 import { ResetComponent } from './reset/reset.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 import { RegisterComponent } from './register/register.component';
 
 @NgModule({
-  declarations: [AuthComponent, ResetComponent, RegisterComponent],
+  declarations: [AuthComponent, ResetComponent, RegisterComponent, LoginComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
@@ -22,6 +24,8 @@ import { RegisterComponent } from './register/register.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    FormsModule,
+    MatIconModule,
     ReactiveFormsModule,
     MatSnackBarModule
   ]
