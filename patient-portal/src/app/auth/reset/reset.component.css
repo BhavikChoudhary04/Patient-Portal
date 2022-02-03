@@ -1,0 +1,27 @@
+.reset-card-position{
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.reset-card{
+    width: 400px;
+    margin: 16px;
+}
+
+.mat-form-field {
+    width: 100%;
+    min-width: 300px;
+}
+
+.btn-align{
+    margin: 0 8px 0 8px;
+}
+
+.mat-card-header{
+    margin: 16px 0;
+}
+
