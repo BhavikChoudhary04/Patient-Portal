@@ -14,6 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { MatSelectModule} from '@angular/material/select/';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [AuthComponent, ResetComponent, RegisterComponent],
@@ -27,7 +29,9 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     MatSnackBarModule,
     MatSelectModule,
-    MatIconModule
+    MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [RegisterComponent, ResetComponent]
 })
