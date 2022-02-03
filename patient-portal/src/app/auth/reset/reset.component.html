@@ -9,13 +9,12 @@
         <mat-label>Email</mat-label>
         <input type="text" matInput [formControl]="emailId">
         <mat-error *ngIf="emailId.invalid">
-          Please enter a 10 digit phone number
+          Please enter a valid email Id
         </mat-error>
       </mat-form-field>
 
       <button class="btn-align" mat-button type="reset">Cancel</button>
-      <button class="btn-align" mat-raised-button color="accent" type="submit">Submit</button>
+      <button [disabled]="emailId.invalid" class="btn-align" mat-raised-button color="accent" type="submit">Submit</button>
     </form>
-    <!-- [disabled]="emailId.invalid"  -->
   </mat-card>
 </div>
