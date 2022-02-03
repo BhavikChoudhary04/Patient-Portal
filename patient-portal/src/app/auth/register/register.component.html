@@ -1,0 +1,107 @@
+<!-- <mat-form-field class="" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input type="text" matInput
+           >
+    <mat-error>
+      Please enter a 10 digit phone number
+    </mat-error>
+  </mat-form-field> -->
+
+<div class="registrationForm">
+  <mat-card class="registrationCard">
+    <mat-card-title>Register Here</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="registerForm" (ngSubmit)="submitRegisterForm()" autocomplete="off">
+        <div class="container">
+          <mat-form-field class="form-element" appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input type="text" matInput formControlName="firstName" />
+            <mat-error *ngIf="registerForm.invalid">
+              Please enter First Name
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-element">
+            <mat-label>Last Name</mat-label>
+            <input type="text" matInput formControlName="lastName" />
+            <mat-error *ngIf="registerForm.invalid">
+              Please enter Last Name
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-element">
+            <mat-label>Username</mat-label>
+            <input type="text" matInput formControlName="userName" />
+            <mat-error *ngIf="registerForm.invalid">
+              Please enter your username
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-element">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="email" />
+            <mat-error *ngIf="registerForm.invalid">
+              Please enter your email address
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-element">
+            <mat-label>Password</mat-label>
+            <input [type]="flag ? 'password' : 'text'" matInput formControlName="password" />
+            <mat-icon (click)="flag=!flag" matSuffix>{{ flag ? 'visibility' : 'visibility_off' }}</mat-icon>
+            <mat-error *ngIf="registerForm.invalid">
+              Please enter your password
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-element">
+            <mat-label>Retype Password</mat-label>
+            <input [type]="flag ? 'password' : 'text'" matInput formControlName="confirmPassword" />
+            <mat-icon (click)="flag=!flag" matSuffix>{{ flag ? 'visibility' : 'visibility_off' }}</mat-icon>
+            <mat-error *ngIf="registerForm.invalid">
+              Confirm your password
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-element">
+            <mat-label>DOB (DD/MM/YYYY)</mat-label>
+            <input type="date" matInput formControlName="dob" />
+            <mat-error *ngIf="registerForm.invalid">
+              Please enter your Date Of Birth
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-element">
+            <mat-label>Role</mat-label>
+            <mat-select formControlName="role">
+              <mat-option value="patient">Patient</mat-option>
+              <mat-option value="physician">Physician</mat-option>
+              <mat-option value="labAssistant">Lab Assistant</mat-option>
+              <mat-option value="admin">Admin</mat-option>
+            </mat-select>
+            <!-- <select>
+                <option value="one">ONE</option>
+                <option value="two">TWO</option>
+              </select> -->
+            <mat-error *ngIf="registerForm.invalid">
+              Please select your role
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-element">
+            <mat-label>Mobile</mat-label>
+            <input type="number" matInput formControlName="mobile" />
+            <mat-error *ngIf="registerForm.invalid">
+              Please enter a 10 digit phone number
+            </mat-error>
+          </mat-form-field>
+
+          <div class="btn-position">
+            <button mat-raised-button color="accent" (click)="submitRegisterForm()">Submit</button>
+          </div>
+          
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

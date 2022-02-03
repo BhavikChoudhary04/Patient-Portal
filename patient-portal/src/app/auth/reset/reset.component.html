@@ -1,0 +1,19 @@
+<div class="reset-card-position">
+  <mat-card class="reset-card">
+    <mat-card-header>
+      <mat-card-title>Reset Credentials</mat-card-title>
+    </mat-card-header>
+
+    <form  novalidate (submit)="reset()">
+        <mat-form-field class="" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input type="text" matInput
+                 [formControl] = "emailId">
+          <mat-error *ngIf="emailId.invalid">
+            Please enter a 10 digit phone number
+          </mat-error>
+        </mat-form-field>
+        <button  mat-raised-button color="accent" >Reset</button>
+      </form>
+</mat-card>
+</div>
