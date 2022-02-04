@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ReportService } from './services/report.service';
 import { UserService } from './services/user.service';
 
 @Component({
@@ -9,7 +10,11 @@ import { UserService } from './services/user.service';
 export class AppComponent {
   title = 'patient-portal';
 
-  constructor(private userService:UserService){
+  constructor(
+    private userService:UserService,
+    private reportService: ReportService){
+
     this.userService.fetchAllUsers();
+    this.reportService.fetchAllReports();
   }
 }
