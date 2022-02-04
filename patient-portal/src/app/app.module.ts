@@ -8,6 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { SnackbarComponent } from './shared/snackbar/snackbar.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MatButtonModule } from '@angular/material/button';
     BrowserAnimationsModule,
     AuthModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

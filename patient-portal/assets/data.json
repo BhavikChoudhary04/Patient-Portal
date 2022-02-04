@@ -1,0 +1,76 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Admin",
+      "lastName": "Admin",
+      "userName": "Admin01",
+      "email": "admin.admin@citiustech.com",
+      "role": "admin",
+      "dob": "01/01/1970",
+      "mobile": "9999999999",
+      "password": "Admin@123",
+      "isAuthenticated": false
+    },
+    {
+      "id": 2,
+      "firstName": "Mayur",
+      "lastName": "Raina",
+      "userName": "SuperMayur01",
+      "email": "mayur.raina@citiustech.com",
+      "role": "physician",
+      "dob": "15/07/2000",
+      "mobile": "9876543210",
+      "password": "Hello@123",
+      "isAuthenticated": true
+    },
+    {
+      "id": 3,
+      "firstName": "Vishalrao",
+      "lastName": "Bandegar",
+      "userName": "VishalB007",
+      "email": "vishalrao.bandegar@citiustech.com",
+      "role": "patient",
+      "dob": "05/09/1999",
+      "mobile": "9876543211",
+      "password": "Hello@123",
+      "isAuthenticated": true
+    },
+    {
+      "id": 4,
+      "firstName": "Preeti",
+      "lastName": "Mondal",
+      "userName": "PreetiM011",
+      "email": "preeti.mondal@citiustech.com",
+      "role": "lab assistant",
+      "dob": "09/11/1995",
+      "mobile": "9876543212",
+      "password": "Hello@123",
+      "isAuthenticated": true
+    },
+    {
+      "id": 5,
+      "firstName": "Rajib",
+      "lastName": "Sarkar",
+      "userName": "Rajibsk09",
+      "email": "rajib.sarkar@citiustech.com",
+      "role": "Physician",
+      "dob": "23/04/1990",
+      "mobile": "9876543213",
+      "password": "Hello@123",
+      "isAuthenticated": true
+    },
+    {
+      "id": 6,
+      "firstName": "Bhavik",
+      "lastName": "Choudhary",
+      "userName": "Bhavikc099",
+      "email": "bhavik.chaudhary@citiustech.com",
+      "role": "patient",
+      "dob": "29/01/1997",
+      "mobile": "9876543215",
+      "password": "Hello@123",
+      "isAuthenticated": true
+    }
+  ]
+}

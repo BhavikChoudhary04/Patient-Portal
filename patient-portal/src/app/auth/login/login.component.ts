@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   loginForm !: FormGroup;
   flag: boolean = true;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private userService: UserService) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -21,14 +22,10 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // Validators.pattern('^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$')
 
-  // Minimum eight characters, at least one letter and one number
-
-
-
-  loginDetails(formData:any) {
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(formData.value, null, 4));
+  loginDetails(loginData:any) {
+    this.userService.loginUser(loginData.value)
+    // alert('SUCCESS!! :-)\n\n' + JSON.stringify(formData.value, null, 4));
   }
 
 }
