@@ -14,7 +14,7 @@
 
           <mat-form-field class="form-element" appearance="fill">
             <mat-label>Last Name</mat-label>
-            <input type="text" matInput formControlName="lastName" />
+            <input type="text" matInput formControlName="lastName" required/>
             <mat-error *ngIf="registerForm.invalid || registerForm.touched">
               Please enter your Last Name
             </mat-error>
@@ -22,7 +22,7 @@
 
           <mat-form-field class="form-element" appearance="fill">
             <mat-label>Username</mat-label>
-            <input type="text" matInput formControlName="userName" />
+            <input type="text" matInput formControlName="userName" required/>
             <mat-error *ngIf="registerForm.invalid || registerForm.touched">
               Please enter your username
             </mat-error>
@@ -30,7 +30,7 @@
 
           <mat-form-field class="form-element" appearance="fill">
             <mat-label>Email</mat-label>
-            <input type="email" matInput formControlName="email" />
+            <input type="email" matInput formControlName="email" required/>
             <mat-error *ngIf="registerForm.invalid || registerForm.touched">
               Please enter your valid email address
             </mat-error>
@@ -45,7 +45,7 @@
 
           <mat-form-field class="form-element" appearance="fill">
             <mat-label>Password</mat-label>
-            <input [type]="flag ? 'password' : 'text'" matInput formControlName="password" />
+            <input [type]="flag ? 'password' : 'text'" matInput formControlName="password" required/>
             <mat-icon (click)="flag=!flag" matSuffix>{{ flag ? 'visibility_off' : 'visibility' }}</mat-icon>
             <mat-error *ngIf="registerForm.invalid || registerForm.touched">
               Password must contain minimum nine characters, at least one upercase letter, one lowercase letter, one special character and one number
@@ -54,7 +54,7 @@
 
           <mat-form-field class="form-element" appearance="fill">
             <mat-label>Retype Password</mat-label>
-            <input [type]="CPflag ? 'password' : 'text'" matInput formControlName="confirmPassword" />
+            <input [type]="CPflag ? 'password' : 'text'" matInput formControlName="confirmPassword" required/>
             <mat-icon (click)="CPflag=!CPflag" matSuffix>{{ CPflag ? 'visibility_off' : 'visibility' }}</mat-icon>
             <mat-error *ngIf="registerForm.invalid || registerForm.touched">
               Confirm your password
@@ -62,8 +62,8 @@
           </mat-form-field>
 
           <mat-form-field class="form-element" appearance="fill" appearance="fill">
-            <mat-label>DOB (DD/MM/YYYY)</mat-label>
-            <input [matDatepicker]="dp" matInput formControlName="dob" />
+            <mat-label>DOB (MM/DD/YYYY)</mat-label>
+            <input [matDatepicker]="dp" matInput formControlName="dob" required/>
             <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
             <mat-datepicker #dp></mat-datepicker>
             <mat-error *ngIf="registerForm.invalid || registerForm.touched">
@@ -73,7 +73,7 @@
 
           <mat-form-field class="form-element" appearance="fill">
             <mat-label>Role</mat-label>
-            <mat-select formControlName="role">
+            <mat-select formControlName="role" required>
               <mat-option value="patient">Patient</mat-option>
               <mat-option value="physician">Physician</mat-option>
               <mat-option value="labAssistant">Lab Assistant</mat-option>
@@ -86,7 +86,7 @@
 
           <mat-form-field class="form-element" appearance="fill">
             <mat-label>Mobile</mat-label>
-            <input matInput formControlName="mobile" />
+            <input matInput formControlName="mobile" required/>
             <mat-error *ngIf="registerForm.invalid || registerForm.touched">
               Please enter a 10 digit phone number
             </mat-error>

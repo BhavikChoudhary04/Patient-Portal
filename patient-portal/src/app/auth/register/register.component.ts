@@ -50,7 +50,7 @@ export class RegisterComponent implements OnInit {
   submitRegisterForm(){
     if (this.registerForm.invalid) return
       this.router.navigateByUrl('/auth/login');
-      // console.log(this.registerForm.value);
+      console.log(this.registerForm.value);
   }
 
 }
