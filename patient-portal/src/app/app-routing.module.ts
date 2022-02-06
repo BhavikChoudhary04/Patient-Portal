@@ -31,16 +31,16 @@ const routes: Routes = [
     loadChildren: () => import('./header/header.module').then(m => m.HeaderModule)
   },
   {
-    path: '**', 
-    redirectTo: 'auth/login'
-  },
-  {
     path: 'demographics',
     component:DemographicsPageComponent
   },
   {
     path: 'medications-allergies',
     component:MedicationsAllergiesPageComponent
+  },
+  {
+    path: '**', 
+    redirectTo: 'auth/login'
   }
 ];
 

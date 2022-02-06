@@ -97,7 +97,6 @@
       "isAuthenticated": true
     }
   ],
-  
   "reports": [
     {
       "id": 201,
@@ -250,6 +249,22 @@
       "familymedicalhistory": "Hypertension",
       "surgeries": "No",
       "insuranceProvider": "Medicare"
+    },
+    {
+      "firstName": "John",
+      "lastName": "Roy",
+      "dob": "2022-02-16T18:30:00.000Z",
+      "gender": "Male",
+      "ethnicity": "African",
+      "education": "BE",
+      "occupation": "Any",
+      "address": "Any",
+      "mobile": "8989776654",
+      "medicalHistory": "any",
+      "familymedicalHistory": "NA",
+      "surgeries": "any",
+      "insuranceProviders": "Medicare",
+      "id": 305
     }
   ],
   "medication-allergies": [

@@ -21,6 +21,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
+import { UserService } from './services/user.service';
 
 const MaterialModule = [
   MatSidenavModule,
@@ -52,7 +53,7 @@ const MaterialModule = [
     HttpClientModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
