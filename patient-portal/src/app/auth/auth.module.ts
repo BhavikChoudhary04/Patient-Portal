@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { MatCardModule } from '@angular/material/card';
@@ -33,6 +33,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  exports: [RegisterComponent, ResetComponent]
+  exports: [RegisterComponent, ResetComponent],
+  providers: [DatePipe]
 })
 export class AuthModule { }

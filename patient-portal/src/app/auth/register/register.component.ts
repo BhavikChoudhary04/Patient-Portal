@@ -1,12 +1,30 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { Router } from '@angular/router';
+
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'LL',
+  },
+  display: {
+    dateInput: 'DD-MM-YYYY',
+    monthYearLabel: 'YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'YYYY',
+  },
+};
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  providers: [
+    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+  ],
 })
+
 export class RegisterComponent implements OnInit {
 
   registerForm!: FormGroup
@@ -15,7 +33,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private fb:FormBuilder,
-    private router:Router
+    private router:Router,
+    private datePipe: DatePipe
     ) {
       this.createRegisterForm();
      }
@@ -25,8 +44,8 @@ export class RegisterComponent implements OnInit {
 
   createRegisterForm(){
     this.registerForm = this.fb.group({
-      firstName : ['', Validators.required],
-      lastName : ['', Validators.required],
+      firstName : ['', [Validators.required,Validators.maxLength(20), Validators.pattern('^[a-zA-Z ]*$')]],
+      lastName : ['', [Validators.required,Validators.maxLength(20), Validators.pattern('^[a-zA-Z ]*$')]],
       dob : ['', Validators.required],
       userName : ['', Validators.required],
       role : ['', Validators.required],
@@ -50,7 +69,9 @@ export class RegisterComponent implements OnInit {
   submitRegisterForm(){
     if (this.registerForm.invalid) return
       this.router.navigateByUrl('/auth/login');
+      this.registerForm.value.dob = this.datePipe.transform(this.registerForm.value.dob, 'dd-MM-yyyy');
+      //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
       console.log(this.registerForm.value);
-  }
+    }
 
 }
