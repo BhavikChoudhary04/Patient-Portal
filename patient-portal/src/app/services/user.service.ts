@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { RegisterUser, LoginUser, UserDemographic } from '../shared/interfaces/user';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { RegisterUser, LoginUser, UserDemographic, UserMedicationsAllergies } from '../shared/interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,7 @@ export class UserService {
 
   private API_URL_USERS = 'http://127.0.0.1:3000/users';
   private API_URL_DEMOGRAPHICS = 'http://127.0.0.1:3000/demographics';
+  private API_URL_MEDICATIONS_ALLERGIES = 'http://127.0.0.1:3000/medication-allergies'
 
 
   private allUsers$: BehaviorSubject<RegisterUser[]> = new BehaviorSubject<RegisterUser[]>([]);
@@ -118,5 +119,25 @@ export class UserService {
         this.userDemographic$.next(demoUserData);
       }
     })
+  }
+
+  getAllDemographicsData():Observable<any>{
+    return this.http.get(`${this.API_URL_DEMOGRAPHICS}`)
+  }
+
+  addDemographicData(userdata:UserDemographic):Observable<any>{
+    return this.http.post(`${this.API_URL_DEMOGRAPHICS}`, userdata)
+  }
+
+  // updateDemographicData(userData:UserDemographic):Observable<any>{
+  //   return this.http.post(`${this.API_URL_DEMOGRAPHICS}`, userData)
+  // }
+
+  getMedictionsData():Observable<any>{
+    return this.http.get(`${this.API_URL_MEDICATIONS_ALLERGIES}`)
+  }
+
+  addMedicationsData(userData:UserMedicationsAllergies):Observable<any>{
+    return this.http.post(`${this.API_URL_MEDICATIONS_ALLERGIES}`, userData)
   }
 }

@@ -251,5 +251,61 @@
       "surgeries": "No",
       "insuranceProvider": "Medicare"
     }
+  ],
+  "medication-allergies": [
+    {
+      "id": 401,
+      "userid": 110,
+      "current_medication": "aa",
+      "otc": "aa",
+      "antibiotics": "aa",
+      "social_drugs": "aa",
+      "past_medication": "aa",
+      "drug_allergies": "aa",
+      "other_allergies": "aa"
+    },
+    {
+      "id": 402,
+      "userid": 111,
+      "current_medication": "aa",
+      "otc": "aa",
+      "antibiotics": "aa",
+      "social_drugs": "aa",
+      "past_medication": "aa",
+      "drug_allergies": "aa",
+      "other_allergies": "aa"
+    },
+    {
+      "id": 403,
+      "userid": 112,
+      "current_medication": "aa",
+      "otc": "aa",
+      "antibiotics": "aa",
+      "social_drugs": "aa",
+      "past_medication": "aa",
+      "drug_allergies": "aa",
+      "other_allergies": "aa"
+    },
+    {
+      "id": 404,
+      "userid": 113,
+      "current_medication": "aa",
+      "otc": "aa",
+      "antibiotics": "aa",
+      "social_drugs": "aa",
+      "past_medication": "aa",
+      "drug_allergies": "aa",
+      "other_allergies": "aa"
+    },
+    {
+      "current_medication": "any",
+      "otc": "otc1",
+      "antibiotics": "vitamin D",
+      "social_drugs": "any",
+      "past_medication": "no",
+      "drug_allergies": "no",
+      "other_allergies": "any",
+      "id": 405
+    }
   ]
 }

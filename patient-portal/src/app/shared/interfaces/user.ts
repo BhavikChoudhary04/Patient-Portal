@@ -32,4 +32,16 @@ export interface UserDemographic {
         familymedicalhistory? : string,
         surgeries?  : string,
         insuranceProvider?  : string 
-    }
+}
+
+export interface UserMedicationsAllergies{
+        id?: number,
+        userid: number,
+        current_medication: string,
+        otc: string,
+        antibiotics: string,
+        social_drugs: string,
+        past_medication: string,
+        drug_allergies: string,
+        other_allergies?: string 
+}

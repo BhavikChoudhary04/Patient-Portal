@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
+import { DemographicsPageComponent } from './shared/demographics-page/demographics-page.component';
+import { MedicationsAllergiesPageComponent } from './shared/medications-allergies-page/medications-allergies-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
@@ -28,10 +30,18 @@ const routes: Routes = [
     path: 'header',
     loadChildren: () => import('./header/header.module').then(m => m.HeaderModule)
   },
-    {
-      path: '**', 
-      redirectTo: 'auth/login'
-    }
+  {
+    path: '**', 
+    redirectTo: 'auth/login'
+  },
+  {
+    path: 'demographics',
+    component:DemographicsPageComponent
+  },
+  {
+    path: 'medications-allergies',
+    component:MedicationsAllergiesPageComponent
+  }
 ];
 
 @NgModule({
