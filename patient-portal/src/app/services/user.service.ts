@@ -53,7 +53,7 @@ export class UserService {
     if (user) {
       if (user.isAuthenticated) {
         this.getDemographicData(user.id);
-        return true
+        return user
       }
     }
     return false

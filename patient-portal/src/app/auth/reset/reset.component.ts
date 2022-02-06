@@ -41,6 +41,10 @@ export class ResetComponent implements OnInit {
     ]);
   }
 
+  backToLogin(){
+    this.router.navigateByUrl('/auth/login')
+  }
+
   reset(e:Event){
     e.preventDefault();
 

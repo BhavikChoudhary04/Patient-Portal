@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
+import { RegisterUser } from 'src/app/shared/interfaces/user';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +15,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private fb:FormBuilder,
-    private router:Router
+    private router:Router,
+    private userService: UserService
     ) {
       this.createRegisterForm();
      }
@@ -44,7 +47,13 @@ export class RegisterComponent implements OnInit {
 
   submitRegisterForm(){
     if (this.registerForm.invalid) return
-      this.router.navigateByUrl('')
+
+    //remove confirmPassword and add isAuthenticated
+    const {confirmPassword,...rest} = this.registerForm.value
+    const user:RegisterUser = {...rest, isAuthenticated:false}
+
+    this.userService.registerUser(user)
+    this.router.navigateByUrl('/auth/login')
   }
 
 }
