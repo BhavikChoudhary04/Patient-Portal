@@ -1,0 +1,53 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.registrationForm{
+  width: 70%;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+
+.registrationForm mat-card {
+  padding: 32px;
+}
+.form-element {
+width: 100%;
+}
+
+.link{
+color: rgba(255,255,255,.7);
+}
+
+.btn-position{
+margin-top: 20px;
+text-align: center;
+}
+
+.btn-width{
+width: 30%;
+}
+
+.center{
+text-align: center;
+}
+
+.forgot-password{
+margin-top: 10px;
+}
+
+.create-account{
+text-align: center;
+margin-top: 10px;
+}
+
+.mat-form-field {
+  display: inline-block;
+  width: 45%;
+  margin: 1% 5% 1% 0;
+}
+
+  

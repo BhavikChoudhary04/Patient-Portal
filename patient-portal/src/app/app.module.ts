@@ -10,17 +10,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { DemographicsPageComponent } from './shared/demographics-page/demographics-page.component';
 import { MedicationsAllergiesPageComponent } from './shared/medications-allergies-page/medications-allergies-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatSelectModule} from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
 import { UserService } from './services/user.service';
 
 const MaterialModule = [
@@ -51,7 +50,9 @@ const MaterialModule = [
     ReactiveFormsModule,
     AuthModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
