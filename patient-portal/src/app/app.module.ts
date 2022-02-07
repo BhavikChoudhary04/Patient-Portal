@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { PatientModule } from './patient/patient.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MatInputModule } from '@angular/material/input';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    PatientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

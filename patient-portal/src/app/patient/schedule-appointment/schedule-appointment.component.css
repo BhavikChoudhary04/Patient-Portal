@@ -1,0 +1,23 @@
+.scheduleAppointment {
+    text-align: center;
+}
+
+.scheduleAppointment h2 {
+    width: 30%;
+    margin: 0 auto;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+    background: #add8e6;
+}
+
+.scheduleAppointment .physician,
+.scheduleAppointment .speciality {
+    padding: 15px 20px;
+    margin-right: 10px;
+    background: transparent;
+    border-radius: 20px;
+    border: 1px solid black;
+    cursor: pointer;
+}
