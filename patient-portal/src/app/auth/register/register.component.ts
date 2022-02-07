@@ -5,7 +5,6 @@ import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { RegisterUser } from 'src/app/shared/interfaces/user';
-import * as moment from 'moment';
 
 export const MY_FORMATS = {
   parse: {
@@ -43,19 +42,11 @@ export class RegisterComponent implements OnInit {
     private datePipe: DatePipe
     ) {
       this.createRegisterForm();
-      //set minDate for DOB i.e 120 years old
+      //setting minDate for DOB i.e 120 years old
       this.minDate = new Date ();
       this.minDate.setFullYear(this.minDate.getFullYear() -120);
-
-
-      
-
+      //setting max Date as today's date for DOB
       this.maxDate =  new Date();
-      
-      //this.maxDate.setFullYear(this.maxDate.getFullYear() -120);
-
-      console.log("this.maxDate--->",this.maxDate);
-      
     }
 
   ngOnInit() {
@@ -85,9 +76,6 @@ export class RegisterComponent implements OnInit {
       userName : ['', Validators.required],
       role : ['', Validators.required],
       email : ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
-      // email : new FormControl('',[Validators.required, Validators.email]),
-      // mobile : ['', [Validators.required, Validators.minLength(10), 
-      //               Validators.maxLength(10),Validators.pattern("^((\\+91-?)|7)?[0-9]{10}$")]],
       mobile : ['', [Validators.required, Validators.minLength(10), 
                      Validators.maxLength(10),Validators.pattern("^[6-9][0-9]+")],
                      Validators.maxLength(10)],
@@ -106,7 +94,9 @@ export class RegisterComponent implements OnInit {
 
   submitRegisterForm(){
     if (this.registerForm.invalid) return
+    // modified DOB in dd-mm-yyyy format
     this.registerForm.value.dob = this.datePipe.transform(this.registerForm.value.dob, 'dd-MM-yyyy');
+
     //remove confirmPassword and add isAuthenticated
     const {confirmPassword,...rest} = this.registerForm.value
     const user:RegisterUser = {...rest, isAuthenticated:false}
