@@ -1,0 +1,13 @@
+<app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+<mat-sidenav-container>
+  <mat-sidenav class="mat-side-nav-background" opened="true" #sidenav role="navigation" mode="side">
+    <!--this is a place for us to add side-nav code-->
+    <app-sidenav (sidenavClose)="sidenav.close()"></app-sidenav>
+  </mat-sidenav>
+  
+  <mat-sidenav-content class="mat-side-nav-content-background">
+    <!--in here all the content must reside. We will add a navigation header as well-->
+
+    <h2 style="text-align: center;">Patient Dashboard </h2>
+  </mat-sidenav-content>
+</mat-sidenav-container>

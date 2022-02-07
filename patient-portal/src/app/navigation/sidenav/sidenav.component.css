@@ -1,0 +1,24 @@
+.item-list{
+    padding-left: 15px;
+}
+
+.mat-list-item.active{
+    border-left: 8px solid #63D471;
+}
+
+[class*="nav-item-text-"] {
+    /* base messages properties */
+    font-family: 'Poppins' !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-size: 18px !important;
+    line-height: 27px !important;
+    display: flex !important;
+    align-items: center !important;
+    margin-left: 12px;
+}
+
+.mat-drawer-content {
+    overflow: hidden;
+    overflow-x: hidden !important;
+}

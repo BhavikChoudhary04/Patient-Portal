@@ -1,0 +1,13 @@
+.cancel-btn{
+    background-color: lightcoral;
+    margin-left: 7% !important;
+  }
+
+.footer-content{
+    margin-top: 15%;
+    text-align: center;
+}
+
+.logout-btn{
+    background-color: #7066e0;
+}

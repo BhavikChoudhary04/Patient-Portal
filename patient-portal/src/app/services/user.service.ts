@@ -61,6 +61,7 @@ export class UserService {
   }
 
   registerUser(registerUser: RegisterUser) {
+    console.log("registerUser called ---> ",registerUser)
     this.http.post<RegisterUser>(`${this.API_URL_USERS}`, registerUser).subscribe(user => {
       if (user) {
         const users = this.allUsers$.getValue();

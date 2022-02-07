@@ -1,10 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
+import { ModalActionsService } from './services/modal-actions.service';
+import { ModalComponent } from './shared/modal/modal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { RouterModule } from '@angular/router';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar'; 
+import { PatientModule } from './patient/patient.module';
 import { SnackbarComponent } from './shared/snackbar/snackbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DemographicsPageComponent } from './shared/demographics-page/demographics-page.component';
@@ -40,7 +45,8 @@ const MaterialModule = [
     AppComponent,
     SnackbarComponent,
     DemographicsPageComponent,
-    MedicationsAllergiesPageComponent
+    MedicationsAllergiesPageComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +58,14 @@ const MaterialModule = [
     HttpClientModule,
     MaterialModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    RouterModule,
+    MatSidenavModule,
+    MatListModule,
+    MatToolbarModule,
+    PatientModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

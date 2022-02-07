@@ -5,6 +5,9 @@ import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { RegisterUser } from 'src/app/shared/interfaces/user';
+import { DateAdapter } from '@angular/material/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarComponent } from 'src/app/shared/snackbar/snackbar.component';
 
 export const MY_FORMATS = {
   parse: {
@@ -39,8 +42,11 @@ export class RegisterComponent implements OnInit {
     private fb:FormBuilder,
     private router:Router,
     private userService: UserService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private dateAdapter: DateAdapter<Date>,
+    private snackBar:MatSnackBar
     ) {
+      this.dateAdapter.setLocale('en-GB');
       this.createRegisterForm();
       //setting minDate for DOB i.e 120 years old
       this.minDate = new Date ();
@@ -72,13 +78,12 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.fb.group({
       firstName : ['', [Validators.required,Validators.maxLength(20), Validators.pattern('^[a-zA-Z ]*$')]],
       lastName : ['', [Validators.required,Validators.maxLength(20), Validators.pattern('^[a-zA-Z ]*$')]],
-      dob : ['', [ Validators.required]],
+      dob : ['', Validators.required],
       userName : ['', Validators.required],
       role : ['', Validators.required],
       email : ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       mobile : ['', [Validators.required, Validators.minLength(10), 
-                     Validators.maxLength(10),Validators.pattern("^[6-9][0-9]+")],
-                     Validators.maxLength(10)],
+                     Validators.maxLength(10),Validators.pattern("^[6-9][0-9]+")]],
                     // number starting from 6-9 and containing 10 digits
       password : ['', [Validators.required, Validators.minLength(8), 
                        Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]],
@@ -94,6 +99,7 @@ export class RegisterComponent implements OnInit {
 
   submitRegisterForm(){
     if (this.registerForm.invalid) return
+    
     // modified DOB in dd-mm-yyyy format
     this.registerForm.value.dob = this.datePipe.transform(this.registerForm.value.dob, 'dd-MM-yyyy');
 
@@ -102,7 +108,13 @@ export class RegisterComponent implements OnInit {
     const user:RegisterUser = {...rest, isAuthenticated:false}
 
     this.userService.registerUser(user)
-    this.router.navigateByUrl('/auth/login')
+    this.snackBar.openFromComponent(SnackbarComponent,{
+      data: {
+        message : 'User has been registered successfully',
+        btn: "OK",
+        action: "reset"
+      }
+    });
   }
 
 }
