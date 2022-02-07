@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
+import { LoginUser } from 'src/app/shared/interfaces/user';
+import { SnackbarComponent } from 'src/app/shared/snackbar/snackbar.component';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +17,10 @@ export class LoginComponent implements OnInit {
   loginForm !: FormGroup;
   flag: boolean = true;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, 
+    private userService: UserService, 
+    private snackBar: MatSnackBar, 
+    private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -21,14 +29,45 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // Validators.pattern('^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$')
 
-  // Minimum eight characters, at least one letter and one number
+  loginDetails() {
+    const user:LoginUser = this.loginForm.value
 
+    const loggedInUser = this.userService.loginUser(user);
 
+    if (loggedInUser){
+      const { id, password, isAuthenticated, mobile, dob, ...rest } = loggedInUser
+      sessionStorage.setItem("user",JSON.stringify(rest))
 
-  loginDetails(formData:any) {
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(formData.value, null, 4));
+      // navigate according to role
+      if (loggedInUser.role = "admin"){
+        this.router.navigateByUrl('/admin/dashboard')
+      }
+      else if (loggedInUser.role = "patient"){
+        this.router.navigateByUrl('/patient/dashboard')
+      } 
+      else if (loggedInUser.role = "physician"){
+        this.router.navigateByUrl('/physician/dashboard')
+      } 
+      else {
+        this.snackBar.openFromComponent(SnackbarComponent,{
+          data: {
+            message : `Invalid user. Retry login.`,
+            btn: "OK",
+            action: "reset"
+          }
+        });
+      }
+      
+    } else {
+      this.snackBar.openFromComponent(SnackbarComponent,{
+        data: {
+          message : `User is either not authenticated or does not exist.`,
+          btn: "OK",
+          action: "reset"
+        }
+      });
+    }
   }
 
 }

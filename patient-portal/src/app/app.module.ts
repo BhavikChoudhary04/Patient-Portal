@@ -7,15 +7,41 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
 import { SnackbarComponent } from './shared/snackbar/snackbar.component';
 import { MatButtonModule } from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
+import { DemographicsPageComponent } from './shared/demographics-page/demographics-page.component';
+import { MedicationsAllergiesPageComponent } from './shared/medications-allergies-page/medications-allergies-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { PatientModule } from './patient/patient.module';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+import { UserService } from './services/user.service';
+
+const MaterialModule = [
+  MatSidenavModule,
+  MatIconModule,
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatRadioModule,
+  MatSelectModule
+]
 
 @NgModule({
   declarations: [
     AppComponent,
-    SnackbarComponent
+    SnackbarComponent,
+    DemographicsPageComponent,
+    MedicationsAllergiesPageComponent
   ],
   imports: [
     BrowserModule,
@@ -25,11 +51,14 @@ import { PatientModule } from './patient/patient.module';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
+    AuthModule,
+    HttpClientModule,
+    MaterialModule,
     MatFormFieldModule,
     MatInputModule,
     PatientModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

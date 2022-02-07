@@ -11,15 +11,26 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: `login`,
+        redirectTo: 'login',
         pathMatch: 'full'
       },
       {
-        path: `login`,
+        path: 'login',
         component: LoginComponent,
       },
-      { path: 'reset/:data', component: ResetComponent },
-      { path: 'register', component: RegisterComponent }]
+      { 
+        path: 'forgot/:data', 
+        component: ResetComponent
+      },
+      { 
+        path: 'register', 
+        component: RegisterComponent 
+      },
+      {
+        path: '**', 
+        redirectTo: 'login'
+      }
+  ]
   },
 
 

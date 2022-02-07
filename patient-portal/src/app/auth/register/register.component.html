@@ -7,40 +7,42 @@
           <mat-form-field class="form-element" appearance="fill">
             <mat-label>First Name</mat-label>
             <input type="text" matInput formControlName="firstName" required/>
-            <mat-error *ngIf="registerForm.invalid || registerForm.touched">
-              Please enter your First Name
+            <mat-error *ngIf="(registerForm.get('firstName')) !.errors?.required">
+              First Name is required
+            </mat-error>
+            <mat-error *ngIf="(registerForm.get('firstName')) !.errors?.pattern">
+              First Name can only contain letters.
             </mat-error>
           </mat-form-field>
 
           <mat-form-field class="form-element" appearance="fill">
             <mat-label>Last Name</mat-label>
             <input type="text" matInput formControlName="lastName" required/>
-            <mat-error *ngIf="registerForm.invalid || registerForm.touched">
-              Please enter your Last Name
+            <mat-error *ngIf="(registerForm.get('lastName')) !.errors?.required">
+              Last Name is required
+            </mat-error>
+            <mat-error *ngIf="(registerForm.get('lastName')) !.errors?.pattern">
+              Last Name can only contain letters.
             </mat-error>
           </mat-form-field>
 
           <mat-form-field class="form-element" appearance="fill">
             <mat-label>Username</mat-label>
             <input type="text" matInput formControlName="userName" required/>
-            <mat-error *ngIf="registerForm.invalid || registerForm.touched">
-              Please enter your username
+            <mat-error *ngIf="(registerForm.get('userName')) !.errors?.required">
+              Username is required
             </mat-error>
           </mat-form-field>
 
           <mat-form-field class="form-element" appearance="fill">
             <mat-label>Email</mat-label>
             <input type="email" matInput formControlName="email" required/>
-            <mat-error *ngIf="registerForm.invalid || registerForm.touched">
-              Please enter your valid email address
+            <mat-error *ngIf="(registerForm.get('email')) !.errors?.required">
+              Email is required
             </mat-error>
-            <!-- <mat-error *ngIf="registerForm.invalid">
-              Please enter your email address
-            </mat-error> -->
-            <!-- <mat-error *ngIf="(registerForm.get('email')) !.errors?.pattern">
-              Please enter a valid email address
-            </mat-error> -->
-            
+            <mat-error *ngIf="(registerForm.get('email')) !.errors?.pattern">
+              Please enter valid email
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field class="form-element" appearance="fill">
@@ -53,17 +55,21 @@
           </mat-form-field>
 
           <mat-form-field class="form-element" appearance="fill">
-            <mat-label>Retype Password</mat-label>
+            <mat-label>Confirm Password</mat-label>
             <input [type]="CPflag ? 'password' : 'text'" matInput formControlName="confirmPassword" required/>
             <mat-icon (click)="CPflag=!CPflag" matSuffix>{{ CPflag ? 'visibility_off' : 'visibility' }}</mat-icon>
-            <mat-error *ngIf="registerForm.invalid || registerForm.touched">
-              Confirm your password
+            <mat-error *ngIf="(registerForm.get('confirmPassword')) !.errors?.pattern">
+              Confirm Password required
+            </mat-error>
+
+            <mat-error *ngIf="registerForm.get('confirmPassword')?.errors?.confirmedValidator">
+              Password and Confirm Password must be same.
             </mat-error>
           </mat-form-field>
 
           <mat-form-field class="form-element" appearance="fill" appearance="fill">
-            <mat-label>DOB (MM/DD/YYYY)</mat-label>
-            <input [matDatepicker]="dp" matInput formControlName="dob" required/>
+            <mat-label>DOB (DD/MM/YYYY)</mat-label>
+            <input [matDatepicker]="dp" matInput  formControlName="dob"  [min]="minDate" [max]="maxDate" readonly required/>
             <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
             <mat-datepicker #dp></mat-datepicker>
             <mat-error *ngIf="registerForm.invalid || registerForm.touched">
@@ -85,14 +91,11 @@
           </mat-form-field>
 
           <mat-form-field class="form-element" appearance="fill">
-            <mat-label>Mobile</mat-label>
+            <mat-label>Mobile No.</mat-label>
             <input matInput formControlName="mobile" required/>
             <mat-error *ngIf="registerForm.invalid || registerForm.touched">
               Please enter a 10 digit phone number
             </mat-error>
-            <!-- <mat-error *ngIf="(registerForm.get('mobile')) !.errors?.pattern">
-              Please enter a valid contact number
-            </mat-error> -->
           </mat-form-field>
 
           <div class="btn-position">

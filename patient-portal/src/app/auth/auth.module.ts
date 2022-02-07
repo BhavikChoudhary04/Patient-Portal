@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { MatCardModule } from '@angular/material/card';
@@ -14,7 +14,6 @@ import { ResetComponent } from './reset/reset.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { MatSelectModule} from '@angular/material/select/';
-import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 
@@ -32,10 +31,10 @@ import { MatNativeDateModule } from '@angular/material/core';
     ReactiveFormsModule,
     MatSnackBarModule,
     MatSelectModule,
-    MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  exports: [RegisterComponent, ResetComponent]
+  exports: [RegisterComponent, ResetComponent],
+  providers: [DatePipe]
 })
 export class AuthModule { }
