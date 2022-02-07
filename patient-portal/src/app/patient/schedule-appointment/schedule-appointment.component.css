@@ -21,3 +21,29 @@
     border: 1px solid black;
     cursor: pointer;
 }
+
+mat-card.physicianForm {
+    box-shadow: none;
+}
+.physicianForm mat-form-field {
+    display: inline-block;
+    width: 45%;
+    padding: 2%;
+}
+mat-form-field input,
+mat-form-field textarea,
+mat-form-field mat-select {
+    display: inline-block;
+    width: 100%;
+    padding: 1%;
+}
+.physicianForm .btn-position {
+    text-align: center;
+}
+.physicianForm .btn-position .bookAppointment {
+    padding: 15px 20px;
+    margin-right: 10px;
+    border-radius: 20px;
+    border: 1px solid black;
+    cursor: pointer;
+}

@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { PatientRoutingModule } from './patient-routing.module';
 import { PatientComponent } from './patient.component';
-import { ScheduleAppointmentComponent } from './schedule-appointment/schedule-appointment.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule} from '@angular/material/select/';
@@ -12,10 +11,11 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import { PhysicianBookAppointmentDialog, ScheduleAppointmentComponent } from './schedule-appointment/schedule-appointment.component';
 
 
 @NgModule({
-  declarations: [PatientComponent, ScheduleAppointmentComponent],
+  declarations: [PatientComponent, ScheduleAppointmentComponent, PhysicianBookAppointmentDialog],
   imports: [
     CommonModule,
     PatientRoutingModule,
