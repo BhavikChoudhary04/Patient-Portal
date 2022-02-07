@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 .mat-sidenav-container{
-    height: 100vh !important;
+    height: 86vh !important;
     white-space: nowrap;
     display: flex;
 }

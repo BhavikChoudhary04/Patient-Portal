@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ModalActionsService {
-  constructor() {}
+  constructor(private router: Router) {}
 
   // This function is the only way this service is directly called in the modal.
   // The modal passes to it the received `data` object and then this function\
@@ -15,14 +16,6 @@ export class ModalActionsService {
       case 'logout':
         this.logout(modalData);
         break;
-
-    case 'edit':
-    this.logout(modalData);
-    break;
-
-    case 'delete':
-    this.logout(modalData);
-    break;
 
       default:
         break;
@@ -35,13 +28,8 @@ export class ModalActionsService {
 
   private logout(modalData: any) {
     // Call an authentication service method to logout the user
-    //this.serv1.alertLogout(modalData);
-  }
-
-  private deleteProduct(modalData: any) {
-    // Call a service that makes a DELETE HTTP Request to the server for the\
-    // given product id
-    //this.serv2.alertDelete(modalData);
+    sessionStorage.clear();
+    this.router.navigateByUrl('/auth/login')
   }
   
 }

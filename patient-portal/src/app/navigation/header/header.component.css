@@ -14,13 +14,11 @@
   }
 
 .logout{
-    position: absolute;
-    right: 5%;
-    top: 5%;
-    display: inline-flex;
-    line-height: 22px;
     font-size: 16px;
     font-weight: 600;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
 .logout-title{
@@ -35,3 +33,4 @@
     border-radius: 25px;
     padding-left: 25px;
 }
+

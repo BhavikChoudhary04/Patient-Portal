@@ -10,6 +10,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [PatientComponent, DashboardComponent, SidenavComponent, HeaderComponent],
@@ -20,7 +21,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     RouterModule,
     MatToolbarModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ],
   exports : [SidenavComponent , HeaderComponent, DashboardComponent]
 })

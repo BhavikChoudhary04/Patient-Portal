@@ -1,5 +1,5 @@
 .cancel-btn{
-    background-color: lightcoral;
+    /* background-color: lightcoral; */
     margin-left: 7% !important;
   }
 
@@ -8,6 +8,10 @@
     text-align: center;
 }
 
-.logout-btn{
+/* .logout-btn{
     background-color: #7066e0;
+} */
+
+.title{
+    text-align: center;
 }
