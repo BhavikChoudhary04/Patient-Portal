@@ -1,0 +1,111 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-7 mt-3">
+            <div class="row mt-5">
+
+
+                <div *ngIf="monthToggle" class="col-md-10 offset-md-2">
+                    <h2 class="mb-4">Patient Visit Summary</h2>
+                    <google-chart style="width: auto;" [title]="chartMonth.title" [type]="chartMonth.type"
+                        [data]="chartMonth.data" [columns]="chartMonth.columnNames" [options]="chartMonth.options">
+                    </google-chart>
+                </div>
+                <div *ngIf="weekToggle" class="col-md-10 offset-md-2">
+                    <h2 class="mb-4">Patient Visit Summary</h2>
+                    <google-chart style="width: auto;" [title]="chartWeek.title" [type]="chartWeek.type"
+                        [data]="chartWeek.data" [columns]="chartWeek.columnNames" [options]="chartWeek.options">
+                    </google-chart>
+                </div>
+                <div *ngIf="dayToggle" class="col-md-10 offset-md-2">
+                    <h2 class="mb-4">Patient Visit Summary</h2>
+                    <google-chart style="width: auto;" [title]="chartDay.title" [type]="chartDay.type"
+                        [data]="chartDay.data" [columns]="chartDay.columnNames" [options]="chartDay.options">
+                    </google-chart>
+                </div>
+                <div class="col-md-2 offset-md-3 text-center mt-3">
+                    <button class="btn btn-1 btn-padding" (click)="toggleChart('month')">Monthly</button>
+                </div>
+                <div class="col-md-2 text-center mt-3">
+                    <button class="btn btn-2 btn-padding" (click)="toggleChart('week')">Weekly</button>
+                </div>
+                <div class="col-md-2 text-center mt-3">
+                    <button class="btn btn-3 btn-padding" (click)="toggleChart('day')">Daily</button>
+                </div>
+
+                <div class="col-md-10 offset-md-2 mt-5 mb-5">
+                    <h2 class="mb-3">Billing Requests</h2>
+                    
+                    <div class="border-bottom pb-2">
+                        <th class="col-md-2">
+                            Bill Number
+                        </th>
+                        <th class="col-md-2">
+                            Patient name
+                        </th>
+
+                        <th class="col-md-2">
+                            Type of Visit
+                        </th>
+
+                        <th class="col-md-2">
+                            Bill Amount
+                        </th>
+                        <th class="col-md-2">
+                        </th>
+                        <th class="col-md-2">
+                        </th>
+                    </div>
+
+                    <div *ngFor="let bill of billArr" class="border-bottom">
+                        <td class="col-md-2 mt-3" style="display: table-cell; vertical-align: middle; ">
+                            {{bill.billNo}}
+                        </td>
+                        <td class="col-md-2 mt-3">
+                            {{bill.name}}
+                        </td>
+
+                        <td class="col-md-2 mt-3">
+                            {{bill.visit}}
+                        </td>
+
+                        <td class="col-md-2 mt-3">
+                            {{bill.amount}}
+                        </td>
+                        <td class="col-md-2 mt-2 mb-1"><button class="btn text-danger">Deny</button></td>
+                        <td class="col-md-2 mt-2 mb-1"><button class="btn text-success">Approve</button></td>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-3 offset-md-2 border-left mt-5">
+            <div>
+                <h2 class="">Manage Users</h2>
+                <div *ngIf="!unAuthUsers.length; else users">
+                    <h3> No users to authenticate.</h3>
+                </div>
+                <ng-template #users>
+
+                    <mat-card *ngFor="let user of unAuthUsers" class="mb-4">
+                        <h3>{{user.firstName}} {{user.lastName}}</h3>
+                        <h3>Role : {{user.role}}</h3>
+                        <h3>Username : {{user.userName}}</h3>
+                        <h3>Email ID : {{user.email}}</h3>
+                        <h3>DOB : {{user.dob}}</h3>
+                        <h3>Mobile : {{user.mobile}}</h3>
+
+                        <div class="text-center">
+                            <button class="m-2" mat-raised-button color="primary"
+                                (click)="deleteUser(user)">Delete</button>
+                            <button class="m-2" mat-raised-button color="accent"
+                                (click)="authenticateUser(user)">Authenticate</button>
+                        </div>
+
+                    </mat-card>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>

@@ -54,6 +54,7 @@ export class UserService {
     if (user) {
       if (user.isAuthenticated) {
         this.getDemographicData(user.id);
+        this.unAuthenticatedUsers();
         return user
       }
     }
@@ -71,12 +72,21 @@ export class UserService {
     })
   }
 
+  deleteUser(id:number|undefined){
+    this.http.delete<RegisterUser>(`${this.API_URL_USERS}/${id}`).subscribe(user => {
+        const users = this.allUsers$.getValue();
+        const updatedUsers = users.filter(u => u.id !== id)
+        this.allUsers$.next(updatedUsers);
+        this.unAuthenticatedUsers();
+    })
+  }
+
   authenticateUser(registeredUser: RegisterUser) {
     this.http.put<RegisterUser>(`${this.API_URL_USERS}/${registeredUser.id}`, { ...registeredUser, "isAuthenticated": true }).subscribe(value => {
       if (value) {
         const users = this.allUsers$.getValue();
-        const updatedUser = users.filter(user => user.id !== value.id)
-        this.allUsers$.next(users.concat(updatedUser));
+        const updatedUsers = users.filter(user => user.id !== value.id)
+        this.allUsers$.next(updatedUsers.concat(value));
         this.unAuthenticatedUsers();
       }
     })
@@ -140,5 +150,13 @@ export class UserService {
 
   addMedicationsData(userData:UserMedicationsAllergies):Observable<any>{
     return this.http.post(`${this.API_URL_MEDICATIONS_ALLERGIES}`, userData)
+  }
+
+  getUnAuthusers(){
+    return this.unAuthUsers$.asObservable();
+  }
+
+  getUsers(){
+    return this.allUsers$.asObservable();
   }
 }

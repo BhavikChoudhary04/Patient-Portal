@@ -76,37 +76,25 @@
       "id": 107,
       "firstName": "Luke",
       "lastName": "Cage",
-      "userName": "LukeC099",
-      "email": "luke.cage@citiustech.com",
-      "role": "patient",
       "dob": "19/07/1992",
       "mobile": "9876543216",
+      "userName": "LukeC086",
+      "role": "patient",
+      "email": "luke.cage@gmail.com",
       "password": "Hello@123",
-      "isAuthenticated": true
+      "isAuthenticated": false
     },
     {
       "id": 108,
       "firstName": "Tony",
       "lastName": "Stark",
-      "userName": "Ironman03",
-      "email": "tony.stark@citiustech.com",
-      "role": "patient",
       "dob": "20/11/1977",
       "mobile": "9876543217",
-      "password": "Hello@123",
-      "isAuthenticated": true
-    },
-    {
-      "firstName": "test",
-      "lastName": "test",
-      "dob": "07-02-2022",
-      "userName": "test",
+      "userName": "IronMan3000",
       "role": "patient",
-      "email": "test@test.com",
-      "mobile": "9123456789",
-      "password": "Impact@2022",
-      "isAuthenticated": true,
-      "id": 109
+      "email": "tony.s@starkind.com",
+      "password": "KillThanos@2",
+      "isAuthenticated": false
     }
   ],
   "reports": [
