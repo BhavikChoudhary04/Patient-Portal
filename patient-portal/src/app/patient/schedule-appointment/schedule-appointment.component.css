@@ -1,25 +1,34 @@
-.scheduleAppointment {
-    text-align: center;
+.bg-image {
+    background: url('/assets/images/bg-schedule-form.jpeg') no-repeat;
+    width: 100%;
+    height: 760px;
+    background-size: contain;
 }
-
+.scheduleAppointment {
+    padding: 10px 50px;
+}
 .scheduleAppointment h2 {
     width: 30%;
-    margin: 0 auto;
-    padding: 20px 0;
-    margin-bottom: 20px;
-    border: 1px solid black;
+    padding: 10px 15px;
+    border: 1px solid #333;
     border-radius: 20px;
     background: #add8e6;
+    margin: 15px;
+    text-align: center;
 }
 
 .scheduleAppointment .physician,
 .scheduleAppointment .speciality {
-    padding: 15px 20px;
-    margin-right: 10px;
-    background: transparent;
+    padding: 10px 25px;
     border-radius: 20px;
-    border: 1px solid black;
+    border: 1px solid #333;
     cursor: pointer;
+    margin: 10px 20px;
+    background: #add8e6;
+}
+
+.scheduleAppointment .physician:hover {
+    background: #32cd32;
 }
 
 mat-card.physicianForm {
@@ -46,4 +55,16 @@ mat-form-field mat-select {
     border-radius: 20px;
     border: 1px solid black;
     cursor: pointer;
+    margin-bottom: 20px;
+}
+
+/* media query  */
+@media screen and (max-width: 767px) {
+    .scheduleAppointment h2 {
+        width: fit-content;
+    }
+    .physicianForm mat-form-field {
+        display: block;
+        width: 100%;
+    }
 }
