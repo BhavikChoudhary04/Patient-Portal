@@ -154,4 +154,8 @@ export class UserService {
   getUnAuthusers(){
     return this.unAuthUsers$.asObservable();
   }
+
+  getUsers(){
+    return this.allUsers$.asObservable();
+  }
 }

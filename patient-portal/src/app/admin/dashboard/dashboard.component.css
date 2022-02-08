@@ -1,45 +1,23 @@
-.btn-position{
-    position: absolute;
-    top: 15%;
-    left: 10%;
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-}
-
 h3 {
     margin : 2px
 }
-.btn-padding {
-    padding: 8px 16px;
+
+.btn-1{
+    background : rgba(255, 99, 132, 0.8);
+    color: white;
+    width: 88px;
+}
+.btn-2 {
+    background : rgba(75, 192, 192, 0.8);
+    color: white;
+    width: 88px;
 }
 
-.user-card{
-    position: absolute;
-    top: 64px;
-    right: 32px;
-    width:384px;
-    border-left: 2px solid gray;
-    padding-left: 16px;
- }
-
- .detail-card {
-    border-right: 2px solid gray;
-    padding-right: 16px;
-    height:500px;
-    width:70%;
+.btn-3 {
+    background : rgba(255, 206, 86, 0.8);
+    color: white;
+    width: 88px;
 }
 
-.align-center{
-    text-align: center
-}
-
-.btn-margin{
-    margin:8px
-}
-
-.bottom-margin{
-    margin-bottom: 16px
-}
 
  

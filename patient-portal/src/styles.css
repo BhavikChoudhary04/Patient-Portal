@@ -1,2 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+/* .bg-image{
+    background-image: url('./assets/images/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+.mat-card {
+    background:linear-gradient(45deg, black, transparent);
+    /* opacity: 0.7; */
+    color:white;
+}
+
+.mat-accent .mat-primary {
+    opacity:0.8;
+    background-color : red
+}
