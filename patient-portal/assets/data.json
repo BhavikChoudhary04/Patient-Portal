@@ -95,6 +95,18 @@
       "mobile": "9876543217",
       "password": "Hello@123",
       "isAuthenticated": true
+    },
+    {
+      "firstName": "test",
+      "lastName": "test",
+      "dob": "07-02-2022",
+      "userName": "test",
+      "role": "patient",
+      "email": "test@test.com",
+      "mobile": "9123456789",
+      "password": "Impact@2022",
+      "isAuthenticated": true,
+      "id": 109
     }
   ],
   "reports": [
@@ -265,6 +277,14 @@
       "surgeries": "any",
       "insuranceProviders": "Medicare",
       "id": 305
+    },
+    {
+      "userid": 109,
+      "firstName": "test",
+      "lastName": "test",
+      "dob": "07-02-2022",
+      "mobile": "9123456789",
+      "id": 306
     }
   ],
   "medication-allergies": [

@@ -1,2 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+.mat-sidenav-container{
+    height: 100vh !important;
+    white-space: nowrap;
+    display: flex;
+}
+
+.mat-drawer-inner-container {
+    overflow: hidden !important;
+}

@@ -36,17 +36,23 @@ export class LoginComponent implements OnInit {
     const loggedInUser = this.userService.loginUser(user);
 
     if (loggedInUser){
+
+      console.log("Before loggedInUser---> ",loggedInUser);
+
       const { id, password, isAuthenticated, mobile, dob, ...rest } = loggedInUser
       sessionStorage.setItem("user",JSON.stringify(rest))
 
+      console.log("After loggedInUser---> ",loggedInUser);
+
       // navigate according to role
-      if (loggedInUser.role = "admin"){
+      if (loggedInUser.role === "admin"){
         this.router.navigateByUrl('/admin/dashboard')
       }
-      else if (loggedInUser.role = "patient"){
+      else if (loggedInUser.role === "patient"){
+        console.log("In patient ")
         this.router.navigateByUrl('/patient/dashboard')
       } 
-      else if (loggedInUser.role = "physician"){
+      else if (loggedInUser.role === "physician"){
         this.router.navigateByUrl('/physician/dashboard')
       } 
       else {

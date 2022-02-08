@@ -1,0 +1,64 @@
+<mat-nav-list>
+
+  <mat-list-item [routerLink] = "['']"  [routerLinkActive]="['active']" (click)="onSidenavClose()">   
+      <span class="nav-item-text-dynamic">
+        <mat-icon>dashboard</mat-icon> <p class="item-list">Dashboard</p>
+      </span>
+  </mat-list-item>
+
+  <mat-list-item [routerLink] = "['/profile']"  [routerLinkActive]="['active']" (click)="onSidenavClose()">   
+    <span class="nav-item-text-dynamic">
+      <mat-icon>details</mat-icon> <p class="item-list">My profile</p>
+    </span>
+  </mat-list-item>
+
+  <mat-list-item [routerLink] = "['/schedule-appointment']"  [routerLinkActive]="['active']" (click)="onSidenavClose()">   
+    <span class="nav-item-text-dynamic">
+      <mat-icon>schedule</mat-icon> <p class="item-list">Schedule Appointment</p>
+    </span>
+  </mat-list-item>
+
+  <mat-list-item [routerLink] = "['/appointment-histroy']"  [routerLinkActive]="['active']" (click)="onSidenavClose()">   
+    <span class="nav-item-text-dynamic">
+      <mat-icon>access_time</mat-icon> <p class="item-list">Appointment History</p>
+    </span>
+  </mat-list-item>
+
+  <mat-list-item [routerLink] = "['/demographics']"  [routerLinkActive]="['active']" (click)="onSidenavClose()">   
+    <span class="nav-item-text-dynamic">
+      <mat-icon> my_location</mat-icon> <p class="item-list">Demographics</p>
+    </span>
+  </mat-list-item>
+
+  <mat-list-item [routerLink] = "['/medication']"  [routerLinkActive]="['active']" (click)="onSidenavClose()">   
+    <span class="nav-item-text-dynamic">
+      <mat-icon> local_hospital</mat-icon> <p class="item-list">Medication and Allergies</p>
+    </span>
+  </mat-list-item>
+
+  <mat-list-item [routerLink] = "['/immunization']"  [routerLinkActive]="['active']" (click)="onSidenavClose()">   
+    <span class="nav-item-text-dynamic">
+      <mat-icon>description</mat-icon> <p class="item-list">Immunization details</p>
+    </span>
+  </mat-list-item>
+
+  <mat-list-item [routerLink] = "['/patient-vitals']"  [routerLinkActive]="['active']" (click)="onSidenavClose()">   
+    <span class="nav-item-text-dynamic">
+      <mat-icon>keyboard_arrow_right</mat-icon> <p class="item-list">Patient Vitals</p>
+    </span>
+  </mat-list-item>
+
+  <mat-list-item [routerLink] = "['/Order']"  [routerLinkActive]="['active']" (click)="onSidenavClose()">   
+    <span class="nav-item-text-dynamic">
+    <mat-icon>keyboard_arrow_right</mat-icon> <p class="item-list">Order</p>
+  </span>
+  </mat-list-item>
+
+  <mat-list-item [routerLink] = "['/patient-education']"  [routerLinkActive]="['active']" (click)="onSidenavClose()">   
+    <span class="nav-item-text-dynamic">
+      <mat-icon>keyboard_arrow_right</mat-icon> <p class="item-list">Patient Education</p>
+    </span>
+  </mat-list-item>
+
+
+</mat-nav-list>

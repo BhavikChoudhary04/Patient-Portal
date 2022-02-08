@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
+// import { ModalActionsService } from './services/modal-actions.service';
+import { ModalComponent } from './shared/modal/modal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { RouterModule } from '@angular/router';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { SnackbarComponent } from './shared/snackbar/snackbar.component';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,6 +26,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { UserService } from './services/user.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const MaterialModule = [
   MatSidenavModule,
@@ -41,22 +46,28 @@ const MaterialModule = [
     AppComponent,
     SnackbarComponent,
     DemographicsPageComponent,
-    MedicationsAllergiesPageComponent
+    MedicationsAllergiesPageComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AuthModule,
-    MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    AuthModule,
     HttpClientModule,
     MaterialModule,
     MatFormFieldModule,
     MatInputModule,
-    PatientModule
+    MatButtonModule,
+    MatIconModule,
+    RouterModule,
+    MatSidenavModule,
+    MatListModule,
+    MatToolbarModule,
+    PatientModule,
+    NgbModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
