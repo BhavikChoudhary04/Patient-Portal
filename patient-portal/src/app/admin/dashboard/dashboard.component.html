@@ -1,0 +1,49 @@
+<!-- <div class="btn-position">
+    <button class="btn-padding" mat-raised-button color="primary">Manage Users</button>
+</div> -->
+
+<!-- <div class="detail-card">c</div> -->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 offset-md-6">
+            <div>
+                <h2 class="">Manage Users</h2>
+                <div *ngIf="!unAuthUsers.length; else users" >
+                   <h3> No users to authenticate.</h3>
+                </div>
+                <ng-template #users>
+            
+                    <mat-card *ngFor = "let user of unAuthUsers" class="bottom-margin">
+                        <h3>{{user.firstName}} {{user.lastName}}</h3>
+                        <h3>Role : {{user.role}}</h3>
+                        <h3>Username : {{user.userName}}</h3>
+                        <h3>Email ID : {{user.email}}</h3>
+                        <h3>DOB : {{user.dob}}</h3>
+                        <h3>Mobile : {{user.mobile}}</h3>
+                        
+                        <div class="align-center">
+                            <button class="btn-margin" mat-raised-button color="primary" (click)="deleteUser(user)">Delete</button>
+                            <button class="btn-margin" mat-raised-button color="accent" (click)="authenticateUser(user)">Authenticate</button>
+                        </div>
+            
+                    </mat-card>
+                </ng-template>
+                </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <google-chart
+  [title]="chart.title"
+  [type]="chart.type"
+  [data]="chart.data"
+  [columns]="chart.columnNames"
+  [options]="chart.options"
+  [width] = "500"
+>
+</google-chart>
+  </div>
+
+

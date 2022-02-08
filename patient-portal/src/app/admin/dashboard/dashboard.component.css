@@ -1,0 +1,45 @@
+.btn-position{
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+h3 {
+    margin : 2px
+}
+.btn-padding {
+    padding: 8px 16px;
+}
+
+.user-card{
+    position: absolute;
+    top: 64px;
+    right: 32px;
+    width:384px;
+    border-left: 2px solid gray;
+    padding-left: 16px;
+ }
+
+ .detail-card {
+    border-right: 2px solid gray;
+    padding-right: 16px;
+    height:500px;
+    width:70%;
+}
+
+.align-center{
+    text-align: center
+}
+
+.btn-margin{
+    margin:8px
+}
+
+.bottom-margin{
+    margin-bottom: 16px
+}
+
+ 

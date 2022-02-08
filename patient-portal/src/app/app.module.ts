@@ -21,6 +21,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { UserService } from './services/user.service';
+import { GoogleChartsModule } from 'angular-google-charts';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 const MaterialModule = [
   MatSidenavModule,
@@ -52,7 +55,9 @@ const MaterialModule = [
     HttpClientModule,
     MaterialModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    GoogleChartsModule,
+    NgbModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

@@ -82,7 +82,7 @@
       "dob": "19/07/1992",
       "mobile": "9876543216",
       "password": "Hello@123",
-      "isAuthenticated": true
+      "isAuthenticated": false
     },
     {
       "id": 108,
@@ -94,7 +94,7 @@
       "dob": "20/11/1977",
       "mobile": "9876543217",
       "password": "Hello@123",
-      "isAuthenticated": true
+      "isAuthenticated": false
     }
   ],
   "reports": [
