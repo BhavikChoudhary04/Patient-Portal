@@ -49,7 +49,7 @@ export class UserService {
   loginUser(loginUser: LoginUser) {
     const allUsers = this.allUsers$.getValue();
     const user = allUsers.filter(u => {
-      return u.email == loginUser.email
+      return u.userName === loginUser.userName && u.password === loginUser.password;
     })[0]
     if (user) {
       if (user.isAuthenticated) {
@@ -61,7 +61,6 @@ export class UserService {
   }
 
   registerUser(registerUser: RegisterUser) {
-    console.log("registerUser called ---> ",registerUser)
     this.http.post<RegisterUser>(`${this.API_URL_USERS}`, registerUser).subscribe(user => {
       if (user) {
         const users = this.allUsers$.getValue();
@@ -141,4 +140,9 @@ export class UserService {
   addMedicationsData(userData:UserMedicationsAllergies):Observable<any>{
     return this.http.post(`${this.API_URL_MEDICATIONS_ALLERGIES}`, userData)
   }
+
+  getUsers(){
+    return this.allUsers$.asObservable();
+  }
+
 }

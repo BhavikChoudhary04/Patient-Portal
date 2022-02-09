@@ -32,6 +32,10 @@
             <mat-error *ngIf="(registerForm.get('userName')) !.errors?.required">
               Username is required
             </mat-error>
+            <mat-error *ngIf="(registerForm.get('userName')) !.errors?.pattern">
+               Username can contain only letters, numbers and underscore(_).
+               Maximum 12 characters long .
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field class="form-element" appearance="fill">

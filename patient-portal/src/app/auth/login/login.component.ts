@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
-import { LoginUser } from 'src/app/shared/interfaces/user';
+import { LoginUser, RegisterUser } from 'src/app/shared/interfaces/user';
 import { SnackbarComponent } from 'src/app/shared/snackbar/snackbar.component';
 
 @Component({
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      email: [null, [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+      userName: [null, Validators.required],
       password: [null, [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]],
     });
   }
@@ -33,16 +33,44 @@ export class LoginComponent implements OnInit {
   loginDetails() {
     const user:LoginUser = this.loginForm.value
 
-    const loggedInUser = this.userService.loginUser(user);
+    let allregisteredUser:RegisterUser[];
+
+    // get all registred users
+    this.userService.getUsers().subscribe(data=> {
+      allregisteredUser = data;
+    });
+
+    //check is user exist
+    let checkIsUserExist:any = allregisteredUser !.filter(u => {
+      return u.userName === user.userName ;
+    })[0]
+
+    let message:string = '';
+    //validation for user login
+    if(checkIsUserExist === undefined){
+      message = 'No user found. Please create an account.';
+    }else if(checkIsUserExist!.password != user.password){
+      message = 'You have entered an invalid username or password';
+    }else if(checkIsUserExist.isAuthenticated == false){
+      message = 'User not authenticated yet. Please try again later';
+    }
+
+    if(message!=''){
+      this.snackBar.openFromComponent(SnackbarComponent,{
+        data: {
+          message : message,
+          btn: "OK",
+          action: "reset"
+        }
+      });
+      return
+    }
+
+    const loggedInUser:any = this.userService.loginUser(user);
 
     if (loggedInUser){
-
-      console.log("Before loggedInUser---> ",loggedInUser);
-
       const { id, password, isAuthenticated, mobile, dob, ...rest } = loggedInUser
       sessionStorage.setItem("user",JSON.stringify(rest))
-
-      console.log("After loggedInUser---> ",loggedInUser);
 
       // navigate according to role
       if (loggedInUser.role === "admin"){
@@ -54,25 +82,7 @@ export class LoginComponent implements OnInit {
       } 
       else if (loggedInUser.role === "physician"){
         this.router.navigateByUrl('/physician/dashboard')
-      } 
-      else {
-        this.snackBar.openFromComponent(SnackbarComponent,{
-          data: {
-            message : `Invalid user. Retry login.`,
-            btn: "OK",
-            action: "reset"
-          }
-        });
       }
-      
-    } else {
-      this.snackBar.openFromComponent(SnackbarComponent,{
-        data: {
-          message : `User is either not authenticated or does not exist.`,
-          btn: "OK",
-          action: "reset"
-        }
-      });
     }
   }
 

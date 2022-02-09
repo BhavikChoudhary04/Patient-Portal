@@ -12,7 +12,7 @@ export interface RegisterUser {
 }
 
 export interface LoginUser {
-        email: string,
+        userName: string,
         password: string
 }
 
