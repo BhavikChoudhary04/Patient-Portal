@@ -128,7 +128,6 @@ export class RegisterComponent implements OnInit {
       message = 'User not authenticated yet. Please try again later';
     }
 
-    return
     this.userService.registerUser(user);
     this.snackBar.openFromComponent(SnackbarComponent,{
       data: {
