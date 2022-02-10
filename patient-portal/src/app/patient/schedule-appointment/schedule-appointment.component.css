@@ -1,11 +1,13 @@
-.bg-image {
+/* .bg-image {
     background: url('/assets/images/bg-schedule-form.jpeg') no-repeat;
     width: 100%;
     height: 760px;
     background-size: contain;
-}
+} */
 .scheduleAppointment {
-    padding: 10px 50px;
+    /* padding: 10px 50px; */
+    transform: translateY(50%);
+    top: -50%;
 }
 .scheduleAppointment h2 {
     width: 30%;
@@ -13,7 +15,8 @@
     border: 1px solid #333;
     border-radius: 20px;
     background: #add8e6;
-    margin: 15px;
+    /* margin: 15px; */
+    margin: 0 auto;
     text-align: center;
 }
 
