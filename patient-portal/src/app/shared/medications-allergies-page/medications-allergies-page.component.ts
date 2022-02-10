@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AllergyService } from 'src/app/services/allergy.service';
+import { DemographicService } from 'src/app/services/demographic.service';
 import { UserService } from 'src/app/services/user.service';
 import { UserMedicationsAllergies } from '../interfaces/user';
 
@@ -15,7 +17,7 @@ export class MedicationsAllergiesPageComponent implements OnInit {
   allMedicationsData?:UserMedicationsAllergies[]
   userMedicationsData?:UserMedicationsAllergies
 
-  constructor(private fb:FormBuilder, private userService:UserService) { }
+  constructor(private fb:FormBuilder, private demoService:DemographicService, private allergyService: AllergyService) { }
 
   ngOnInit(): void {
     this.medicationForm = this.fb.group({
@@ -38,7 +40,7 @@ export class MedicationsAllergiesPageComponent implements OnInit {
   }
 
   addMedicationsData(userData:UserMedicationsAllergies){
-    this.userService.addMedicationsData(userData).subscribe((data) => {
+    this.allergyService.addMedicationsData(userData).subscribe((data) => {
       if(data){
         const newUserData = data
         console.log('pattient mediactions and allergies data submitted, new userdata: ',newUserData);
@@ -47,7 +49,7 @@ export class MedicationsAllergiesPageComponent implements OnInit {
   }
 
   getDemographicsData (){
-    this.userService.getAllDemographicsData().subscribe((data)=>{
+    this.demoService.getAllDemographicsData().subscribe((data)=>{
       if(data){
         this.allMedicationsData = data
         console.log('allMedicationsData: ', this.allMedicationsData);
