@@ -23,9 +23,13 @@ import { ImmunizationComponent } from './immunization/immunization.component';
 import { VitalsComponent } from './vitals/vitals.component';
 import { AppointmentHistoryComponent } from './appointment-history/appointment-history.component'; 
 import { MatButtonModule } from '@angular/material/button';
+import { DemographicsComponent } from './demographics/demographics.component';
+import { MedicationAllergiesComponent } from './medication-allergies/medication-allergies.component';
+import { MatRadioModule } from '@angular/material/radio';
+
 
 @NgModule({
-  declarations: [PatientComponent, DashboardComponent, SidenavComponent, HeaderComponent, ScheduleAppointmentComponent, PhysicianBookAppointmentDialog, ImmunizationComponent, VitalsComponent, AppointmentHistoryComponent],
+  declarations: [PatientComponent, DashboardComponent, SidenavComponent, HeaderComponent, ScheduleAppointmentComponent, PhysicianBookAppointmentDialog, ImmunizationComponent, VitalsComponent, AppointmentHistoryComponent, DemographicsComponent, MedicationAllergiesComponent],
   imports: [
     CommonModule,
     PatientRoutingModule,
@@ -42,7 +46,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatToolbarModule,
     MatListModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatRadioModule
   ],
   exports: [ScheduleAppointmentComponent, SidenavComponent , HeaderComponent, DashboardComponent, ImmunizationComponent, VitalsComponent]
 })

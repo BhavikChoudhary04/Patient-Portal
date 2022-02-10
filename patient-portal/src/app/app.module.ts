@@ -12,8 +12,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { SnackbarComponent } from './shared/snackbar/snackbar.component';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
-import { DemographicsPageComponent } from './shared/demographics-page/demographics-page.component';
-import { MedicationsAllergiesPageComponent } from './shared/medications-allergies-page/medications-allergies-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -48,8 +46,6 @@ const MaterialModule = [
   declarations: [
     AppComponent,
     SnackbarComponent,
-    DemographicsPageComponent,
-    MedicationsAllergiesPageComponent,
     ModalComponent
   ],
   imports: [
