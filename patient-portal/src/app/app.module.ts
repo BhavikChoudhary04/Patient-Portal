@@ -40,7 +40,8 @@ const MaterialModule = [
   MatDatepickerModule,
   MatNativeDateModule,
   MatRadioModule,
-  MatSelectModule
+  MatSelectModule,
+  PatientModule
 ]
 
 @NgModule({
