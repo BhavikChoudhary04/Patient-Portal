@@ -3,14 +3,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 import { DemographicService } from 'src/app/services/demographic.service';
 import { UserService } from 'src/app/services/user.service';
-import { UserDemographic } from '../interfaces/user';
+import { UserDemographic } from '../../shared/interfaces/user';
 
 @Component({
-  selector: 'app-demographics-page',
-  templateUrl: './demographics-page.component.html',
-  styleUrls: ['./demographics-page.component.css']
+  selector: 'app-demographics',
+  templateUrl: './demographics.component.html',
+  styleUrls: ['./demographics.component.css']
 })
-export class DemographicsPageComponent implements OnInit {
+export class DemographicsComponent implements OnInit {
 
   demographicsForm!:FormGroup;
   allEthnicityOptions:any=[

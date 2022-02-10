@@ -3,8 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 import { ImmunizationComponent } from './patient/immunization/immunization.component';
 import { VitalsComponent } from './patient/vitals/vitals.component';
-import { DemographicsPageComponent } from './shared/demographics-page/demographics-page.component';
-import { MedicationsAllergiesPageComponent } from './shared/medications-allergies-page/medications-allergies-page.component';
 
 
 const routes: Routes = [
@@ -28,22 +26,6 @@ const routes: Routes = [
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
     canActivate: [ AuthGuard ]
     //canActivateChild: [ AuthGuard ]
-  },
-  {
-    path: 'demographics',
-    component:DemographicsPageComponent
-  },
-  {
-    path: 'medications-allergies',
-    component:MedicationsAllergiesPageComponent
-  },
-  {
-    path: 'immunization',
-    component: ImmunizationComponent
-  },
-  {
-    path: 'vitals',
-    component: VitalsComponent
   }
   // {
   //   path: '**', 
