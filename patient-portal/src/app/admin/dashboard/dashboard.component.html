@@ -35,7 +35,7 @@
                 <div class="col-md-10 offset-md-2 mt-5 mb-5">
                     <h2 class="mb-3">Billing Requests</h2>
 
-                    <div class="table-responsive">
+                    <div class="table-responsive table-sm table-striped table-borderless">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -49,10 +49,10 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let bill of billArr">
-                                    <td>{{bill.billNo}}</td>
-                                    <td>{{bill.name}}</td>
-                                    <td>{{bill.visit}}</td>
-                                    <td>{{bill.amount}}</td>
+                                    <td class="align-middle">{{bill.billNo}}</td>
+                                    <td class="align-middle">{{bill.name}}</td>
+                                    <td class="align-middle">{{bill.visit}}</td>
+                                    <td class="align-middle">{{bill.amount}}</td>
                                     <td class="col-md-2 mt-2 mb-1"><button class="btn text-danger">Deny</button></td>
                                     <td class="col-md-2 mt-2 mb-1"><button class="btn text-success">Approve</button></td>
                                 </tr>
@@ -81,9 +81,9 @@
                         <h3>Mobile : {{user.mobile}}</h3>
 
                         <div class="text-center">
-                            <button class="m-2" mat-raised-button color="primary"
-                                (click)="deleteUser(user)">Delete</button>
                             <button class="m-2" mat-raised-button color="accent"
+                                (click)="deleteUser(user)">Delete</button>
+                            <button class="m-2" mat-raised-button color="primary"
                                 (click)="authenticateUser(user)">Authenticate</button>
                         </div>
 

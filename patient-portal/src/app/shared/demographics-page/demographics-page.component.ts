@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
+import { DemographicService } from 'src/app/services/demographic.service';
 import { UserService } from 'src/app/services/user.service';
 import { UserDemographic } from '../interfaces/user';
 
@@ -20,7 +21,7 @@ export class DemographicsPageComponent implements OnInit {
   allDemographicsData?:UserDemographic[]
   userDemographicData?:UserDemographic
 
-  constructor(private fb:FormBuilder, private userService:UserService) {}
+  constructor(private fb:FormBuilder, private demoService:DemographicService) {}
 
   ngOnInit(): void {
     this.demographicsForm = this.fb.group({
@@ -50,16 +51,12 @@ export class DemographicsPageComponent implements OnInit {
   }
 
   addDemographicData(userData:UserDemographic){
-    this.userService.addDemographicData(userData).subscribe((data) => {
-      if(data){
-        const newUserData = data
-        console.log('pattient demographic data submitted, new userdata: ',newUserData);
-      }
-    })
+    this.demoService.editDemographicData(userData)
+    console.log('pattient demographic data submitted, new userdata:', userData);
   }
 
   getDemographicsData (){
-    this.userService.getAllDemographicsData().subscribe((dataDemographics)=>{
+    this.demoService.getAllDemographicsData().subscribe((dataDemographics)=>{
       if(dataDemographics){
         this.allDemographicsData = dataDemographics
         console.log('allDemographicsData: ', this.allDemographicsData);
