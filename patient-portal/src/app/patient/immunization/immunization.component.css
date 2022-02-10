@@ -9,19 +9,19 @@
 
 .login-card{
   width: 420px;
-  height: auto;
+  height: 300px;
 }
 
 .form-element {
   width: 100%;
 }
 
-.link{
+/* .link{
   color: rgba(255,255,255,.7);
-}
+} */
 
 .btn-position{
-  margin-top: 20px;
+  margin-top: -3px;
   text-align: center;
 }
 

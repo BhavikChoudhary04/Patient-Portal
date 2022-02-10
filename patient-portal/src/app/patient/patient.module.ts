@@ -18,10 +18,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
 import { MatListModule } from '@angular/material/list';
-import { MatToolbarModule } from '@angular/material/toolbar'; 
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { ImmunizationComponent } from './immunization/immunization.component';
+import { VitalsComponent } from './vitals/vitals.component';
+import { AppointmentHistoryComponent } from './appointment-history/appointment-history.component'; 
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  declarations: [PatientComponent, DashboardComponent, SidenavComponent, HeaderComponent, ScheduleAppointmentComponent, PhysicianBookAppointmentDialog],
+  declarations: [PatientComponent, DashboardComponent, SidenavComponent, HeaderComponent, ScheduleAppointmentComponent, PhysicianBookAppointmentDialog, ImmunizationComponent, VitalsComponent, AppointmentHistoryComponent],
   imports: [
     CommonModule,
     PatientRoutingModule,
@@ -37,8 +41,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     RouterModule,
     MatToolbarModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ],
-  exports: [ScheduleAppointmentComponent, SidenavComponent , HeaderComponent, DashboardComponent]
+  exports: [ScheduleAppointmentComponent, SidenavComponent , HeaderComponent, DashboardComponent, ImmunizationComponent, VitalsComponent]
 })
 export class PatientModule { }
