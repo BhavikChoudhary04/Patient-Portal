@@ -99,41 +99,50 @@ export class RegisterComponent implements OnInit {
 
   submitRegisterForm(){
     if (this.registerForm.invalid) return
-    
-    // modified DOB in dd-mm-yyyy format
-    this.registerForm.value.dob = this.datePipe.transform(this.registerForm.value.dob, 'dd-MM-yyyy');
 
-    //remove confirmPassword and add isAuthenticated
-    const {confirmPassword,...rest} = this.registerForm.value
-    const user:RegisterUser = {...rest, isAuthenticated:false}
-
+    let userDetails = this.registerForm.value;
     let allregisteredUser:RegisterUser[];
 
+    //get all registered user list
     this.userService.getUsers().subscribe(data=> {
       allregisteredUser = data;
     });
 
      //check is user exist
     let checkIsUserExist:any = allregisteredUser !.filter(u => {
-      return u.userName === user.userName ;
+      return u.userName === userDetails.userName || u.email === userDetails.email;
     })[0]
 
     let message:string = '';
+    let registerMessage = 'User has been registered successfully';
     //validation for user login
     if(checkIsUserExist){
-      message = 'Someone already has that username. Try another?';
-    }else if(checkIsUserExist!.password != user.password){
-      message = 'You have entered an invalid username or password';
-    }else if(checkIsUserExist.isAuthenticated == false){
-      message = 'User not authenticated yet. Please try again later';
+      if(checkIsUserExist.userName === userDetails.userName){
+        message = 'Someone already has that username. Try another?';
+      }else if(checkIsUserExist.email === userDetails.email){
+        message = 'This email is already associated with an account.';
+      }else if(checkIsUserExist.isAuthenticated == false){
+        message = 'User not authenticated yet. Please try again later';
+      }
+    }else{
+      message = registerMessage;
     }
 
-    this.userService.registerUser(user);
+    if(message == registerMessage){
+      // modified DOB in dd-mm-yyyy format
+      userDetails.dob = this.datePipe.transform(userDetails.dob, 'dd-MM-yyyy');
+
+      //remove confirmPassword and add isAuthenticated
+      const {confirmPassword,...rest} = userDetails;
+      const user:RegisterUser = {...rest, isAuthenticated:false}
+      this.userService.registerUser(user);
+    }
+
     this.snackBar.openFromComponent(SnackbarComponent,{
       data: {
-        message : 'User has been registered successfully',
+        message : message,
         btn: "OK",
-        action: "reset"
+        action: message === registerMessage ? "reset" : ''
       }
     });
   }
