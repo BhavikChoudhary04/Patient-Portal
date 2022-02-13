@@ -1,28 +1,27 @@
-.section-demographics{
+.login-position{
     position: absolute;
     top: 50%;
     left: 50%;
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-    width: 70%;
 }
 
-.demographics-card{
-  height: 700px;
-  padding: 32px 32px;
+.login-card{
+  width: 420px;
+  height: 300px;
 }
 
 .form-element {
   width: 100%;
 }
 
-.link{
+/* .link{
   color: rgba(255,255,255,.7);
-}
+} */
 
 .btn-position{
-  margin-top: 20px;
+  margin-top: -3px;
   text-align: center;
 }
 
@@ -30,18 +29,15 @@
   width: 30%;
 }
 
-.title{
+.center{
   text-align: center;
-  margin-bottom: 32px
 }
 
-.input-fields{
-  display: inline-block;
-  width: 46%;
-  padding: 10px 2%;
-  margin: 0 auto;
+.forgot-password{
+  margin-top: 10px;
 }
 
-mat-radio-button{
-  margin-left: 0.7rem;
+.create-account{
+  text-align: center;
+  margin-top: 10px;
 }

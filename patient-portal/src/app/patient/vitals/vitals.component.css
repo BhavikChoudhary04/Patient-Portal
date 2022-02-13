@@ -5,11 +5,14 @@
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
+    margin-top: 100px;
 }
 
 .login-card{
   width: 420px;
+  /* height: 300px; */
   height: auto;
+  /* margin-top: 20px; */
 }
 
 .form-element {

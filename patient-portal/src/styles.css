@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+/* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 .mat-sidenav-container{
@@ -10,4 +10,18 @@
 
 .mat-drawer-inner-container {
     overflow: hidden !important;
+}
+/* .bg-image{
+    background-image: url('./assets/images/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+.mat-card {
+    background:linear-gradient(45deg, #212D3F, transparent);
+    color:white;
+}
+
+button {
+    opacity:0.9;
 }
