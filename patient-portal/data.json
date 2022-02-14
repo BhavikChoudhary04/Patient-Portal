@@ -1,0 +1,401 @@
+{
+  "users": [
+    {
+      "id": 101,
+      "firstName": "Admin",
+      "lastName": "Admin",
+      "userName": "Admin01",
+      "email": "admin.admin@citiustech.com",
+      "role": "admin",
+      "dob": "01/01/1970",
+      "mobile": "9999999999",
+      "password": "Admin@123",
+      "isAuthenticated": true
+    },
+    {
+      "id": 102,
+      "firstName": "Mayur",
+      "lastName": "Raina",
+      "userName": "SuperMayur01",
+      "email": "mayur.raina@citiustech.com",
+      "role": "physician",
+      "dob": "15/07/2000",
+      "mobile": "9876543210",
+      "password": "Hello@123",
+      "isAuthenticated": true
+    },
+    {
+      "id": 103,
+      "firstName": "Vishalrao",
+      "lastName": "Bandegar",
+      "userName": "VishalB007",
+      "email": "vishalrao.bandegar@citiustech.com",
+      "role": "patient",
+      "dob": "05/09/1999",
+      "mobile": "9876543211",
+      "password": "Hello@123",
+      "isAuthenticated": true
+    },
+    {
+      "id": 104,
+      "firstName": "Preeti",
+      "lastName": "Mondal",
+      "userName": "PreetiM011",
+      "email": "preeti.mondal@citiustech.com",
+      "role": "lab assistant",
+      "dob": "09/11/1995",
+      "mobile": "9876543212",
+      "password": "Hello@123",
+      "isAuthenticated": true
+    },
+    {
+      "id": 105,
+      "firstName": "Rajib",
+      "lastName": "Sarkar",
+      "userName": "Rajibsk09",
+      "email": "rajib.sarkar@citiustech.com",
+      "role": "physician",
+      "dob": "23/04/1990",
+      "mobile": "9876543213",
+      "password": "Hello@123",
+      "isAuthenticated": true
+    },
+    {
+      "id": 106,
+      "firstName": "Bhavik",
+      "lastName": "Choudhary",
+      "userName": "Bhavikc099",
+      "email": "bhavik.chaudhary@citiustech.com",
+      "role": "patient",
+      "dob": "29/01/1997",
+      "mobile": "9876543215",
+      "password": "Hello@123",
+      "isAuthenticated": true
+    },
+    {
+      "id": 107,
+      "firstName": "Luke",
+      "lastName": "Cage",
+      "dob": "19/07/1992",
+      "mobile": "9876543216",
+      "userName": "LukeC086",
+      "role": "patient",
+      "email": "luke.cage@gmail.com",
+      "password": "Hello@123",
+      "isAuthenticated": false
+    },
+    {
+      "id": 108,
+      "firstName": "Tony",
+      "lastName": "Stark",
+      "dob": "20/11/1977",
+      "mobile": "9876543217",
+      "userName": "IronMan3000",
+      "role": "patient",
+      "email": "tony.s@starkind.com",
+      "password": "KillThanos@2",
+      "isAuthenticated": false
+    },
+    {
+      "firstName": "mayur",
+      "lastName": "raina",
+      "dob": "01-09-2021",
+      "userName": "admin.admin@citiustech.com",
+      "role": "patient",
+      "email": "dadas@ijk.com",
+      "mobile": "9876543210",
+      "password": "Admin@123",
+      "isAuthenticated": false,
+      "id": 109
+    }
+  ],
+  "reports": [
+    {
+      "id": 201,
+      "userid": 103,
+      "vitals": {
+        "bloodPressure": "130/85",
+        "pulse": "88 bpm",
+        "temperature": "99.2 F",
+        "respiration": "12 bpm",
+        "height": "165 cm",
+        "weight": "72 kg"
+      },
+      "procedureCode": "001637A",
+      "diagnosisCode": "I52",
+      "labReport": "",
+      "radiologyReport": "",
+      "medication": [
+        "001104",
+        "002139"
+      ]
+    },
+    {
+      "id": 202,
+      "userid": 106,
+      "vitals": {
+        "bloodPressure": "140/90",
+        "pulse": "80 bpm",
+        "temperature": "98.3 F",
+        "respiration": "15 bpm",
+        "height": "169 cm",
+        "weight": "66 kg"
+      },
+      "procedureCode": "001U074",
+      "diagnosisCode": "M4989",
+      "labReport": "",
+      "radiologyReport": "",
+      "medication": [
+        "004570",
+        "004056",
+        "004041"
+      ]
+    },
+    {
+      "id": 203,
+      "userid": 107,
+      "vitals": {
+        "bloodPressure": "120/80",
+        "pulse": "72 bpm",
+        "temperature": "100.2 F",
+        "respiration": "18 bpm",
+        "height": "180 cm",
+        "weight": "90 kg"
+      },
+      "procedureCode": "005G4ZZ",
+      "diagnosisCode": "H02136",
+      "labReport": "",
+      "radiologyReport": "",
+      "medication": [
+        "006800",
+        "006798",
+        "006905"
+      ]
+    },
+    {
+      "id": 204,
+      "userid": 108,
+      "vitals": {
+        "bloodPressure": "110/75",
+        "pulse": "60 bpm",
+        "temperature": "97.5 F",
+        "respiration": "17 bpm",
+        "height": "156 cm",
+        "weight": "58 kg"
+      },
+      "procedureCode": "00910ZZ",
+      "diagnosisCode": "G459",
+      "labReport": "",
+      "radiologyReport": "",
+      "medication": [
+        "008917",
+        "008922"
+      ]
+    }
+  ],
+  "demographics": [
+    {
+      "id": 301,
+      "userid": 103,
+      "firstName": "Vishalrao",
+      "lastName": "Bandegar",
+      "dob": "05/09/1999",
+      "gender": "M",
+      "ethnicity": "Indian",
+      "education": "Graduate",
+      "occupation": "Business",
+      "address": "1056 Harris Lane Suite 70",
+      "mobile": "9876543211",
+      "medicalHistory": "Acute bronchitis (disorder)",
+      "familymedicalhistory": "Hypertension",
+      "surgeries": "No",
+      "insuranceProvider": "Medicare"
+    },
+    {
+      "id": 302,
+      "userid": 106,
+      "firstName": "Bhavik",
+      "lastName": "Choudhary",
+      "dob": "29/01/1997",
+      "mobile": "9876543215",
+      "gender": "F",
+      "ethnicity": "Hispanic",
+      "education": "Under-graduate",
+      "occupation": "Job",
+      "address": "181 Feest Passage Suite 64",
+      "medicalHistory": "Viral sinusitis (disorder",
+      "familymedicalhistory": "Hypertension",
+      " surgeries": "No",
+      "insuranceProvider": "Medicaid"
+    },
+    {
+      "id": 303,
+      "userid": 107,
+      "firstName": "Luke",
+      "lastName": "Cage",
+      "dob": "19/07/1992",
+      "mobile": "9876543216",
+      "gender": "F",
+      "ethnicity": "African American",
+      "education": "SSC",
+      "occupation": "Job",
+      "address": "118 Bailey Orchard Suite 34",
+      "medicalHistory": "Cystitis",
+      "familymedicalhistory": "Hypertension",
+      "surgeries": "No",
+      "insuranceProvider": "Medicare"
+    },
+    {
+      "id": 304,
+      "userid": 108,
+      "firstName": "Tony",
+      "lastName": "Stark",
+      "dob": "20/11/1977",
+      "mobile": "9876543217",
+      "gender": "M",
+      "ethnicity": "White",
+      "education": "HSC",
+      "occupation": "Business",
+      "address": "297 Fritsch Estate Apt 24",
+      "medicalHistory": "Atrial Fibrillation",
+      "familymedicalhistory": "Hypertension",
+      "surgeries": "No",
+      "insuranceProvider": "Medicare"
+    },
+    {
+      "firstName": "John",
+      "lastName": "Roy",
+      "dob": "2022-02-16T18:30:00.000Z",
+      "gender": "Male",
+      "ethnicity": "African",
+      "education": "BE",
+      "occupation": "Any",
+      "address": "Any",
+      "mobile": "8989776654",
+      "medicalHistory": "any",
+      "familymedicalHistory": "NA",
+      "surgeries": "any",
+      "insuranceProviders": "Medicare",
+      "id": 305
+    },
+    {
+      "userid": 109,
+      "firstName": "test",
+      "lastName": "test",
+      "dob": "07-02-2022",
+      "mobile": "9123456789",
+      "id": 306
+    },
+    {
+      "userid": 109,
+      "firstName": "mayur",
+      "lastName": "raina",
+      "dob": "01-09-2021",
+      "mobile": "9876543210",
+      "id": 307
+    }
+  ],
+  "medication-allergies": [
+    {
+      "id": 401,
+      "userid": 110,
+      "current_medication": "aa",
+      "otc": "aa",
+      "antibiotics": "aa",
+      "social_drugs": "aa",
+      "past_medication": "aa",
+      "drug_allergies": "aa",
+      "other_allergies": "aa"
+    },
+    {
+      "id": 402,
+      "userid": 111,
+      "current_medication": "aa",
+      "otc": "aa",
+      "antibiotics": "aa",
+      "social_drugs": "aa",
+      "past_medication": "aa",
+      "drug_allergies": "aa",
+      "other_allergies": "aa"
+    },
+    {
+      "id": 403,
+      "userid": 112,
+      "current_medication": "aa",
+      "otc": "aa",
+      "antibiotics": "aa",
+      "social_drugs": "aa",
+      "past_medication": "aa",
+      "drug_allergies": "aa",
+      "other_allergies": "aa"
+    },
+    {
+      "id": 404,
+      "userid": 113,
+      "current_medication": "aa",
+      "otc": "aa",
+      "antibiotics": "aa",
+      "social_drugs": "aa",
+      "past_medication": "aa",
+      "drug_allergies": "aa",
+      "other_allergies": "aa"
+    },
+    {
+      "current_medication": "any",
+      "otc": "otc1",
+      "antibiotics": "vitamin D",
+      "social_drugs": "any",
+      "past_medication": "no",
+      "drug_allergies": "no",
+      "other_allergies": "any",
+      "id": 405
+    }
+  ],
+  "appointment-history": [
+    {
+      "id": 501,
+      "date": "08/09/2021",
+      "physician": "Harry",
+      "speciality": "Orthopaedic",
+      "time": "08:40 AM",
+      "status": "Confirmed",
+      "notes": "Please bring your previous prescriptions."
+    },
+    {
+      "id": 502,
+      "date": "14/01/2021",
+      "physician": "Matt Murdock",
+      "speciality": "Pediatrician",
+      "time": "02:00 PM",
+      "status": "Confirmed",
+      "notes": "12 hours of fasting required."
+    },
+    {
+      "id": 503,
+      "date": "29/11/2020",
+      "physician": "Carl Lucas",
+      "speciality": "Cardiologist",
+      "time": "01:00 PM",
+      "status": "Confirmed",
+      "notes": "X-ray and MRI reports required."
+    },
+    {
+      "id": 504,
+      "date": "27/11/2020",
+      "physician": "Jessica Jones",
+      "speciality": "Cardiologist",
+      "time": "12:00 PM",
+      "status": "Cancelled",
+      "notes": "X-ray and MRI reports required."
+    },
+    {
+      "id": 505,
+      "date": "11/07/2020",
+      "physician": "Frank",
+      "speciality": "Gynaecologist",
+      "time": "11:00 AM",
+      "status": "Cancelled",
+      "notes": "Chest CT scan required."
+    }
+  ]
+}
