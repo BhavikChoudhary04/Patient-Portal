@@ -85,8 +85,4 @@ export class UserService {
     return this.allUsers$.asObservable();
   }
 
-  getUsers(){
-    return this.allUsers$.asObservable();
-  }
-
 }
