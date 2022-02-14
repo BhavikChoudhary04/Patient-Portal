@@ -47,7 +47,7 @@ export class UserService {
     })[0]
     if (user) {
       if (user.isAuthenticated) {
-        this.http.post<LoginUser>(`${this.API_URL_USERS}/login`, { email: loginUser.email, password: loginUser.password }).subscribe(res => {
+        this.http.post<LoginUser>(`${this.API_URL_USERS}/login`, { email: user.email, password: loginUser.password }).subscribe(res => {
           this.token$.next(res.accessToken)
           this.loggedInUser$.next(res.user);
           if (res.user.role == "patient") {
