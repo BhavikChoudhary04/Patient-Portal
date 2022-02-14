@@ -1,0 +1,74 @@
+<div class="login-position">
+    <mat-card class="login-card">
+      <mat-card-title class="center">Immunization Details</mat-card-title>
+      <mat-card-content>
+          <form [formGroup]="loginForm" (ngSubmit)="loginDetails(loginForm)" autocomplete="off">
+              <div>
+                  <mat-form-field  class="form-element" appearance="legacy">
+                      <mat-label>Covid Vaccine Name</mat-label>
+                      <input matInput type="text" formControlName="vaccineName" placeholder="Covid Vaccine Name">
+                      <mat-error *ngIf="(loginForm.get('vaccineName')) !.errors?.required">Vaccine Name is required</mat-error>
+                  </mat-form-field>
+              </div>
+
+              <div>
+                <mat-form-field class="form-element" appearance="legacy">
+                    <mat-label>Covid Vaccine Number of Doses</mat-label>
+                    <mat-select formControlName="vaccineNumberOfDoses">
+                    <mat-option value="1">1</mat-option>
+                    <mat-option value="2">2</mat-option>
+                    </mat-select>
+                </mat-form-field>
+              </div>
+
+              <div>
+                <mat-form-field class="form-element" appearance="legacy">
+                    <mat-label>Date Of Last Covid Vaccine</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="dateOfLastVaccine">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+              </div>
+
+              <div>
+                <mat-form-field  class="form-element" appearance="legacy">
+                    <mat-label>Any Other Vaccinations</mat-label>
+                    <input matInput type="text" formControlName="anyOtherVaccines" placeholder="Any Other Vaccinations">
+                    <!-- <mat-error *ngIf="(loginForm.get('vaccineName')) !.errors?.required">Vaccine Name is required</mat-error> -->
+                </mat-form-field>
+              </div>
+
+              <!-- <div>
+                <mat-form-field>
+                    <input matInput type="datetime-local" placeholder="start date">
+                </mat-form-field>
+              </div> -->
+  
+              
+              
+              <!-- <div>
+                  <mat-form-field  class="form-element" appearance="standard">
+                      <mat-label>Password </mat-label>
+                      <input matInput [type]="flag ? 'password' : 'text'" placeholder="Enter your password"
+                          formControlName="password">
+                      <mat-icon (click)="flag=!flag" matSuffix>{{ flag ? 'visibility' : 'visibility_off' }}</mat-icon>
+                      <mat-error *ngIf="(loginForm.get('password')) !.errors?.pattern">
+                        Password must be at least 8 characters and must contain at least one lowercase letter, uppercase letter, number and special characters
+                      </mat-error>
+                  </mat-form-field>
+              </div> -->
+  
+
+
+              <div class="btn-position">
+                  <button mat-raised-button  class="btn-width" color="primary" type="submit" [disabled]="!loginForm.valid">LOG IN</button>
+              </div>
+
+  
+          </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
+  
+  

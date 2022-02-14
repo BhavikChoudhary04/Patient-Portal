@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
+import { DemographicService } from 'src/app/services/demographic.service';
 import { UserService } from 'src/app/services/user.service';
-import { UserDemographic } from '../interfaces/user';
+import { UserDemographic } from '../../shared/interfaces/user';
 
 @Component({
-  selector: 'app-demographics-page',
-  templateUrl: './demographics-page.component.html',
-  styleUrls: ['./demographics-page.component.css']
+  selector: 'app-demographics',
+  templateUrl: './demographics.component.html',
+  styleUrls: ['./demographics.component.css']
 })
-export class DemographicsPageComponent implements OnInit {
+export class DemographicsComponent implements OnInit {
 
   demographicsForm!:FormGroup;
   allEthnicityOptions:any=[
@@ -20,7 +21,7 @@ export class DemographicsPageComponent implements OnInit {
   allDemographicsData?:UserDemographic[]
   userDemographicData?:UserDemographic
 
-  constructor(private fb:FormBuilder, private userService:UserService) {}
+  constructor(private fb:FormBuilder, private demoService:DemographicService) {}
 
   ngOnInit(): void {
     this.demographicsForm = this.fb.group({
@@ -50,16 +51,12 @@ export class DemographicsPageComponent implements OnInit {
   }
 
   addDemographicData(userData:UserDemographic){
-    this.userService.addDemographicData(userData).subscribe((data) => {
-      if(data){
-        const newUserData = data
-        console.log('pattient demographic data submitted, new userdata: ',newUserData);
-      }
-    })
+    this.demoService.editDemographicData(userData)
+    console.log('pattient demographic data submitted, new userdata:', userData);
   }
 
   getDemographicsData (){
-    this.userService.getAllDemographicsData().subscribe((dataDemographics)=>{
+    this.demoService.getAllDemographicsData().subscribe((dataDemographics)=>{
       if(dataDemographics){
         this.allDemographicsData = dataDemographics
         console.log('allDemographicsData: ', this.allDemographicsData);

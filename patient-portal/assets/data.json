@@ -76,36 +76,36 @@
       "id": 107,
       "firstName": "Luke",
       "lastName": "Cage",
-      "userName": "LukeC099",
-      "email": "luke.cage@citiustech.com",
-      "role": "patient",
       "dob": "19/07/1992",
       "mobile": "9876543216",
+      "userName": "LukeC086",
+      "role": "patient",
+      "email": "luke.cage@gmail.com",
       "password": "Hello@123",
-      "isAuthenticated": true
+      "isAuthenticated": false
     },
     {
       "id": 108,
       "firstName": "Tony",
       "lastName": "Stark",
-      "userName": "Ironman03",
-      "email": "tony.stark@citiustech.com",
-      "role": "patient",
       "dob": "20/11/1977",
       "mobile": "9876543217",
-      "password": "Hello@123",
-      "isAuthenticated": true
+      "userName": "IronMan3000",
+      "role": "patient",
+      "email": "tony.s@starkind.com",
+      "password": "KillThanos@2",
+      "isAuthenticated": false
     },
     {
-      "firstName": "test",
-      "lastName": "test",
-      "dob": "07-02-2022",
-      "userName": "test",
+      "firstName": "mayur",
+      "lastName": "raina",
+      "dob": "01-09-2021",
+      "userName": "admin.admin@citiustech.com",
       "role": "patient",
-      "email": "test@test.com",
-      "mobile": "9123456789",
-      "password": "Impact@2022",
-      "isAuthenticated": true,
+      "email": "dadas@ijk.com",
+      "mobile": "9876543210",
+      "password": "Admin@123",
+      "isAuthenticated": false,
       "id": 109
     }
   ],
@@ -285,6 +285,14 @@
       "dob": "07-02-2022",
       "mobile": "9123456789",
       "id": 306
+    },
+    {
+      "userid": 109,
+      "firstName": "mayur",
+      "lastName": "raina",
+      "dob": "01-09-2021",
+      "mobile": "9876543210",
+      "id": 307
     }
   ],
   "medication-allergies": [
@@ -341,6 +349,53 @@
       "drug_allergies": "no",
       "other_allergies": "any",
       "id": 405
+    }
+  ],
+  "appointment-history": [
+    {
+      "id": 501,
+      "date": "08/09/2021",
+      "physician": "Harry",
+      "speciality": "Orthopaedic",
+      "time": "08:40 AM",
+      "status": "Confirmed",
+      "notes": "Please bring your previous prescriptions."
+    },
+    {
+      "id": 502,
+      "date": "14/01/2021",
+      "physician": "Matt Murdock",
+      "speciality": "Pediatrician",
+      "time": "02:00 PM",
+      "status": "Confirmed",
+      "notes": "12 hours of fasting required."
+    },
+    {
+      "id": 503,
+      "date": "29/11/2020",
+      "physician": "Carl Lucas",
+      "speciality": "Cardiologist",
+      "time": "01:00 PM",
+      "status": "Confirmed",
+      "notes": "X-ray and MRI reports required."
+    },
+    {
+      "id": 504,
+      "date": "27/11/2020",
+      "physician": "Jessica Jones",
+      "speciality": "Cardiologist",
+      "time": "12:00 PM",
+      "status": "Cancelled",
+      "notes": "X-ray and MRI reports required."
+    },
+    {
+      "id": 505,
+      "date": "11/07/2020",
+      "physician": "Frank",
+      "speciality": "Gynaecologist",
+      "time": "11:00 AM",
+      "status": "Cancelled",
+      "notes": "Chest CT scan required."
     }
   ]
 }
