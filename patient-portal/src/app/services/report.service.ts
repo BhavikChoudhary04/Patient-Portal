@@ -10,11 +10,11 @@ export class ReportService {
 
   constructor(private http: HttpClient) { }
 
-  private API_URL = 'http://127.0.0.1:3000/reports'
+  private API_URL = 'http://127.0.0.1:3000'
 
   private allReports$:BehaviorSubject<Report[]> = new BehaviorSubject<Report[]>([]);
   private userReports$:BehaviorSubject<Report> = new BehaviorSubject<Report>({
-    userid: 0,
+    userId: 0,
     vitals: {
         bloodPressure: "",
         pulse: "",
@@ -32,7 +32,7 @@ export class ReportService {
 
 
   fetchAllReports(){
-    this.http.get<Report[]>(`${this.API_URL}`).subscribe(reports => {
+    this.http.get<Report[]>(`${this.API_URL}/660/reports`).subscribe(reports => {
       if (reports){
         this.allReports$.next(reports);
       }
@@ -40,9 +40,10 @@ export class ReportService {
   }
 
   reportByUser(userId:number){
+    
     const reports = this.allReports$.getValue();
     const userReport = reports.filter(r => 
-      r.userid == userId
+      r.userId == userId
     )[0]
     if (userReport){
       this.userReports$.next(userReport)
@@ -50,24 +51,28 @@ export class ReportService {
   }
 
   editUserReport(report:Report,editedFields:any){
-    this.http.put<Report>(`${this.API_URL}/${report.userid}`,{...report,...editedFields}).subscribe(report => {
+    this.http.put<Report>(`${this.API_URL}/660/reports/${report.userId}`,{...report,...editedFields}).subscribe(report => {
       if (report){
         const reports = this.allReports$.getValue();
-      const updatedReport = reports.filter(r => r.userid !== report.userid)
+      const updatedReport = reports.filter(r => r.userId !== report.userId)
       this.allReports$.next(reports.concat(updatedReport));
-      this.reportByUser(report.userid);
+      this.reportByUser(report.userId);
       }
     })
   }
 
   createUserReport(report:Report){
-      this.http.post<Report>(`${this.API_URL}`,report).subscribe(report => {
+      this.http.post<Report>(`${this.API_URL}/660/reports`,report).subscribe(report => {
         if (report){
           const reports = this.allReports$.getValue();
           const addReport = reports.concat(report)
           this.allReports$.next(addReport);
-          this.reportByUser(report.userid);
+          this.reportByUser(report.userId);
         }
       })
+  }
+
+  getUserReport(){
+    return this.userReports$.asObservable();
   }
 }

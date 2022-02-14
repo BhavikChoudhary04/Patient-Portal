@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard } from './shared/guards/auth.guard';
 import { ImmunizationComponent } from './patient/immunization/immunization.component';
 import { VitalsComponent } from './patient/vitals/vitals.component';
+import { PatientGuard } from './shared/guards/patient.guard';
+import { PhysicianGuard } from './shared/guards/physician.guard';
+import { AdminGuard } from './shared/guards/admin.guard';
 
 
 const routes: Routes = [
@@ -12,20 +15,27 @@ const routes: Routes = [
   {
     path: 'patient',
     loadChildren: () => import('./patient/patient.module').then(m => m.PatientModule),
-    //canActivate: [ AuthGuard ]
-    //canActivateChild: [ AuthGuard ]
+    canActivate: [ AuthGuard ]
   },
   {
     path: 'physician',
     loadChildren: () => import('./physician/physician.module').then(m => m.PhysicianModule),
     canActivate: [ AuthGuard ]
-    //canActivateChild: [ AuthGuard ],
   },
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
     canActivate: [ AuthGuard ]
     //canActivateChild: [ AuthGuard ]
+
+  },
+  {
+    path: 'immunization',
+    component: ImmunizationComponent
+  },
+  {
+    path: 'vitals',
+    component: VitalsComponent
   }
   // {
   //   path: '**', 

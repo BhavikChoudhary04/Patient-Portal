@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PatientGuard } from '../shared/guards/patient.guard';
 import { AppointmentHistoryComponent } from './appointment-history/appointment-history.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DemographicsComponent } from './demographics/demographics.component';
@@ -16,11 +17,13 @@ const routes: Routes = [
     {
       path: '',
       redirectTo: 'dashboard',
-      pathMatch: 'full'
+      pathMatch: 'full',
     },
     {
       path: 'dashboard',
       component: DashboardComponent,
+      // canActivateChild: [PatientGuard],
+
       children: [
         {
           path:'schedule-appointment',

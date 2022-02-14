@@ -11,7 +11,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { SnackbarComponent } from './shared/snackbar/snackbar.component';
 import { MatButtonModule } from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -26,6 +26,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { UserService } from './services/user.service';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {AuthenticateInterceptor} from './shared/interceptors/authenticate.interceptor'
 
 
 const MaterialModule = [
@@ -69,7 +70,12 @@ const MaterialModule = [
     GoogleChartsModule,
     NgbModule
   ],
-  providers: [UserService],
+  providers: [UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthenticateInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
