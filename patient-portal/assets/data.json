@@ -1,16 +1,16 @@
 {
   "users": [
     {
-      "id": 101,
+      "email": "admin.admin@gmail.com",
+      "password": "$2a$10$J/uOKtfuZR9m71dbwx7xF.8vWJJlGyKfYYCHavJDzwOwe1QML9eya",
       "firstName": "Admin",
       "lastName": "Admin",
+      "dob": "04-03-1976",
       "userName": "Admin01",
-      "email": "admin.admin@citiustech.com",
       "role": "admin",
-      "dob": "01/01/1970",
-      "mobile": "9999999999",
-      "password": "Admin@123",
-      "isAuthenticated": true
+      "mobile": "9999999990",
+      "isAuthenticated": true,
+      "id": 101
     },
     {
       "id": 102,
@@ -21,7 +21,7 @@
       "role": "physician",
       "dob": "15/07/2000",
       "mobile": "9876543210",
-      "password": "Hello@123",
+      "password": "$2a$10$oRI4TA4x0gzcMoPUGg9N8eFxnK8bAxowQXc/ZG7yna/.Upw3JCstm",
       "isAuthenticated": true
     },
     {
@@ -33,7 +33,7 @@
       "role": "patient",
       "dob": "05/09/1999",
       "mobile": "9876543211",
-      "password": "Hello@123",
+      "password": "$2a$10$atUi2Wrz7X1UjJz6MiGL0.JhWl.2uMn1qzu7XLKuGO3lCmDYBzvkS",
       "isAuthenticated": true
     },
     {
@@ -45,7 +45,7 @@
       "role": "lab assistant",
       "dob": "09/11/1995",
       "mobile": "9876543212",
-      "password": "Hello@123",
+      "password": "$2a$10$ycAmWEb5uG/qXlVJSEUF5efiKuQkit0czOeqczuEnpemz36YBKdgK",
       "isAuthenticated": true
     },
     {
@@ -57,7 +57,7 @@
       "role": "physician",
       "dob": "23/04/1990",
       "mobile": "9876543213",
-      "password": "Hello@123",
+      "password": "$2a$10$UoR3Ch1/iuk7R6Q3IQ3y7OUjUMejzS3WoJqybu5BqzUNvyXH7XzZy",
       "isAuthenticated": true
     },
     {
@@ -69,7 +69,7 @@
       "role": "patient",
       "dob": "29/01/1997",
       "mobile": "9876543215",
-      "password": "Hello@123",
+      "password": "$2a$10$lEB4s8x43FdfJ3oUzNrFU.EVUFL1Hts9k0jlgjyHR2YZVY0X1bSiW",
       "isAuthenticated": true
     },
     {
@@ -81,7 +81,7 @@
       "userName": "LukeC086",
       "role": "patient",
       "email": "luke.cage@gmail.com",
-      "password": "Hello@123",
+      "password": "$2a$10$OZqZq51bGoJv04OSkWlaI.Kz1BK15R5uH6TFwnJ2ehZzrXBmr.Eb6",
       "isAuthenticated": false
     },
     {
@@ -93,26 +93,26 @@
       "userName": "IronMan3000",
       "role": "patient",
       "email": "tony.s@starkind.com",
-      "password": "KillThanos@2",
+      "password": "$2a$10$fJ7qnQfSZZBCxfMGRuWYpOXy7NJa0i3a828vsVwnvHMN0mN97Jhri",
       "isAuthenticated": false
     },
     {
-      "firstName": "mayur",
-      "lastName": "raina",
-      "dob": "01-09-2021",
-      "userName": "admin.admin@citiustech.com",
+      "id": 109,
+      "firstName": "John",
+      "lastName": "Roy",
+      "dob": "2022-02-16T18:30:00.000Z",
+      "userName": "RojJ09",
+      "mobile": "8989776654",
       "role": "patient",
-      "email": "dadas@ijk.com",
-      "mobile": "9876543210",
-      "password": "Admin@123",
-      "isAuthenticated": false,
-      "id": 109
+      "email": "JohnR@gmail.com",
+      "password":"Hello@123",
+      "isAuthenticated": false
     }
   ],
   "reports": [
     {
       "id": 201,
-      "userid": 103,
+      "userId": 103,
       "vitals": {
         "bloodPressure": "130/85",
         "pulse": "88 bpm",
@@ -132,7 +132,7 @@
     },
     {
       "id": 202,
-      "userid": 106,
+      "userId": 106,
       "vitals": {
         "bloodPressure": "140/90",
         "pulse": "80 bpm",
@@ -153,7 +153,7 @@
     },
     {
       "id": 203,
-      "userid": 107,
+      "userId": 107,
       "vitals": {
         "bloodPressure": "120/80",
         "pulse": "72 bpm",
@@ -174,7 +174,7 @@
     },
     {
       "id": 204,
-      "userid": 108,
+      "userId": 108,
       "vitals": {
         "bloodPressure": "110/75",
         "pulse": "60 bpm",
@@ -196,7 +196,7 @@
   "demographics": [
     {
       "id": 301,
-      "userid": 103,
+      "userId": 103,
       "firstName": "Vishalrao",
       "lastName": "Bandegar",
       "dob": "05/09/1999",
@@ -213,7 +213,7 @@
     },
     {
       "id": 302,
-      "userid": 106,
+      "userId": 106,
       "firstName": "Bhavik",
       "lastName": "Choudhary",
       "dob": "29/01/1997",
@@ -230,7 +230,7 @@
     },
     {
       "id": 303,
-      "userid": 107,
+      "userId": 107,
       "firstName": "Luke",
       "lastName": "Cage",
       "dob": "19/07/1992",
@@ -247,7 +247,7 @@
     },
     {
       "id": 304,
-      "userid": 108,
+      "userId": 108,
       "firstName": "Tony",
       "lastName": "Stark",
       "dob": "20/11/1977",
@@ -276,78 +276,64 @@
       "familymedicalHistory": "NA",
       "surgeries": "any",
       "insuranceProviders": "Medicare",
+      "userId": 109,
       "id": 305
-    },
-    {
-      "userid": 109,
-      "firstName": "test",
-      "lastName": "test",
-      "dob": "07-02-2022",
-      "mobile": "9123456789",
-      "id": 306
-    },
-    {
-      "userid": 109,
-      "firstName": "mayur",
-      "lastName": "raina",
-      "dob": "01-09-2021",
-      "mobile": "9876543210",
-      "id": 307
     }
   ],
   "medication-allergies": [
     {
       "id": 401,
-      "userid": 110,
-      "current_medication": "aa",
+      "userId": 103,
+      "currentMedication": "aa",
       "otc": "aa",
       "antibiotics": "aa",
-      "social_drugs": "aa",
-      "past_medication": "aa",
-      "drug_allergies": "aa",
-      "other_allergies": "aa"
+      "socialDrugs": "aa",
+      "pastMedication": "aa",
+      "drugAllergies": "aa",
+      "otherAllergies": "aa"
     },
     {
       "id": 402,
-      "userid": 111,
-      "current_medication": "aa",
+      "userId": 106,
+      "currentMedication": "aa",
       "otc": "aa",
       "antibiotics": "aa",
-      "social_drugs": "aa",
-      "past_medication": "aa",
-      "drug_allergies": "aa",
-      "other_allergies": "aa"
+      "socialDrugs": "aa",
+      "pastMedication": "aa",
+      "drugAllergies": "aa",
+      "otherAllergies": "aa"
     },
     {
       "id": 403,
-      "userid": 112,
-      "current_medication": "aa",
+      "userId": 107,
+      "currentMedication": "aa",
       "otc": "aa",
       "antibiotics": "aa",
-      "social_drugs": "aa",
-      "past_medication": "aa",
-      "drug_allergies": "aa",
-      "other_allergies": "aa"
+      "socialDrugs": "aa",
+      "pastMedication": "aa",
+      "drugAllergies": "aa",
+      "otherAllergies": "aa"
     },
     {
       "id": 404,
-      "userid": 113,
-      "current_medication": "aa",
+      "userId": 108,
+      "currentMedication": "aa",
       "otc": "aa",
       "antibiotics": "aa",
-      "social_drugs": "aa",
-      "past_medication": "aa",
-      "drug_allergies": "aa",
-      "other_allergies": "aa"
+      "socialDrugs": "aa",
+      "pastMedication": "aa",
+      "drugAllergies": "aa",
+      "otherAllergies": "aa"
     },
     {
-      "current_medication": "any",
+      "currentMedication": "any",
       "otc": "otc1",
       "antibiotics": "vitamin D",
-      "social_drugs": "any",
-      "past_medication": "no",
-      "drug_allergies": "no",
-      "other_allergies": "any",
+      "socialDrugs": "any",
+      "pastMedication": "no",
+      "drugAllergies": "no",
+      "otherAllergies": "any",
+      "userId": 109,
       "id": 405
     }
   ],

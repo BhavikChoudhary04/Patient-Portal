@@ -26,7 +26,7 @@ import { AppointmentHistoryComponent } from './appointment-history/appointment-h
 import { DemographicsComponent } from './demographics/demographics.component';
 import { MedicationAllergiesComponent } from './medication-allergies/medication-allergies.component';
 import { MatRadioModule } from '@angular/material/radio';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [PatientComponent, DashboardComponent, SidenavComponent, HeaderComponent, ScheduleAppointmentComponent, PhysicianBookAppointmentDialog, ImmunizationComponent, VitalsComponent, AppointmentHistoryComponent, DemographicsComponent, MedicationAllergiesComponent],
@@ -47,7 +47,8 @@ import { MatRadioModule } from '@angular/material/radio';
     MatListModule,
     MatIconModule,
     MatButtonModule,
-    MatRadioModule
+    MatRadioModule,
+    MatFormFieldModule
   ],
   exports: [ScheduleAppointmentComponent, SidenavComponent , HeaderComponent, DashboardComponent, ImmunizationComponent, VitalsComponent]
 })

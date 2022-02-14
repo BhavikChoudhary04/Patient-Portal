@@ -12,13 +12,24 @@ export interface RegisterUser {
 }
 
 export interface LoginUser {
+        accessToken:string,
+        user: {
+                id?: number,
+        firstName: string,
+        lastName: string,
+        userName: string,
         email: string,
-        password: string
+        role: string,
+        dob: string,
+        mobile: string,
+        password: string,
+        isAuthenticated: boolean
+        }
 }
 
 export interface UserDemographic {
         id?: number,
-        userid: number,
+        userId: number,
         firstName: string,
         lastName: string,
         dob: string,
@@ -34,14 +45,14 @@ export interface UserDemographic {
         insuranceProvider?  : string 
 }
 
-export interface UserMedicationsAllergies{
+export interface UserMedicationsAllergies {
         id?: number,
-        userid: number,
-        current_medication: string,
+        userId: number,
+        currentMedication: string,
         otc: string,
         antibiotics: string,
-        social_drugs: string,
-        past_medication: string,
-        drug_allergies: string,
-        other_allergies?: string 
+        socialDrugs: string,
+        pastMedication: string,
+        drugAllergies: string,
+        otherAllergies?: string 
 }
