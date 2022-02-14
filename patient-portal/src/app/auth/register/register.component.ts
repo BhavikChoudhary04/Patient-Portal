@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
@@ -79,7 +79,7 @@ export class RegisterComponent implements OnInit {
       firstName : ['', [Validators.required,Validators.maxLength(20), Validators.pattern('^[a-zA-Z ]*$')]],
       lastName : ['', [Validators.required,Validators.maxLength(20), Validators.pattern('^[a-zA-Z ]*$')]],
       dob : ['', Validators.required],
-      userName : ['', Validators.required],
+      userName : ['', [Validators.required,  Validators.pattern('^[A-Za-z0-9_]{3,12}$')]],
       role : ['', Validators.required],
       email : ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       mobile : ['', [Validators.required, Validators.minLength(10), 
@@ -99,22 +99,56 @@ export class RegisterComponent implements OnInit {
 
   submitRegisterForm(){
     if (this.registerForm.invalid) return
-    
-    // modified DOB in dd-mm-yyyy format
-    this.registerForm.value.dob = this.datePipe.transform(this.registerForm.value.dob, 'dd-MM-yyyy');
 
-    //remove confirmPassword and add isAuthenticated
-    const {confirmPassword,...rest} = this.registerForm.value
-    const user:RegisterUser = {...rest, isAuthenticated:false}
+    let userDetails = this.registerForm.value;
+    let allregisteredUser:RegisterUser[];
 
-    this.userService.registerUser(user)
+    //get all registered user list
+    this.userService.getUsers().subscribe(data=> {
+      allregisteredUser = data;
+    });
+
+     //check is user exist
+    let checkIsUserExist:any = allregisteredUser !.filter(u => {
+      return u.userName === userDetails.userName || u.email === userDetails.email;
+    })[0]
+
+    let message:string = '';
+    let registerMessage = 'User has been registered successfully';
+    //validation for user login
+    if(checkIsUserExist){
+      if(checkIsUserExist.userName === userDetails.userName){
+        message = 'Someone already has that username. Try another?';
+      }else if(checkIsUserExist.email === userDetails.email){
+        message = 'This email is already associated with an account.';
+      }else if(checkIsUserExist.isAuthenticated == false){
+        message = 'User not authenticated yet. Please try again later';
+      }
+    }else{
+      message = registerMessage;
+    }
+
+    if(message == registerMessage){
+      // modified DOB in dd-mm-yyyy format
+      userDetails.dob = this.datePipe.transform(userDetails.dob, 'dd-MM-yyyy');
+
+      //remove confirmPassword and add isAuthenticated
+      const {confirmPassword,...rest} = userDetails;
+      const user:RegisterUser = {...rest, isAuthenticated:false}
+      this.userService.registerUser(user);
+    }
+
     this.snackBar.openFromComponent(SnackbarComponent,{
       data: {
-        message : 'User has been registered successfully',
+        message : message,
         btn: "OK",
-        action: "reset"
+        action: message === registerMessage ? "reset" : ''
       }
     });
+  }
+
+  backToLogin(){
+    this.router.navigateByUrl('/auth/login');
   }
 
 }

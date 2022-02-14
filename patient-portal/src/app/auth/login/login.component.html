@@ -6,12 +6,12 @@
         <form [formGroup]="loginForm" (ngSubmit)="loginDetails()" autocomplete="off">
             <div>
                 <mat-form-field  class="form-element" appearance="legacy">
-                    <mat-label>Email Address:</mat-label>
-                    <input matInput type="email" formControlName="email" placeholder="Your email">
+                    <mat-label>User Name</mat-label>
+                    <input matInput type="text" formControlName="userName" placeholder="Your UserName">
                     <mat-icon matSuffix>mail_outline</mat-icon>
                     <!-- <mat-hint>Input valid email address</mat-hint> -->
-                    <mat-error *ngIf="(loginForm.get('email')) !.errors?.required">Email is required</mat-error>
-                    <mat-error *ngIf="(loginForm.get('email')) !.errors?.pattern">Please enter valid email</mat-error>
+                    <mat-error *ngIf="(loginForm.get('userName')) !.errors?.required">Username is required</mat-error>
+                    <!-- <mat-error *ngIf="(loginForm.get('email')) !.errors?.pattern">Please enter valid email</mat-error> -->
                 </mat-form-field>
                 <a class="link"  [routerLink]="['/auth/forgot/username']"> Forgot username? </a>
             </div>

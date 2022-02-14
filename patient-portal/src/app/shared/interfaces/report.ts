@@ -1,6 +1,6 @@
 export interface Report {
     id?: number,
-    userid: number,
+    userId: number,
     vitals: {
         bloodPressure: string,
         pulse: string,

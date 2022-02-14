@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { AppointmentsService } from 'src/app/services/appointments.service';
 import { Appointment } from 'src/app/shared/interfaces/appointment';
 
@@ -19,5 +22,8 @@ export class AppointmentHistoryComponent implements OnInit {
       this.apHistory = app
     })
   }
+
+  
+
 
 }

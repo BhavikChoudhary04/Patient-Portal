@@ -11,11 +11,11 @@ export class DemographicService {
 
   constructor(private http: HttpClient) { }
 
-  private API_URL_DEMOGRAPHICS = 'http://127.0.0.1:3000/demographics';
+  private API_URL_DEMOGRAPHICS = 'http://127.0.0.1:3000';
 
   private userDemographic$: BehaviorSubject<UserDemographic> = new BehaviorSubject<UserDemographic>(
     {
-      userid: 0,
+      userId: 0,
       firstName: "",
       lastName: "",
       dob: "",
@@ -34,32 +34,34 @@ export class DemographicService {
 
     createUserDemographic(user: RegisterUser) {
       const demoData = {
-        userid: user.id,
+        userId: user.id,
         firstName: user.firstName,
         lastName: user.lastName,
         dob: user.dob,
         mobile: user.mobile
       }
   
-      this.http.post<UserDemographic>(`${this.API_URL_DEMOGRAPHICS}`,demoData).subscribe(demoUser => {
+      this.http.post<UserDemographic>(`${this.API_URL_DEMOGRAPHICS}/demographics`,demoData).subscribe(demoUser => {
         if (demoUser){
+          console.log(demoUser);
+          
           return
         }
       })
     }
   
     editDemographicData(userDemoData: UserDemographic){
-      this.http.put<UserDemographic>(`${this.API_URL_DEMOGRAPHICS}/${userDemoData.id}`,userDemoData).subscribe(userData => {
+      this.http.put<UserDemographic>(`${this.API_URL_DEMOGRAPHICS}/600/demographics/${userDemoData.id}`,userDemoData).subscribe(userData => {
         if (userData){
             this.userDemographic$.next(userData);
         }
       })
     }  
   
-    fetchDemographicData(userid: number|undefined){
-      this.http.get<UserDemographic[]>(`${this.API_URL_DEMOGRAPHICS}`).subscribe(demoUsers => {
+    fetchDemographicData(userId: number|undefined){
+      this.http.get<UserDemographic[]>(`${this.API_URL_DEMOGRAPHICS}/600/demographics`).subscribe(demoUsers => {
         if (demoUsers){
-          const demoUserData = demoUsers.filter(u => u.userid == userid)[0];
+          const demoUserData = demoUsers.filter(u => u.userId == userId)[0];
           this.userDemographic$.next(demoUserData);
         }
       })

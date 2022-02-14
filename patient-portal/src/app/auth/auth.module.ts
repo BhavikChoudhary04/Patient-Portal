@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AuthRoutingModule } from './auth-routing.module';
-import { LogoutComponent } from './logout/logout.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule,  } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -19,7 +18,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [AuthComponent, ResetComponent, RegisterComponent, LoginComponent, LogoutComponent],
+  declarations: [AuthComponent, ResetComponent, RegisterComponent, LoginComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,

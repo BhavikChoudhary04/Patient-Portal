@@ -18,15 +18,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
 import { MatListModule } from '@angular/material/list';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar'; 
+import { MatButtonModule } from '@angular/material/button';
 import { ImmunizationComponent } from './immunization/immunization.component';
 import { VitalsComponent } from './vitals/vitals.component';
 import { AppointmentHistoryComponent } from './appointment-history/appointment-history.component'; 
-import { MatButtonModule } from '@angular/material/button';
 import { DemographicsComponent } from './demographics/demographics.component';
 import { MedicationAllergiesComponent } from './medication-allergies/medication-allergies.component';
 import { MatRadioModule } from '@angular/material/radio';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [PatientComponent, DashboardComponent, SidenavComponent, HeaderComponent, ScheduleAppointmentComponent, PhysicianBookAppointmentDialog, ImmunizationComponent, VitalsComponent, AppointmentHistoryComponent, DemographicsComponent, MedicationAllergiesComponent],
@@ -47,7 +47,8 @@ import { MatRadioModule } from '@angular/material/radio';
     MatListModule,
     MatIconModule,
     MatButtonModule,
-    MatRadioModule
+    MatRadioModule,
+    MatFormFieldModule
   ],
   exports: [ScheduleAppointmentComponent, SidenavComponent , HeaderComponent, DashboardComponent, ImmunizationComponent, VitalsComponent]
 })

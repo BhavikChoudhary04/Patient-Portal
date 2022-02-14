@@ -15,6 +15,7 @@ export class AppComponent {
     private reportService: ReportService){
 
     this.userService.fetchAllUsers();
-    this.reportService.fetchAllReports();
+    // this.reportService.fetchAllReports();
+    // this.userService.checkLoggedInUser();
   }
 }
