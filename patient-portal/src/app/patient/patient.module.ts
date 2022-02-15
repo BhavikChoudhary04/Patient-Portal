@@ -12,8 +12,6 @@ import { MatInputModule } from '@angular/material/input';
 import { PhysicianBookAppointmentDialog, ScheduleAppointmentComponent } from './schedule-appointment/schedule-appointment.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SidenavComponent } from '../navigation/sidenav/sidenav.component';
-import { HeaderComponent } from '../navigation/header/header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
@@ -29,7 +27,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
-  declarations: [PatientComponent, DashboardComponent, SidenavComponent, HeaderComponent, ScheduleAppointmentComponent, PhysicianBookAppointmentDialog, ImmunizationComponent, VitalsComponent, AppointmentHistoryComponent, DemographicsComponent, MedicationAllergiesComponent],
+  declarations: [PatientComponent, DashboardComponent, ScheduleAppointmentComponent, PhysicianBookAppointmentDialog, ImmunizationComponent, VitalsComponent, AppointmentHistoryComponent, DemographicsComponent, MedicationAllergiesComponent],
   imports: [
     CommonModule,
     PatientRoutingModule,
@@ -50,6 +48,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatRadioModule,
     MatFormFieldModule
   ],
-  exports: [ScheduleAppointmentComponent, SidenavComponent , HeaderComponent, DashboardComponent, ImmunizationComponent, VitalsComponent]
+  exports: [ScheduleAppointmentComponent, DashboardComponent, ImmunizationComponent, VitalsComponent]
 })
 export class PatientModule { }
