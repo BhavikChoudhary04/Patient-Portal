@@ -19,7 +19,10 @@ export class AppointmentHistoryComponent implements OnInit {
   ngOnInit(): void {
     this.apService.fetchAllAppointments();
     this.apService.getAppointments().subscribe(app => {
-      this.apHistory = app
+      this.apHistory = app.filter(e => {
+        const date = new Date(e.date.split('/').reverse().join('/'));
+        return date < new Date("")
+      })
     })
   }
 
