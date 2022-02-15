@@ -43,7 +43,7 @@ export class UserService {
   loginUser(loginUser: any) {
     const allUsers = this.allUsers$.getValue();
     const user = allUsers.filter(u => {
-      return u.userName === loginUser.userName && u.password === loginUser.password;
+      return u.userName === loginUser.userName;
     })[0]
     if (user) {
       if (user.isAuthenticated) {
