@@ -11,7 +11,7 @@ export class SnackbarActionsService {
   performAction(value:string){
     switch (value){
     case "reset":
-      this.router.navigateByUrl('/auth/login');
+      this.router.navigateByUrl('/login');
       break
     default:
       return

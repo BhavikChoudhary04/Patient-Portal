@@ -29,7 +29,7 @@ export class ModalActionsService {
   private logout(modalData: any) {
     // Call an authentication service method to logout the user
     sessionStorage.clear();
-    this.router.navigateByUrl('/auth/login')
+    this.router.navigateByUrl('/login')
   }
   
 }

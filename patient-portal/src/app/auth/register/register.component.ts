@@ -148,7 +148,7 @@ export class RegisterComponent implements OnInit {
   }
 
   backToLogin(){
-    this.router.navigateByUrl('/auth/login');
+    this.router.navigateByUrl('/login');
   }
 
 }

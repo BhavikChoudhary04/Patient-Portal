@@ -25,7 +25,7 @@ export class PhysicianGuard implements CanActivateChild {
           routePermission = true
         } else {
           routePermission = false
-          this.router.navigateByUrl('/auth/login')
+          this.router.navigateByUrl('/login')
         }
       })
 
