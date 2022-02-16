@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { UserService } from 'src/app/services/user.service';
 import { UserMedicationsAllergies } from '../../shared/interfaces/user';
+import { MedicationsDialogComponent } from '../components/medications-dialog/medications-dialog.component';
 
 @Component({
   selector: 'app-medication-allergies',
@@ -9,52 +11,48 @@ import { UserMedicationsAllergies } from '../../shared/interfaces/user';
   styleUrls: ['./medication-allergies.component.css']
 })
 export class MedicationAllergiesComponent implements OnInit {
+  showMedicationDetails: boolean = false
+  userMedicationValues:[
+    {
+      current_medication:string,
+      otc: string,
+      antibiotics: string,
+      social_drugs: string,
+      past_medication: string,
+      drug_allergies: string,
+      other_allergies: string
+  }] =[{
+    current_medication:'',
+    otc: '',
+    antibiotics: '',
+    social_drugs: '',
+    past_medication: '',
+    drug_allergies: '',
+    other_allergies: ''
+  }]
 
-  medicationForm!:FormGroup
-  allMedicationsData?:UserMedicationsAllergies[]
-  userMedicationsData?:UserMedicationsAllergies
-
-  constructor(private fb:FormBuilder, private userService:UserService) { }
+  constructor(private fb:FormBuilder, private userService:UserService,public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.medicationForm = this.fb.group({
-      current_medication: ['', [Validators.required]],
-      otc: ['', [Validators.required]],
-      antibiotics: ['', Validators.required],
-      social_drugs: ['', Validators.required],
-      past_medication: [''],
-      drug_allergies: ['' ,Validators.required],
-      other_allergies: ['', Validators.required]
-    })
   }
 
-   onSubmitClick(formdata:any){
-     alert(`Medications and Allergies form data: ${JSON.stringify(formdata.value)}`)
-     this.userMedicationsData = this.medicationForm.value
-     if (this.userMedicationsData){
-      //  this.addMedicationsData(this.userMedicationsData)
-      console.log(this.userMedicationsData);
-      
-     }
-   }
+  openMediactionsDialog():void{
+    const dialogRef = this.dialog.open(MedicationsDialogComponent, {
+      width: '60%',
+      data: {message: 'opened medication form'}
+    })
 
-  // addMedicationsData(userData:UserMedicationsAllergies){
-  //   this.userService.addMedicationsData(userData).subscribe((data) => {
-  //     if(data){
-  //       const newUserData = data
-  //       console.log('pattient mediactions and allergies data submitted, new userdata: ',newUserData);
-  //     }
-  //   })
-  // }
-
-  // getDemographicsData (){
-  //   this.userService.getAllDemographicsData().subscribe((data)=>{
-  //     if(data){
-  //       this.allMedicationsData = data
-  //       console.log('allMedicationsData: ', this.allMedicationsData);
-  //     }
-  //   })
-  // }
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('the edit demographic dialog was closed');
+      const newDetails = result
+      console.log('new patient demographics details: ', result);
+      if (result){
+        this.userMedicationValues[0] = result
+        console.log('userMedicationValues', this.userMedicationValues[0]);
+        this.showMedicationDetails = true
+      }
+    })
+  }
 
 
 

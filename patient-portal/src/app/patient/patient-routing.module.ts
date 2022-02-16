@@ -7,6 +7,7 @@ import { DemographicsComponent } from './demographics/demographics.component';
 import { ImmunizationComponent } from './immunization/immunization.component';
 import { MedicationAllergiesComponent } from './medication-allergies/medication-allergies.component';
 import { PatientComponent } from './patient.component';
+import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 import { ScheduleAppointmentComponent } from './schedule-appointment/schedule-appointment.component';
 import { VitalsComponent } from './vitals/vitals.component';
 
@@ -24,6 +25,10 @@ const routes: Routes = [
       component: PatientComponent,
     // canActivateChild: [PatientGuard],
     children: [
+      {
+        path:'my-profile',
+        component: ProfileDetailsComponent
+      },
       {
         path: '',
         component: DashboardComponent
