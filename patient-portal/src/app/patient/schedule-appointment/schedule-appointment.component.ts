@@ -3,6 +3,7 @@ import {MatDialog, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dia
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
+import { AppointmentsService } from 'src/app/services/appointments.service';
 
 @Component({
   selector: 'app-schedule-appointment',
@@ -47,7 +48,8 @@ export class PhysicianBookAppointmentDialog implements OnInit {
   constructor(
     private fb:FormBuilder,
     private router:Router,
-    public dialogRef: MatDialogRef<ScheduleAppointmentComponent>
+    public dialogRef: MatDialogRef<ScheduleAppointmentComponent>,
+    private appointments: AppointmentsService
   ) {
     this.createPhysicianForm();
    }
@@ -74,6 +76,16 @@ export class PhysicianBookAppointmentDialog implements OnInit {
       console.log(this.physicianForm.value);
       // alert(this.physicianForm.value);
       this.onClose();
+      this.appointments.createAppointment(this.physicianForm.value);
+  }
+
+  resubmitPhysicianForm() {
+    if (this.physicianForm.invalid) return
+      // this.router.navigateByUrl('/login');
+      console.log(this.physicianForm.value);
+      // alert(this.physicianForm.value);
+      this.onClose();
+      this.appointments.editAppointment(this.physicianForm.value);
   }
 
   onClose() {
