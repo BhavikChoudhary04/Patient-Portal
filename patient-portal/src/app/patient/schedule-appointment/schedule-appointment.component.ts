@@ -79,15 +79,6 @@ export class PhysicianBookAppointmentDialog implements OnInit {
       this.appointments.createAppointment(this.physicianForm.value);
   }
 
-  resubmitPhysicianForm() {
-    if (this.physicianForm.invalid) return
-      // this.router.navigateByUrl('/login');
-      console.log(this.physicianForm.value);
-      // alert(this.physicianForm.value);
-      this.onClose();
-      this.appointments.editAppointment(this.physicianForm.value);
-  }
-
   onClose() {
     this.dialogRef.close();
   }
