@@ -14,44 +14,47 @@ import { VitalsComponent } from './vitals/vitals.component';
 
 //patient/dashboard
 const routes: Routes = [
-    {
-      path: '',
-      redirectTo: 'dashboard',
-      pathMatch: 'full',
-    },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'dashboard'
+  },
     {
       path: 'dashboard',
-      component: DashboardComponent,
-      // canActivateChild: [PatientGuard],
+      component: PatientComponent,
+    // canActivateChild: [PatientGuard],
+    children: [
+      {
+        path: '',
+        component: DashboardComponent
+      },
+      {
+        path: 'schedule-appointment',
+        component: ScheduleAppointmentComponent
+      },
+      {
+        path: 'appointment-history',
+        component: AppointmentHistoryComponent,
+      },
+      {
+        path: 'demographics',
+        component: DemographicsComponent
+      },
+      {
+        path: 'medications-allergies',
+        component: MedicationAllergiesComponent
+      },
+      {
+        path: 'immunization',
+        component: ImmunizationComponent
+      },
+      {
+        path: 'vitals',
+        component: VitalsComponent
+      }
+    ]
+  }
 
-      children: [
-        {
-          path:'schedule-appointment',
-          component:ScheduleAppointmentComponent
-        },
-        {
-          path: 'appointment-history',
-          component: AppointmentHistoryComponent,
-        },
-        {
-          path: 'demographics',
-          component:DemographicsComponent
-        },
-        {
-          path: 'medications-allergies',
-          component:MedicationAllergiesComponent
-        },
-        {
-          path: 'immunization',
-          component: ImmunizationComponent
-        },
-        {
-          path: 'vitals',
-          component: VitalsComponent
-        }
-      ]
-    }
-    
 ];
 
 @NgModule({

@@ -31,10 +31,10 @@ export class LoginComponent implements OnInit {
   }
 
 
-  async loginDetails() {
+  loginDetails() {
     const user: LoginUser = this.loginForm.value
 
-    await this.userService.loginUser(user)
+    this.userService.loginUser(user)
     let loggedInUser = {}
 
     this.userService.getLoggedInUser().subscribe(user => {

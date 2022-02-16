@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { ModalComponent } from 'src/app/shared/modal/modal.component';
+import { AppointmentsService } from 'src/app/services/appointments.service';
+import { Appointment } from 'src/app/shared/interfaces/appointment';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,24 +9,58 @@ import { ModalComponent } from 'src/app/shared/modal/modal.component';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(public matDialog: MatDialog) { }
+  startDate!:Date 
+  endDate!:Date
+  
+  allAppointments!: Appointment[]
+  displayAppointments!: Appointment[]
+
+
+
+  constructor(private apService: AppointmentsService) { }
 
   ngOnInit(): void {
+    this.apService.fetchAllAppointments();
+    this.apService.getAppointments().subscribe(app => {
+      this.allAppointments = app
+      this.displayAppointments = this.allAppointments.filter(e => {
+        const date = new Date(e.date.split('/').reverse().join('/'));        
+        return date >= new Date();
+      })
+    })
   }
 
-  openLogoutModal() {
-    const dialogConfig = new MatDialogConfig();
-    // The user can't close the dialog by clicking outside its body
-    dialogConfig.disableClose = true;
-    dialogConfig.id = "modal-component";
-    dialogConfig.height = "180px";
-    dialogConfig.width = "350px";
-    dialogConfig.data = {
-      name: "logout",
-      title: "Are you sure you want to logout?",
-      // description: ":)",
-      actionButtonText: "Logout"
-    }
-    const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
+  assignStartDate(date:Date){
+    this.startDate=date
+    this.checkAppointments();
   }
+
+  assignEndDate(date:Date){
+    this.endDate=date
+    this.checkAppointments();
+  }
+
+  checkAppointments(){
+    
+    if (this.startDate && this.endDate){
+      this.displayAppointments = this.allAppointments.filter(e => {
+        const date = new Date(e.date.split('/').reverse().join('/'));        
+        return date <= this.endDate && date >= this.startDate
+      })
+    } else if (this.startDate){
+      this.displayAppointments = this.allAppointments.filter(e => {
+        const date = new Date(e.date.split('/').reverse().join('/'));
+        return date >= this.startDate
+      })
+    } else if (this.endDate){
+      this.displayAppointments = this.allAppointments.filter(e => {
+        const date = new Date(e.date.split('/').reverse().join('/'));
+        return date <= this.endDate
+      })
+    } else {
+      this.displayAppointments = this.allAppointments
+    }
+  }
+
+  
 }
