@@ -21,7 +21,7 @@ export class AppointmentHistoryComponent implements OnInit {
     this.apService.getAppointments().subscribe(app => {
       this.apHistory = app.filter(e => {
         const date = new Date(e.date.split('/').reverse().join('/'));
-        return date < new Date("")
+        return date < new Date()
       })
     })
   }
