@@ -1,0 +1,22 @@
+.my-profile-section{
+    padding: 3%;
+    text-align: center;
+}
+
+.header{
+    text-align: center;
+    text-transform: uppercase;
+    color: rgb(149 154 160)
+}
+
+.img-div{
+    padding: 6% 0 0 2%;
+}
+
+img{
+    border-radius: 50%;
+}
+
+strong{
+    text-align: left;
+}

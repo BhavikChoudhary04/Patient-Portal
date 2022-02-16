@@ -1,64 +1,63 @@
-<!--<mat-card class="medications-card">
-        <mat-card-title class="title">Medications And Allergies</mat-card-title>
-        <mat-card-content>
-            
-        </mat-card-content>
-    </mat-card>
- -->
- <div class="section-medications">
-    <h1 class="title">Medications And Allergies</h1>
-<form [formGroup]="medicationForm" (ngSubmit)="onSubmitClick(medicationForm)">
-    <div class="input-fields">
-        <mat-form-field  class="form-element" appearance="legacy">
-            <mat-label>Current Medications</mat-label>
-            <textarea matInput formControlName="current_medication" placeholder="Enter Current Medications"></textarea>
-            <mat-error *ngIf="(medicationForm.get('current_medication')) !.errors?.required">This field is required</mat-error>
-        </mat-form-field>
+<div class="show-initial-details" *ngIf="true">
+    <h1 [ngStyle]="{'text-transform': 'uppercase'}">Medications And Allergies</h1>
+    <mat-divider></mat-divider>
+    <div class="show-medications">
+        
+        <ng-container *ngIf="showMedicationDetails">
+            <mat-list *ngFor="let medidetail of userMedicationValues">
+                <mat-list-item class="row">
+                    <mat-label class="col-lg-6">Ethnicity </mat-label>
+                    <div class="col-lg-6">
+                        <strong>{{medidetail.current_medication}}</strong>
+                    </div>
+                </mat-list-item>
+                <mat-list-item class="row">
+                    <mat-label class="col-lg-6">Education </mat-label>
+                    <div class="col-lg-6">
+                        <strong>{{medidetail.otc}}</strong>
+                    </div>
+                </mat-list-item>
+                <mat-list-item class="row">
+                    <mat-label class="col-lg-6">Occupation </mat-label>
+                    <div class="col-lg-6">
+                        <strong>{{medidetail.antibiotics}}</strong>
+                    </div>
+                </mat-list-item>
+                <mat-list-item class="row">
+                    <mat-label class="col-lg-6">Contact Info </mat-label>
+                    <div class="col-lg-6">
+                        <strong>{{medidetail.social_drugs}}</strong>
+                    </div>
+                </mat-list-item>
+                <mat-list-item class="row">
+                    <mat-label class="col-lg-6">Medical History </mat-label>
+                    <div class="col-lg-6">
+                        <strong>{{medidetail.past_medication}}</strong>
+                    </div>
+                </mat-list-item>
+                <mat-list-item class="row">
+                    <mat-label class="col-lg-6">Famil Medical History </mat-label>
+                    <div class="col-lg-6">
+                        <strong>{{medidetail.drug_allergies}}</strong>
+                    </div>
+                </mat-list-item>
+                <mat-list-item class="row">
+                    <mat-label class="col-lg-6">Surgeries </mat-label>
+                    <div class="col-lg-6">
+                        <strong>{{medidetail.other_allergies}}</strong>
+                    </div>
+                </mat-list-item>
+            </mat-list>
+        </ng-container>
     </div>
-    <div class="input-fields">
-        <mat-form-field  class="form-element" appearance="legacy">
-            <mat-label>OTC medication</mat-label>
-            <textarea matInput formControlName="otc" placeholder="Enter OTC(over the counter) medication"></textarea>
-            <mat-error *ngIf="(medicationForm.get('otc')) !.errors?.required">This field is required</mat-error>
-        </mat-form-field>
+    <div class="buttons-footer row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <button mat-raised-button color="primary" class="demo-btn" (click)="openMediactionsDialog()">Add Medication and Allergies Details</button>
+        </div>
+        <div class="col-lg-4"></div>
     </div>
-    <div class="input-fields">
-        <mat-form-field  class="form-element" appearance="legacy">
-            <mat-label>Herbs/Vitamin/Minerals/Antibiotic</mat-label>
-            <textarea matInput formControlName="antibiotics" placeholder="Enter Herbs/Vitamin/Minerals/Antibiotic"></textarea>
-            <mat-error *ngIf="(medicationForm.get('antibiotics')) !.errors?.required">This field is required</mat-error>
-        </mat-form-field>
-    </div>
-    <div class="input-fields">
-        <mat-form-field  class="form-element" appearance="legacy">
-            <mat-label>Social Drugs</mat-label>
-            <textarea matInput formControlName="social_drugs" placeholder="Enter social drugs"></textarea>
-            <mat-error *ngIf="(medicationForm.get('social_drugs')) !.errors?.required">This field is required</mat-error>
-        </mat-form-field>
-    </div>
-    <div class="input-fields">
-        <mat-form-field  class="form-element" appearance="legacy">
-            <mat-label>Past Medications</mat-label>
-            <textarea matInput formControlName="past_medication" placeholder="Any past prescribed medicine"></textarea>
-        </mat-form-field>
-    </div>
-    <div class="input-fields">
-        <mat-form-field  class="form-element" appearance="legacy">
-            <mat-label>Drug Allergies</mat-label>
-            <textarea matInput formControlName="drug_allergies" placeholder="Enter Drug Allergies"></textarea>
-            <mat-error *ngIf="(medicationForm.get('drug_allergies')) !.errors?.required">This field is required</mat-error>
-        </mat-form-field>
-    </div>
-    <div class="input-fields">
-        <mat-form-field  class="form-element" appearance="legacy">
-            <mat-label>Other Allergies</mat-label>
-            <textarea matInput formControlName="other_allergies" placeholder="Enter Other Allergies"></textarea>
-            <mat-error *ngIf="(medicationForm.get('other_allergies')) !.errors?.required">This field is required</mat-error>
-        </mat-form-field>
-    </div>
-
-    <div class="btn-position">
-        <button mat-raised-button  class="btn-width" color="primary" type="submit" [disabled]="!medicationForm.valid">Update Details</button>
-    </div>
-</form>
 </div>
+
+
+ 

@@ -24,10 +24,15 @@ import { AppointmentHistoryComponent } from './appointment-history/appointment-h
 import { DemographicsComponent } from './demographics/demographics.component';
 import { MedicationAllergiesComponent } from './medication-allergies/medication-allergies.component';
 import { MatRadioModule } from '@angular/material/radio';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { DemographicsDialogComponent } from './components/demographics-dialog/demographics-dialog.component';
+import { MedicationsDialogComponent } from './components/medications-dialog/medications-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ProfileDetailsComponent } from './profile-details/profile-details.component';
+
 
 @NgModule({
-  declarations: [PatientComponent, DashboardComponent, ScheduleAppointmentComponent, PhysicianBookAppointmentDialog, ImmunizationComponent, VitalsComponent, AppointmentHistoryComponent, DemographicsComponent, MedicationAllergiesComponent],
+  declarations: [PatientComponent, DashboardComponent, ScheduleAppointmentComponent, PhysicianBookAppointmentDialog, ImmunizationComponent, VitalsComponent, AppointmentHistoryComponent, DemographicsComponent, MedicationAllergiesComponent, DemographicsDialogComponent, MedicationsDialogComponent, ProfileDetailsComponent],
   imports: [
     CommonModule,
     PatientRoutingModule,
@@ -46,7 +51,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatIconModule,
     MatButtonModule,
     MatRadioModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDialogModule
   ],
   exports: [ScheduleAppointmentComponent, DashboardComponent, ImmunizationComponent, VitalsComponent]
 })

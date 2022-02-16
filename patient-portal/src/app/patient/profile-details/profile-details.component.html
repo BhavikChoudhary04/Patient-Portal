@@ -1,0 +1,37 @@
+<div class="my-profile-section row">
+    <h1 class="col-lg-12 header">My Profile</h1>
+    <mat-divider class="col-lg-12 pb-3"></mat-divider>
+    <div class="col-lg-4 img-div">
+        <img src="../../../assets/images/demo-user.png" alt="profile image" width="150" height="150">
+    </div>
+    <div class="col-lg-8 pt-3" *ngIf="showDetails">
+        <div class="row p-2">
+            <label for="firstname" class="col-lg-4">First Name: </label>
+            <strong class="col-lg-8">{{userDetail[0].firstName}}</strong>
+        </div>
+        <div class="row p-2">
+            <label for="firstname" class="col-lg-4">Last Name: </label>
+            <strong class="col-lg-8">{{userDetail[0].lastName}}</strong>
+        </div>
+        <div class="row p-2">
+            <label for="firstname" class="col-lg-4">User Name/ID: </label>
+            <strong class="col-lg-8">{{userDetail[0].userName}}</strong>
+        </div>
+        <div class="row p-2">
+            <label for="firstname" class="col-lg-4">Email: </label>
+            <strong class="col-lg-8">{{userDetail[0].email}}</strong>
+        </div>
+        <div class="row p-2">
+            <label for="firstname" class="col-lg-4">Role: </label>
+            <strong class="col-lg-8" readonly>{{userDetail[0].role}}</strong>
+        </div>
+        <div class="row p-2">
+            <label for="firstname" class="col-lg-4">Date Of Borth: </label>
+            <strong class="col-lg-8">{{userDetail[0].dob}}</strong>
+        </div>
+        <div class="row p-2">
+            <label for="firstname" class="col-lg-4">Mobile: </label>
+            <strong class="col-lg-8">{{userDetail[0].mobile}}</strong>
+        </div>
+    </div>
+</div>
