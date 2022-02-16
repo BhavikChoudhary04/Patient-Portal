@@ -32,7 +32,7 @@ export class ResetComponent implements OnInit {
     } else if (param == 'password'){
       this.data = 'Password'
     } else {
-      this.router.navigateByUrl('/auth/login')
+      this.router.navigateByUrl('/login')
     }
   }
 
@@ -44,7 +44,7 @@ export class ResetComponent implements OnInit {
   }
 
   backToLogin(){
-    this.router.navigateByUrl('/auth/login')
+    this.router.navigateByUrl('/login')
   }
 
   reset(e:Event){

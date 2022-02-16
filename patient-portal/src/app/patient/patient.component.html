@@ -1,1 +1,65 @@
-<!-- <router-outlet></router-outlet> -->
+<!-- <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+<mat-sidenav-container>
+  <mat-sidenav class="mat-side-nav-background" opened="true" #sidenav role="navigation" mode="side">
+    
+    <app-sidenav (sidenavClose)="sidenav.close()"></app-sidenav>
+  </mat-sidenav>
+  
+  <mat-sidenav-content class="mat-side-nav-content-background">
+   
+
+    <h2 style="text-align: center;">Patient Dashboard </h2>
+  </mat-sidenav-content>
+</mat-sidenav-container> -->
+
+<mat-toolbar>
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+      </button>
+      <h1>Patient Portal</h1>
+      <span class="menu-spacer"></span>
+      <div class="logout-btn">
+        <button mat-raised-button color="warn" (click)= "openLogoutModal()">Logout</button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav opened mode="side">
+      <mat-nav-list>
+         <div class="list-item">
+            <a mat-list-item [routerLink]="['/patient/dashboard']">Dashboard</a>
+        </div>
+        <!-- <div class="list-item">
+            <a mat-list-item [routerLink]="['patient-profile-page']">My Profile</a>
+        </div> -->
+        <div class="list-item">
+            <a mat-list-item [routerLink]="['schedule-appointment']">Schedule Appoinment</a>
+        </div>
+        <div class="list-item">
+            <a mat-list-item [routerLink]="['appointment-history']">Appoinment History</a>
+        </div>
+        <div class="list-item">
+            <a mat-list-item [routerLink]="['demographics']">Demographics</a>
+  
+        </div>
+        <div class="list-item">
+            <a mat-list-item [routerLink]="['medications-allergies']">Medication and Allergies</a>
+  
+        </div>
+        <div class="list-item">
+            <a mat-list-item [routerLink]="['immunization']">Immunization Details</a>
+  
+        </div>
+        <div class="list-item">
+            <a mat-list-item [routerLink]="['vitals']">Patient Vitals</a>
+        </div>
+  
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container> 
+  

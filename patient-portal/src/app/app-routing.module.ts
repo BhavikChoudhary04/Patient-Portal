@@ -6,10 +6,10 @@ import { VitalsComponent } from './patient/vitals/vitals.component';
 import { PatientGuard } from './shared/guards/patient.guard';
 import { PhysicianGuard } from './shared/guards/physician.guard';
 import { AdminGuard } from './shared/guards/admin.guard';
+import { LoginComponent } from './auth/login/login.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'auth', pathMatch: 'full' },
   { path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
   {
@@ -36,12 +36,10 @@ const routes: Routes = [
   {
     path: 'vitals',
     component: VitalsComponent
+  },
+  {
+    path: '**', component: LoginComponent
   }
-  // {
-  //   path: '**', 
-  //   redirectTo: 'auth/login',
-  //   loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
-  // }
 ];
 
 @NgModule({
