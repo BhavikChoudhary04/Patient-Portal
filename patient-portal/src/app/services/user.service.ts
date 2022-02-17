@@ -75,7 +75,7 @@ export class UserService {
   }
 
   registerUser(registerUser: RegisterUser) {
-    this.http.post<RegisterUser>(`${this.API_URL_USERS}`, registerUser).subscribe(user => {
+    this.http.post<RegisterUser>(`${this.API_URL_USERS}/users`, registerUser).subscribe(user => {
       if (user) {
         const users = this.allUsers$.getValue();
         this.allUsers$.next(users.concat(user));

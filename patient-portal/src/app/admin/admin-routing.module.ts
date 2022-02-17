@@ -5,23 +5,26 @@ import { AdminComponent } from './admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path: '', 
-  // canActivateChild: [ AdminGuard ],
-  children: [
-    {
-      path: '',
-      redirectTo: 'dashboard',
-      pathMatch: 'full'
-    },
-    { 
-      path: 'dashboard', 
-      component: DashboardComponent
-    },
-    {
-      path: '**', 
-      redirectTo: 'dashboard'
-    }
-]
+
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'dashboard'
+  },
+  {
+    path: 'dashboard',
+    component: AdminComponent,
+    // canActivateChild: [ AdminGuard ],
+    children: [
+      {
+        path: '',
+        component: DashboardComponent
+      },
+      {
+        path: '**',
+        redirectTo: 'dashboard'
+      }
+    ]
   }]
 
 @NgModule({
