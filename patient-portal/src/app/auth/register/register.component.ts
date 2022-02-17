@@ -135,6 +135,8 @@ export class RegisterComponent implements OnInit {
       //remove confirmPassword and add isAuthenticated
       const {confirmPassword,...rest} = userDetails;
       const user:RegisterUser = {...rest, isAuthenticated:false}
+      console.log(user);
+      
       this.userService.registerUser(user);
     }
 

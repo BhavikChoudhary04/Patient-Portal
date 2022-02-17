@@ -20,3 +20,13 @@ img{
 strong{
     text-align: left;
 }
+
+button .mat-primary{
+    background-color: rgb(236, 255, 208);
+    color: rgb(10, 94, 10);
+    padding: auto 10px;
+}
+
+.mat-drawer-inner-container::-webkit-scrollbar {
+    display: none;
+}
