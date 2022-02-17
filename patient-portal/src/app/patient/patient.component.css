@@ -1,6 +1,6 @@
 
 mat-sidenav{
-    width: 20%;
+    width: 18%;
 }
 
 .list-item{
@@ -22,8 +22,14 @@ h1{
 }
 
 .logout-btn{
-    margin-left: 75%;
+    position: fixed;
+    right: 5%;
 
+}
+
+.menu-spacer{
+    position: fixed;
+   left: 35%;
 }
 
 /* mat-toolbar{

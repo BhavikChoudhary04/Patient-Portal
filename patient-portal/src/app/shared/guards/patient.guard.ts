@@ -25,6 +25,7 @@ export class PatientGuard implements CanActivateChild {
           routePermission = true
         } else {
           routePermission = false
+          sessionStorage.clear();
           this.router.navigateByUrl('/login')
         }
       })

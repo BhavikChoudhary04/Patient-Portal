@@ -7,6 +7,13 @@ import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar'; 
+
+
+
 
 
 
@@ -25,7 +32,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatButtonModule,
     MatSnackBarModule,
     MatFormFieldModule,
-    GoogleChartsModule
+    GoogleChartsModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatToolbarModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
