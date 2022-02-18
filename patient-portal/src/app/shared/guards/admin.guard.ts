@@ -28,7 +28,7 @@ export class AdminGuard implements CanActivateChild {
           alert("This website does not allow page refresh. Kindly login again to continue on the webpage.")
           routePermission = false
           sessionStorage.clear();
-          this.router.navigateByUrl('/login')
+          this.router.navigateByUrl('/auth/login')
         }
       })
 
