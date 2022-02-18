@@ -70,7 +70,7 @@ export class PhysicianBookAppointmentDialog implements OnInit {
 
   submitPhysicianForm(){
     if (this.physicianForm.invalid) return
-      // this.router.navigateByUrl('/login');
+      // this.router.navigateByUrl('/auth/login');
       console.log(this.physicianForm.value);
       // alert(this.physicianForm.value);
       this.onClose();
