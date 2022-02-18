@@ -9,11 +9,19 @@ import { ModalComponent } from 'src/app/shared/modal/modal.component';
 })
 
 export class PatientComponent implements OnInit {
+
+  name!:string
+  
   constructor(public matDialog: MatDialog) {
     
    }
 
   ngOnInit(): void {
+    const sessionUser = sessionStorage.getItem("user")
+   if (sessionUser){
+     const user = JSON.parse(sessionUser)
+     this.name = user.firstName
+   }
   }
 
   openLogoutModal() {

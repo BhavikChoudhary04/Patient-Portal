@@ -10,8 +10,9 @@ import { LoginComponent } from './auth/login/login.component';
 
 
 const routes: Routes = [
-  { path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
+  { path: '',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
   {
     path: 'patient',
     loadChildren: () => import('./patient/patient.module').then(m => m.PatientModule),

@@ -1,0 +1,43 @@
+
+mat-sidenav{
+    width: 18%;
+}
+
+.list-item{
+    padding: 3% 3%;
+  
+
+}
+
+mat-toolbar{
+    padding: 1%;
+}
+
+button{
+    margin: 0 16px;
+}
+
+h1{
+    margin: 0 16px;
+}
+
+.logout-btn{
+    position: fixed;
+    right: 5%;
+
+}
+
+.menu-spacer{
+    position: fixed;
+   left: 35%;
+}
+
+/* mat-toolbar{
+    background-color: rgb(140, 117, 247);
+    color: azure;
+}
+
+mat-sidenav{
+    background-color: rgb(157, 193, 228);
+    color: azure;
+} */

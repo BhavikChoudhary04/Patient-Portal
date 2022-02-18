@@ -1,21 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject } from 'rxjs';
 import { AppComponent } from '../app.component';
 import { Appointment } from '../shared/interfaces/appointment';
+import { SnackbarComponent } from '../shared/snackbar/snackbar.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppointmentsService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
   private API_URL = 'http://127.0.0.1:3000';
 
-  private appointments$:BehaviorSubject<Appointment[]> = new BehaviorSubject<Appointment[]>([]);
+  private appointments$: BehaviorSubject<Appointment[]> = new BehaviorSubject<Appointment[]>([]);
 
-  private physician$:BehaviorSubject<object[]> = new BehaviorSubject<object[]>([
+  private physician$: BehaviorSubject<object[]> = new BehaviorSubject<object[]>([
     {
       "name": "Harry",
       "availableDate": [
@@ -77,44 +79,143 @@ export class AppointmentsService {
       ]
     }
   ]);
-  
-  fetchAllAppointments(){
-    this.http.get<Appointment[]>(`${this.API_URL}/appointment-history`).subscribe(app => {
-      if (app.length){
+
+  async fetchAllAppointments() {
+    try {
+      const app = await this.http.get<Appointment[]>(`${this.API_URL}/appointment-history`).toPromise();
+    
+      if (app.length) {
         this.appointments$.next(app);
+      } else {
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          data: {
+            message: `Server error. Please try again.`,
+            btn: "OK",
+            action: ""
+          }
+        });
       }
-    })
+    } catch (err) {
+      this.snackBar.openFromComponent(SnackbarComponent, {
+        data: {
+          message: `Server error. Please try again.`,
+          btn: "OK",
+          action: ""
+        }
+      });
+    }
+  
   }
 
-  editAppointment(app:Appointment){
-    this.http.put<Appointment>(`${this.API_URL}/appointment-history/${app.id}`, app).subscribe(app => {
-      if (app){
+  async editAppointment(app: Appointment) {
+    try {
+      const appt = await this.http.put<Appointment>(`${this.API_URL}/appointment-history/${app.id}`, app).toPromise();
+  
+      if (appt) {
         const apps = this.appointments$.getValue();
         const updatedApps = apps.filter(a => a.id != app.id)
-        this.appointments$.next(updatedApps.concat(app));
+        this.appointments$.next(updatedApps.concat(appt));
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          data: {
+            message: `Your details have been saved.`,
+            btn: "OK",
+            action: ""
+          }
+        });
+      } else {
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          data: {
+            message: `Server error. Please try again.`,
+            btn: "OK",
+            action: ""
+          }
+        });
       }
-    })
+    } catch (err) {
+      this.snackBar.openFromComponent(SnackbarComponent, {
+        data: {
+          message: `Server error. Please try again.`,
+          btn: "OK",
+          action: ""
+        }
+      });
+    }
+  
   }
 
-  deleteAppointment(app:Appointment){
-    this.http.delete(`${this.API_URL}/appointment-history/${app.id}`).subscribe(appointment => {
+  async deleteAppointment(app: Appointment) {
+    try {
+      await this.http.delete(`${this.API_URL}/appointment-history/${app.id}`).toPromise();
+      const appointment = await this.http.get<Appointment[]>(`${this.API_URL}/appointment-history?id=${app.id}`).toPromise();
+      
+      if (appointment.length) {
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          data: {
+            message: `Server error. Please try again.`,
+            btn: "OK",
+            action: ""
+          }
+        });
+      } else {
         const apps = this.appointments$.getValue();
         const updatedApps = apps.filter(a => a.id != app.id)
         this.appointments$.next(updatedApps);
-      
-    })
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          data: {
+            message: `Appointment deleted.`,
+            btn: "OK",
+            action: ""
+          }
+        });
+      }
+    } catch (err) {
+      this.snackBar.openFromComponent(SnackbarComponent, {
+        data: {
+          message: `Server error. Please try again.`,
+          btn: "OK",
+          action: ""
+        }
+      });
+    }
+
   }
 
-  createAppointment(app:Appointment){
-    this.http.post<Appointment>(`${this.API_URL}/appointment-history`, app).subscribe(appointment => {
-      if (appointment){
+  async createAppointment(app: Appointment) {
+    try {
+      const appointment = await this.http.post<Appointment>(`${this.API_URL}/appointment-history`, app).toPromise();
+
+      if (appointment) {
         const apps = this.appointments$.getValue();
         this.appointments$.next(apps.concat(appointment))
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          data: {
+            message: `New appointment scheduled.`,
+            btn: "OK",
+            action: ""
+          }
+        });
+      } else {
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          data: {
+            message: `Server error. Please try again.`,
+            btn: "OK",
+            action: ""
+          }
+        });
       }
-    })
+    } catch (err) {
+      this.snackBar.openFromComponent(SnackbarComponent, {
+        data: {
+          message: `Server error. Please try again.`,
+          btn: "OK",
+          action: ""
+        }
+      });
+    }
+
   }
 
-  getAppointments(){
+  getAppointments() {
     return this.appointments$.asObservable();
   }
 

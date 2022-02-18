@@ -69,7 +69,7 @@
       "role": "patient",
       "dob": "29/01/1997",
       "mobile": "9876543215",
-      "password": "$2a$10$lEB4s8x43FdfJ3oUzNrFU.EVUFL1Hts9k0jlgjyHR2YZVY0X1bSiW",
+      "password": "$2a$10$atUi2Wrz7X1UjJz6MiGL0.JhWl.2uMn1qzu7XLKuGO3lCmDYBzvkS",
       "isAuthenticated": true
     },
     {
@@ -105,7 +105,7 @@
       "mobile": "8989776654",
       "role": "patient",
       "email": "JohnR@gmail.com",
-      "password":"Hello@123",
+      "password": "$2a$10$SjOHaRfOwDsFdHBwaJf9buSHNf5DW9Jhqn5IpyaVNLMQFkf0Uh7VO",
       "isAuthenticated": false
     }
   ],
@@ -385,7 +385,7 @@
     },
     {
       "id": 506,
-      "date": "29/03/2022",
+      "date": "14/03/2022",
       "physician": "Matt Murdock",
       "speciality": "Pediatrician",
       "time": "05:00 PM",
@@ -394,7 +394,7 @@
     },
     {
       "id": 507,
-      "date": "14/03/2022",
+      "date": "29/03/2022",
       "physician": "Carl Lucas",
       "speciality": "Cardiologist",
       "time": "07:00 PM",
@@ -418,6 +418,70 @@
       "time": "10:40 AM",
       "status": "Cancelled",
       "notes": "8 hours of fasting required."
+    }
+  ],
+
+  "payment-history": [
+    {
+      "id":601,
+      "invoiceNumber":"IN1278965",
+      "mode": "UPI",
+      "amount": "$ 249",
+      "procedureCode": "001637A"
+    },
+    {
+      "id":602,
+      "invoiceNumber":"IN1277890",
+      "mode": "Credit Card",
+      "amount": "$ 394",
+      "procedureCode": "001U074"
+    },
+    {
+      "id":603,
+      "invoiceNumber":"IN1276324",
+      "mode": "Net Banking",
+      "amount": "$ 702",
+      "procedureCode": "005G4ZZ"
+    },
+    {
+      "id":604,
+      "invoiceNumber":"IN1134586",
+      "mode": "Credit Card",
+      "amount": "$ 126",
+      "procedureCode": "00910ZZ"
+    }
+  ],
+
+  "immunization": [
+    {
+      "id": 701,
+      "userId": 103,
+      "vaccines": [{
+        "name": "COVID-19",
+        "doses": 2,
+        "lastDoseDate": "09/11/2021"
+      },
+      {
+        "name": "Hepatitis",
+        "doses": 1,
+        "lastDoseDate": "23/08/2020"
+      }
+    ]
+    },
+    {
+      "id": 702,
+      "userId": 107,
+      "vaccines": [{
+        "name": "COVID-19",
+        "doses": 1,
+        "lastDoseDate": "13/12/2021"
+      },
+      {
+        "name": "Rotavirus",
+        "doses": 1,
+        "lastDoseDate": "23/01/2022"
+      }
+    ]
     }
   ]
 }
