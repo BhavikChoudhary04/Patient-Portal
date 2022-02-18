@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { RegisterUser, LoginUser, UserDemographic, UserMedicationsAllergies } from '../shared/interfaces/user';
+import { SnackbarComponent } from '../shared/snackbar/snackbar.component';
 import { DemographicService } from './demographic.service';
 import { ReportService } from './report.service';
 
@@ -28,80 +30,153 @@ export class UserService {
     password: "",
     isAuthenticated: false
   })
+  private user:RegisterUser = {
+  id: 0,
+  firstName: "",
+  lastName: "",
+  userName: "",
+  email: "",
+  role: "",
+  dob: "",
+  mobile: "",
+  password: "",
+  isAuthenticated: false
+}
 
 
-  constructor(private http: HttpClient, private demoService: DemographicService, private reportService: ReportService) { }
+  constructor(private http: HttpClient, private demoService: DemographicService, private snackBar: MatSnackBar) { }
+  
 
-  fetchAllUsers(): void {
-    this.http.get<RegisterUser[]>(`${this.API_URL_USERS}/users`).subscribe(users => {
-      if (users) {
+  async fetchAllUsers(): Promise<void> {
+    
+    const users = await this.http.get<RegisterUser[]>(`${this.API_URL_USERS}/users`).toPromise();
+      if (users.length) {
         this.allUsers$.next(users);
-      }
-    })
-  }
-
-  loginUser(loginUser: any) {
-    const allUsers = this.allUsers$.getValue();
-    const user = allUsers.filter(u => {
-      return u.userName === loginUser.userName;
-    })[0]
-    if (user) {
-      if (user.isAuthenticated) {
-        this.http.post<LoginUser>(`${this.API_URL_USERS}/login`, { email: user.email, password: loginUser.password }).subscribe(res => {
-          this.token$.next(res.accessToken)
-          this.loggedInUser$.next(res.user);
-          if (res.user.role == "patient") {
-            this.demoService.fetchDemographicData(user.id);
+        this.unAuthenticatedUsers();
+      } else {
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          data: {
+            message: `Server error. Please try again.`,
+            btn: "OK",
+            action: ""
           }
-          this.reportService.fetchAllReports();
-          this.unAuthenticatedUsers();
-          const { password, isAuthenticated, mobile, dob, ...rest } = res.user
-          sessionStorage.setItem("user", JSON.stringify(rest))
-        })
-
-
-        // ,err=>{
-        //   console.log(12345);
-
-        //   return new Error("Server error")
-
-        // })
+        });
       }
-    }
-
-    // return new Promise(res => {
-    //   res("Not processed")
-    // })
   }
 
-  registerUser(registerUser: RegisterUser) {
-    this.http.post<RegisterUser>(`${this.API_URL_USERS}/users`, registerUser).subscribe(user => {
+  async loginUser(loginUser: any) {
+try {
+    const users = await this.http.get<RegisterUser[]>(`${this.API_URL_USERS}/users?userName=${loginUser.userName}`).toPromise();
+      if (users.length) {
+        this.loggedInUser$.next(users[0]);
+        this.user = users[0]
+        if (this.user.id && this.user.id > 0) {
+          if (this.user.isAuthenticated) {
+            this.http.post<LoginUser>(`${this.API_URL_USERS}/login`, { email: this.user.email, password: loginUser.password }).subscribe(res => {
+              this.token$.next(res.accessToken)
+              this.loggedInUser$.next(res.user);
+              const { password, isAuthenticated, mobile, dob, ...rest } = res.user
+              sessionStorage.setItem("user", JSON.stringify(rest))
+            })
+          }
+        }
+      }
+    } catch (err){
+      this.snackBar.openFromComponent(SnackbarComponent, {
+        data: {
+          message: `Server error. Please try again.`,
+          btn: "OK",
+          action: ""
+        }
+      });
+    }
+    
+  }
+
+  async registerUser(registerUser: RegisterUser) {
+    try {
+    const user = await this.http.post<RegisterUser>(`${this.API_URL_USERS}/users`, registerUser).toPromise()
+    // .subscribe(user => {
+      
       if (user) {
         const users = this.allUsers$.getValue();
         this.allUsers$.next(users.concat(user));
         this.demoService.createUserDemographic(user);
       }
-    })
+    } catch (err){
+      this.snackBar.openFromComponent(SnackbarComponent, {
+        data: {
+          message: `Server error. Please try again.`,
+          btn: "OK",
+          action: ""
+        }
+      });
+    }
+    // })
   }
 
-  deleteUser(id: number | undefined) {
-    this.http.delete<RegisterUser>(`${this.API_URL_USERS}/users/${id}`).subscribe(user => {
-      const users = this.allUsers$.getValue();
-      const updatedUsers = users.filter(u => u.id !== id)
-      this.allUsers$.next(updatedUsers);
-      this.unAuthenticatedUsers();
-    })
+  async deleteUser(id: number | undefined) {
+    try {
+    await this.http.delete<RegisterUser>(`${this.API_URL_USERS}/users/${id}`).toPromise();
+    const user = await this.http.get<RegisterUser[]>(`${this.API_URL_USERS}/users?id=${id}`).toPromise();
+      if (user.length){
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          data: {
+            message: `Server error. Please try again.`,
+            btn: "OK",
+            action: ""
+          }
+        });
+      }else {
+        const users = this.allUsers$.getValue();
+        const updatedUsers = users.filter(u => u.id !== id)
+        this.allUsers$.next(updatedUsers);
+        this.unAuthenticatedUsers();
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          data: {
+            message: `User deleted.`,
+            btn: "OK",
+            action: ""
+          }
+        });
+      }
+    } catch (err){
+      this.snackBar.openFromComponent(SnackbarComponent, {
+        data: {
+          message: `Server error. Please try again.`,
+          btn: "OK",
+          action: ""
+        }
+      });
+    }
   }
 
-  authenticateUser(registeredUser: RegisterUser) {
-    this.http.put<RegisterUser>(`${this.API_URL_USERS}/660/users/${registeredUser.id}`, { ...registeredUser, "isAuthenticated": true }).subscribe(value => {
+  async authenticateUser(registeredUser: RegisterUser) {
+    try {
+    const value = await this.http.put<RegisterUser>(`${this.API_URL_USERS}/660/users/${registeredUser.id}`, { ...registeredUser, "isAuthenticated": true }).toPromise();
       if (value) {
         const users = this.allUsers$.getValue();
         const updatedUsers = users.filter(user => user.id !== value.id)
         this.allUsers$.next(updatedUsers.concat(value));
         this.unAuthenticatedUsers();
+      } else {
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          data: {
+            message: `Server error. Please try again.`,
+            btn: "OK",
+            action: ""
+          }
+        });
       }
-    })
+    } catch (err){
+      this.snackBar.openFromComponent(SnackbarComponent, {
+        data: {
+          message: `Server error. Please try again.`,
+          btn: "OK",
+          action: ""
+        }
+      });
+    }
   }
 
   unAuthenticatedUsers() {

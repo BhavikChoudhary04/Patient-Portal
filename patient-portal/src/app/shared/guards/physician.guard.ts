@@ -24,6 +24,7 @@ export class PhysicianGuard implements CanActivateChild {
         if (user.role == 'physician' && loggedInSessionUser?.role == 'physician'){
           routePermission = true
         } else {
+          alert("This website does not allow page refresh. Kindly login again to continue on the webpage.")
           routePermission = false
           sessionStorage.clear();
           this.router.navigateByUrl('/login')
