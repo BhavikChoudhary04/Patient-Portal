@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate {
       }
 
     sessionStorage.clear();
-    this.router.navigateByUrl('/login')
+    this.router.navigateByUrl('/auth/login')
     return false
   }
   

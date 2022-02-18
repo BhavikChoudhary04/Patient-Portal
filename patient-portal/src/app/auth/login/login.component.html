@@ -13,7 +13,7 @@
                     <mat-error *ngIf="(loginForm.get('userName')) !.errors?.required">Username is required</mat-error>
                     <!-- <mat-error *ngIf="(loginForm.get('email')) !.errors?.pattern">Please enter valid email</mat-error> -->
                 </mat-form-field>
-                <a class="link"  [routerLink]="['/forgot/username']"> Forgot username? </a>
+                <a class="link"  [routerLink]="['/auth/forgot/username']"> Forgot username? </a>
             </div>
 
             <div>
@@ -30,14 +30,14 @@
             </div>
 
             <div class="forgot-password">
-                <a class="link" [routerLink]="['/forgot/password']"> Forgot password? </a>
+                <a class="link" [routerLink]="['/auth/forgot/password']"> Forgot password? </a>
             </div>
 
             <div class="btn-position">
                 <button mat-raised-button  class="btn-width" color="primary" type="submit" [disabled]="!loginForm.valid">LOG IN</button>
             </div>
             <div class="create-account">
-                Don't have an account? <a class="link" [routerLink]="['/register']">Create a Account </a>
+                Don't have an account? <a class="link" [routerLink]="['/auth/register']">Create a Account </a>
             </div>
 
         </form>
