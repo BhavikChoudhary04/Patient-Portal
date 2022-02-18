@@ -457,14 +457,22 @@
       "id": 701,
       "userId": 103,
       "vaccines": [{
-        "name": "COVID-19",
+        "type":"COVID",
+        "name": "Pfizer",
         "doses": 2,
         "lastDoseDate": "09/11/2021"
       },
       {
+        "type":"other",
         "name": "Hepatitis",
         "doses": 1,
         "lastDoseDate": "23/08/2020"
+      },
+      {
+        "type":"other",
+        "name": "Influenza",
+        "doses": 1,
+        "lastDoseDate": "13/05/2021"
       }
     ]
     },
@@ -472,11 +480,13 @@
       "id": 702,
       "userId": 107,
       "vaccines": [{
-        "name": "COVID-19",
+        "type":"COVID",
+        "name": "Moderna",
         "doses": 1,
         "lastDoseDate": "13/12/2021"
       },
       {
+        "type":"other",
         "name": "Rotavirus",
         "doses": 1,
         "lastDoseDate": "23/01/2022"
