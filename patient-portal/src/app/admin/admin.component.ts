@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-admin',
@@ -10,11 +11,13 @@ import { ModalComponent } from 'src/app/shared/modal/modal.component';
 export class AdminComponent implements OnInit {
 
   name!:string
-  constructor(public matDialog: MatDialog) {
+  constructor(public matDialog: MatDialog, private userService:UserService) {
     
   }
 
  ngOnInit(): void {
+  this.userService.fetchAllUsers();
+
    const sessionUser = sessionStorage.getItem("user")
    if (sessionUser){
      const user = JSON.parse(sessionUser)

@@ -25,6 +25,7 @@ export class AdminGuard implements CanActivateChild {
         if (user.role == 'admin' && loggedInSessionUser?.role == 'admin'){
           routePermission = true
         } else {
+          alert("This website does not allow page refresh. Kindly login again to continue on the webpage.")
           routePermission = false
           sessionStorage.clear();
           this.router.navigateByUrl('/login')
