@@ -14,3 +14,9 @@ mat-grid-tile {
 	text-align: center;
 	margin-top: 23%;
 }
+
+.show-initial-details{
+	padding: 5%;
+	text-align: center;
+	color: rgb(149 154 160)
+  }
