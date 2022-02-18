@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="!noRecordfound">
     <form [formGroup]="patientVitalsForm" autocomplete="off">
             <!-- <mat-grid-tile-header>Order</mat-grid-tile-header> -->
 
@@ -100,4 +100,7 @@
 
         <!-- <mat-grid-tile-footer></mat-grid-tile-footer> -->
     </form>
+</div>
+<div *ngIf=noRecordfound>
+    <h3 class= "validation-messg">{{ validationMessage }}</h3>
 </div>

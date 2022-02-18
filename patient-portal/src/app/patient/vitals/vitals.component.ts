@@ -13,7 +13,9 @@ export class VitalsComponent implements OnInit {
 
   patientVitalsForm !: FormGroup;
   flag: boolean = true;
-
+  validationMessage !:string;
+  noRecordfound : boolean = false;
+  
   constructor(private userService: UserService, private reportService: ReportService, private fb: FormBuilder,) { }
 
   ngOnInit(): void {
@@ -56,19 +58,24 @@ export class VitalsComponent implements OnInit {
     // console.log("this.reportService.getUserReport()-->")
     this.reportService.getUserReport().subscribe((response)=>{
       // console.log("report details of logged in user:- ",response);
-      this.patientVitalsForm.setValue({
-        bloodPressure: response.vitals.bloodPressure,
-        pulse: response.vitals.pulse,
-        temperature: response.vitals.temperature,
-        respiration: response.vitals.respiration,
-        height: response.vitals.height,
-        weight: response.vitals.weight,
-        procedureCode: response.procedureCode,
-        diagnosisCode: response.diagnosisCode,
-        labReport: response.labReport,
-        radiologyReports: response.radiologyReport,
-        medication: response.medication
-      })
+      if(response){
+        this.patientVitalsForm.setValue({
+          bloodPressure: response.vitals.bloodPressure,
+          pulse: response.vitals.pulse,
+          temperature: response.vitals.temperature,
+          respiration: response.vitals.respiration,
+          height: response.vitals.height,
+          weight: response.vitals.weight,
+          procedureCode: response.procedureCode,
+          diagnosisCode: response.diagnosisCode,
+          labReport: response.labReport,
+          radiologyReports: response.radiologyReport,
+          medication: response.medication
+        })
+      }else{
+        this.noRecordfound = true;
+        this.validationMessage = 'Patient need to consult physican to record vitals.' 
+      }
     })
   }
 
