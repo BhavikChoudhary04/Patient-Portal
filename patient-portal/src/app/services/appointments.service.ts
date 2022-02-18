@@ -77,7 +77,7 @@ export class AppointmentsService {
       ]
     }
   ]);
-
+  
   fetchAllAppointments(){
     this.http.get<Appointment[]>(`${this.API_URL}/appointment-history`).subscribe(app => {
       if (app.length){
@@ -116,6 +116,10 @@ export class AppointmentsService {
 
   getAppointments(){
     return this.appointments$.asObservable();
+  }
+
+  getPhysician() {
+    return this.physician$.asObservable();
   }
 
 }

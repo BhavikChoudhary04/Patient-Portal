@@ -9,7 +9,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
-import { PhysicianBookAppointmentDialog, ScheduleAppointmentComponent } from './schedule-appointment/schedule-appointment.component';
+import {  PhysicianBookAppointmentDialog, ScheduleAppointmentComponent } from './schedule-appointment/schedule-appointment.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatIconModule } from '@angular/material/icon';
@@ -32,7 +32,7 @@ import { ProfileDetailsComponent } from './profile-details/profile-details.compo
 
 
 @NgModule({
-  declarations: [PatientComponent, DashboardComponent, ScheduleAppointmentComponent, PhysicianBookAppointmentDialog, ImmunizationComponent, VitalsComponent, AppointmentHistoryComponent, DemographicsComponent, MedicationAllergiesComponent, DemographicsDialogComponent, MedicationsDialogComponent, ProfileDetailsComponent],
+  declarations: [PatientComponent, DashboardComponent, ScheduleAppointmentComponent, ImmunizationComponent, VitalsComponent, AppointmentHistoryComponent, DemographicsComponent, MedicationAllergiesComponent, DemographicsDialogComponent, MedicationsDialogComponent, ProfileDetailsComponent, PhysicianBookAppointmentDialog],
   imports: [
     CommonModule,
     PatientRoutingModule,
@@ -54,6 +54,6 @@ import { ProfileDetailsComponent } from './profile-details/profile-details.compo
     MatFormFieldModule,
     MatDialogModule
   ],
-  exports: [ScheduleAppointmentComponent, DashboardComponent, ImmunizationComponent, VitalsComponent]
+  exports: [ScheduleAppointmentComponent, DashboardComponent, ImmunizationComponent, VitalsComponent, PhysicianBookAppointmentDialog]
 })
 export class PatientModule { }
