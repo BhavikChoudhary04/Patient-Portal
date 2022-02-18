@@ -69,7 +69,7 @@
       "role": "patient",
       "dob": "29/01/1997",
       "mobile": "9876543215",
-      "password": "$2a$10$lEB4s8x43FdfJ3oUzNrFU.EVUFL1Hts9k0jlgjyHR2YZVY0X1bSiW",
+      "password": "$2a$10$atUi2Wrz7X1UjJz6MiGL0.JhWl.2uMn1qzu7XLKuGO3lCmDYBzvkS",
       "isAuthenticated": true
     },
     {
@@ -105,7 +105,7 @@
       "mobile": "8989776654",
       "role": "patient",
       "email": "JohnR@gmail.com",
-      "password":"Hello@123",
+      "password": "Hello@123",
       "isAuthenticated": false
     }
   ],

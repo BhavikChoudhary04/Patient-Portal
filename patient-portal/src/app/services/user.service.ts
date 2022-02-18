@@ -46,10 +46,16 @@ export class UserService {
       return u.userName === loginUser.userName;
     })[0]
     if (user) {
+
       if (user.isAuthenticated) {
+
         this.http.post<LoginUser>(`${this.API_URL_USERS}/login`, { email: user.email, password: loginUser.password }).subscribe(res => {
           this.token$.next(res.accessToken)
+          console.log(res);
+          
           this.loggedInUser$.next(res.user);
+          console.log(this.loggedInUser$);
+          
           if (res.user.role == "patient") {
             this.demoService.fetchDemographicData(user.id);
           }
@@ -79,6 +85,7 @@ export class UserService {
       if (user) {
         const users = this.allUsers$.getValue();
         this.allUsers$.next(users.concat(user));
+        this.loggedInUser$.next(user)
         this.demoService.createUserDemographic(user);
       }
     })
@@ -131,6 +138,18 @@ export class UserService {
 
   getLoggedInUser(){
     return this.loggedInUser$.asObservable();
+  }
+
+  updateUser(newUser:RegisterUser){
+    this.http.put<RegisterUser>(`${this.API_URL_USERS}/660/users/${newUser.id}`, newUser).subscribe(user => {
+      const users = this.allUsers$.getValue();
+      const updatedUser = users.filter(u => u.id === user.id)
+      this.allUsers$.next(updatedUser)
+    })
+  }
+
+  getUserDetail(id:number | undefined){
+    return this.http.get<RegisterUser>(`${this.API_URL_USERS}/660/users/${id}`)
   }
 }
 
