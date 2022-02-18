@@ -1,14 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject } from 'rxjs';
 import { Report } from '../shared/interfaces/report'
+import { SnackbarComponent } from '../shared/snackbar/snackbar.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReportService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private snackBar:MatSnackBar) { }
 
   private API_URL = 'http://127.0.0.1:3000'
 
@@ -31,45 +33,93 @@ export class ReportService {
 });
 
 
-  fetchAllReports(){
-    this.http.get<Report[]>(`${this.API_URL}/660/reports`).subscribe(reports => {
-      if (reports){
-        this.allReports$.next(reports);
-      }
-    })
-  }
+  // fetchAllReports(){
+  //   this.http.get<Report[]>(`${this.API_URL}/660/reports`).subscribe(reports => {
+  //     if (reports){
+  //       this.allReports$.next(reports);
+  //     }
+  //   })
+  // }
 
-  reportByUser(userId:number){
-    
-    const reports = this.allReports$.getValue();
-    const userReport = reports.filter(r => 
-      r.userId == userId
-    )[0]
-    if (userReport){
-      this.userReports$.next(userReport)
+  async reportByUser(userId:number){
+    try {
+    const report = await this.http.get<Report[]>(`${this.API_URL}/660/reports?userId=${userId}`).toPromise();
+      if (report){
+        this.userReports$.next(report[0]);
+      } else {
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          data: {
+            message: `Server error. Please try again.`,
+            btn: "OK",
+            action: ""
+          }
+        });
+      }
+    } catch(err) {
+      this.snackBar.openFromComponent(SnackbarComponent, {
+        data: {
+          message: `Server error. Please try again.`,
+          btn: "OK",
+          action: ""
+        }
+      });
     }
   }
 
-  editUserReport(report:Report,editedFields:any){
-    this.http.put<Report>(`${this.API_URL}/660/reports/${report.userId}`,{...report,...editedFields}).subscribe(report => {
-      if (report){
+  async editUserReport(report:Report,editedFields:any){ 
+    try {
+    const rep = await this.http.put<Report>(`${this.API_URL}/660/reports/${report.id}`,{...report,...editedFields}).toPromise();
+ 
+      if (rep){
         const reports = this.allReports$.getValue();
-      const updatedReport = reports.filter(r => r.userId !== report.userId)
-      this.allReports$.next(reports.concat(updatedReport));
-      this.reportByUser(report.userId);
+      const updatedReports = reports.filter(r => r.userId !== report.userId)
+      this.allReports$.next(updatedReports.concat(rep));
+      this.userReports$.next(rep);
+      } else {
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          data: {
+            message: `Server error. Please try again.`,
+            btn: "OK",
+            action: ""
+          }
+        });
       }
-    })
+    }catch (err){
+      this.snackBar.openFromComponent(SnackbarComponent, {
+        data: {
+          message: `Server error. Please try again.`,
+          btn: "OK",
+          action: ""
+        }
+      });
+    }
   }
 
-  createUserReport(report:Report){
-      this.http.post<Report>(`${this.API_URL}/660/reports`,report).subscribe(report => {
-        if (report){
+  async createUserReport(report:Report){
+    try {
+      const rep = await this.http.post<Report>(`${this.API_URL}/660/reports`,report).toPromise();
+        if (rep){
           const reports = this.allReports$.getValue();
-          const addReport = reports.concat(report)
+          const addReport = reports.concat(rep)
           this.allReports$.next(addReport);
-          this.reportByUser(report.userId);
-        }
-      })
+        } else {
+          this.snackBar.openFromComponent(SnackbarComponent, {
+            data: {
+              message: `Server error. Please try again.`,
+              btn: "OK",
+              action: ""
+            }
+          });
+        } 
+      }catch (err){
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          data: {
+            message: `Server error. Please try again.`,
+            btn: "OK",
+            action: ""
+          }
+        });
+      }
   }
 
   getUserReport(){

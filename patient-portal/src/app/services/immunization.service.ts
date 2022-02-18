@@ -1,38 +1,32 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { UserMedicationsAllergies } from '../shared/interfaces/user';
+import { BehaviorSubject } from 'rxjs';
+import { Vaccine } from '../shared/interfaces/vaccine';
 import { SnackbarComponent } from '../shared/snackbar/snackbar.component';
-
 
 @Injectable({
   providedIn: 'root'
 })
-export class AllergyService {
+export class ImmunizationService {
+
+  private API_URL = 'http://127.0.0.1:3000';
+
+  private vaccine$: BehaviorSubject<Vaccine> = new BehaviorSubject<Vaccine>({
+    id: 0,
+    userId: 0,
+    vaccines: []
+  });
+
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
-  private API_URL_MEDICATIONS_ALLERGIES = 'http://127.0.0.1:3000';
-
-  private allergies$: BehaviorSubject<UserMedicationsAllergies> = new BehaviorSubject<UserMedicationsAllergies>({
-    id: 0,
-    userId: 0,
-    currentMedication: "",
-    otc: "",
-    antibiotics: "",
-    socialDrugs: "",
-    pastMedication: "",
-    drugAllergies: "",
-    otherAllergies: ""
-  })
-
-  async getMedictionsData(userId: number) {
+  async getImmunizationDetails(userId: any) {
     try {
-      const allergies = await this.http.get<UserMedicationsAllergies[]>(`${this.API_URL_MEDICATIONS_ALLERGIES}/660/medication-allergies?userId=${userId}`).toPromise();
+      const vaccine = await this.http.get<Vaccine>(`${this.API_URL}/660/immunization?userId=${userId}`).toPromise();
 
-      if (allergies.length) {
-        this.allergies$.next(allergies[0]);
+      if (vaccine) {
+        this.vaccine$.next(vaccine)
       } else {
         this.snackBar.openFromComponent(SnackbarComponent, {
           data: {
@@ -53,15 +47,15 @@ export class AllergyService {
     }
   }
 
-  async addMedicationsData(userData: UserMedicationsAllergies) {
+  async createImmunizationDetails(imDetail: Vaccine) {
     try {
-      const allergyData = await this.http.post<UserMedicationsAllergies>(`${this.API_URL_MEDICATIONS_ALLERGIES}/660/medication-allergies`, userData).toPromise()
+      const vaccine = await this.http.post<Vaccine>(`${this.API_URL}/660/immunization`, imDetail).toPromise();
 
-      if (allergyData) {
-        this.allergies$.next(allergyData);
+      if (vaccine) {
+        this.vaccine$.next(vaccine);
         this.snackBar.openFromComponent(SnackbarComponent, {
           data: {
-            message: `Allergies and Medications updated.`,
+            message: `Immunization details updated.`,
             btn: "OK",
             action: ""
           }
@@ -84,5 +78,9 @@ export class AllergyService {
         }
       });
     }
+  }
+
+  getImmunizations() {
+    return this.vaccine$.asObservable()
   }
 }

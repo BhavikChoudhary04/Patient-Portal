@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { RegisterUser, LoginUser, UserDemographic, UserMedicationsAllergies } from '../shared/interfaces/user';
+import { SnackbarComponent } from '../shared/snackbar/snackbar.component';
 
 
 @Injectable({
@@ -9,7 +11,7 @@ import { RegisterUser, LoginUser, UserDemographic, UserMedicationsAllergies } fr
 })
 export class DemographicService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
   private API_URL_DEMOGRAPHICS = 'http://127.0.0.1:3000';
 
@@ -32,43 +34,83 @@ export class DemographicService {
     });
 
 
-    createUserDemographic(user: RegisterUser) {
-      const demoData = {
-        userId: user.id,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        dob: user.dob,
-        mobile: user.mobile
-      }
-  
-      this.http.post<UserDemographic>(`${this.API_URL_DEMOGRAPHICS}/demographics`,demoData).subscribe(demoUser => {
-        if (demoUser){
-          console.log(demoUser);
-          
-          return
-        }
-      })
-    }
-  
-    editDemographicData(userDemoData: UserDemographic){
-      this.http.put<UserDemographic>(`${this.API_URL_DEMOGRAPHICS}/600/demographics/${userDemoData.id}`,userDemoData).subscribe(userData => {
-        if (userData){
-            this.userDemographic$.next(userData);
-        }
-      })
-    }  
-  
-    fetchDemographicData(userId: number|undefined){
-      this.http.get<UserDemographic[]>(`${this.API_URL_DEMOGRAPHICS}/600/demographics`).subscribe(demoUsers => {
-        if (demoUsers){
-          const demoUserData = demoUsers.filter(u => u.userId == userId)[0];
-          this.userDemographic$.next(demoUserData);
-        }
-      })
+  createUserDemographic(user: RegisterUser) {
+    const demoData = {
+      userId: user.id,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      dob: user.dob,
+      mobile: user.mobile
     }
 
-    getAllDemographicsData():Observable<any>{
-      return this.userDemographic$.asObservable();
+    this.http.post<UserDemographic>(`${this.API_URL_DEMOGRAPHICS}/demographics`, demoData).subscribe(demoUser => {
+      if (demoUser) {
+        return
+      }
+    })
+  }
+
+  async editDemographicData(userDemoData: UserDemographic) {
+    try {
+      const userData = await this.http.put<UserDemographic>(`${this.API_URL_DEMOGRAPHICS}/600/demographics/${userDemoData.id}`, userDemoData).toPromise();
+      // .subscribe(userData => {
+      if (userData) {
+        this.userDemographic$.next(userData);
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          data: {
+            message: `Your details have been saved.`,
+            btn: "OK",
+            action: ""
+          }
+        });
+      } else {
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          data: {
+            message: `Server error. Please try again.`,
+            btn: "OK",
+            action: ""
+          }
+        });
+      }
+    } catch (err) {
+      this.snackBar.openFromComponent(SnackbarComponent, {
+        data: {
+          message: `Server error. Please try again.`,
+          btn: "OK",
+          action: ""
+        }
+      });
     }
+  }
+
+  async fetchDemographicData(userId: number | undefined) {
+    try {
+      const demoUser = await this.http.get<UserDemographic[]>(`${this.API_URL_DEMOGRAPHICS}/600/demographics?userId=${userId}`).toPromise();
+
+      if (demoUser.length) {
+        this.userDemographic$.next(demoUser[0]);
+      } else {
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          data: {
+            message: `Server error. Please try again.`,
+            btn: "OK",
+            action: ""
+          }
+        });
+      }
+    } catch (err) {
+      this.snackBar.openFromComponent(SnackbarComponent, {
+        data: {
+          message: `Server error. Please try again.`,
+          btn: "OK",
+          action: ""
+        }
+      });
+    }
+  }
+
+  getAllDemographicsData(): Observable<any> {
+    return this.userDemographic$.asObservable();
+  }
 
 }
