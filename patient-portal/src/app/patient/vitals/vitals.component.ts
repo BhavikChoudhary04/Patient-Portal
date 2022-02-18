@@ -9,13 +9,13 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class VitalsComponent implements OnInit {
 
-  loginForm !: FormGroup;
+  patientVitalsForm !: FormGroup;
   flag: boolean = true;
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.loginForm = this.fb.group({
+    this.patientVitalsForm = this.fb.group({
       // vaccineName: [null, [Validators.required]],
       // vaccineName: [null],
       bloodPressure: [null, [Validators.required]],
@@ -30,10 +30,6 @@ export class VitalsComponent implements OnInit {
       radiologyReports: [null, [Validators.required]],
       medication: [null, [Validators.required]]
     });
-  }
-
-  loginDetails(formData:any) {
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(formData.value, null, 4));
   }
 
 }

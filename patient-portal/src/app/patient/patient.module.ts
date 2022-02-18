@@ -29,7 +29,7 @@ import { DemographicsDialogComponent } from './components/demographics-dialog/de
 import { MedicationsDialogComponent } from './components/medications-dialog/medications-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
-
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [PatientComponent, DashboardComponent, ScheduleAppointmentComponent, PhysicianBookAppointmentDialog, ImmunizationComponent, VitalsComponent, AppointmentHistoryComponent, DemographicsComponent, MedicationAllergiesComponent, DemographicsDialogComponent, MedicationsDialogComponent, ProfileDetailsComponent],
@@ -52,7 +52,8 @@ import { ProfileDetailsComponent } from './profile-details/profile-details.compo
     MatButtonModule,
     MatRadioModule,
     MatFormFieldModule,
-    MatDialogModule
+    MatDialogModule,
+    MatGridListModule
   ],
   exports: [ScheduleAppointmentComponent, DashboardComponent, ImmunizationComponent, VitalsComponent]
 })
