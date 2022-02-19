@@ -28,15 +28,7 @@ export class BillingComponent implements OnInit {
 
   ngOnInit(): void {
     this.billingForm = this.fb.group({
-      // ethnicity:['American', Validators.required],
-      // education: ['',Validators.required],
       // occupation: ['', Validators.required],
-      // address: ['', Validators.required],
-      // mobile: ['', Validators.required],
-      // medicalHistory: ['', Validators.required],
-      // familymedicalHistory: [''],
-      // surgeries: [''],
-      // insuranceProviders: ['', Validators.required]
     })    
   }
 
