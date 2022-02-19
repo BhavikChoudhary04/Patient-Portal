@@ -30,15 +30,21 @@ import { MedicationsDialogComponent } from './components/medications-dialog/medi
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { BillingComponent } from './billing/billing.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatChipsModule} from '@angular/material/chips';
+
 
 @NgModule({
-  declarations: [PatientComponent, DashboardComponent, ScheduleAppointmentComponent, PhysicianBookAppointmentDialog, ImmunizationComponent, VitalsComponent, AppointmentHistoryComponent, DemographicsComponent, MedicationAllergiesComponent, DemographicsDialogComponent, MedicationsDialogComponent, ProfileDetailsComponent],
+  declarations: [PatientComponent, DashboardComponent, ScheduleAppointmentComponent, PhysicianBookAppointmentDialog, ImmunizationComponent, VitalsComponent, AppointmentHistoryComponent, DemographicsComponent, MedicationAllergiesComponent, DemographicsDialogComponent, MedicationsDialogComponent, ProfileDetailsComponent, BillingComponent],
   imports: [
     CommonModule,
     PatientRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     MatSelectModule,
+    MatChipsModule,
+    MatTableModule,
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
@@ -55,6 +61,6 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatDialogModule,
     MatGridListModule
   ],
-  exports: [ScheduleAppointmentComponent, DashboardComponent, ImmunizationComponent, VitalsComponent]
+  exports: [ScheduleAppointmentComponent, DashboardComponent, ImmunizationComponent, VitalsComponent, BillingComponent]
 })
 export class PatientModule { }

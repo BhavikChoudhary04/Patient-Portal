@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { ImmunizationComponent } from './patient/immunization/immunization.component';
-import { VitalsComponent } from './patient/vitals/vitals.component';
 import { PatientGuard } from './shared/guards/patient.guard';
 import { PhysicianGuard } from './shared/guards/physician.guard';
 import { AdminGuard } from './shared/guards/admin.guard';
+import { BillingComponent } from './patient/billing/billing.component';
 import { LoginComponent } from './auth/login/login.component';
 
 
@@ -36,8 +36,8 @@ const routes: Routes = [
     component: ImmunizationComponent
   },
   {
-    path: 'vitals',
-    component: VitalsComponent
+    path: 'billing',
+    component: BillingComponent
   },
   {
     path: '**', component: LoginComponent
