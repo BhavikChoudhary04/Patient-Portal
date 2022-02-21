@@ -12,7 +12,7 @@
 <div class="scheduleAppointmentForm">
   <div class="physicianForm">
     <mat-card-content>
-      <form [formGroup]="physicianForm" autocomplete="off">
+      <form [formGroup]="physicianForm" autocomplete="off" (ngSubmit)="submitPhysicianForm()">
         <div class="container row">
           <mat-form-field class="form-element col-lg-6" appearance="fill">
             <mat-label>Meeting title</mat-label>
@@ -36,19 +36,12 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field class="form-element col-lg-12" appearance="fill" *ngIf="showDetails">
+          <mat-form-field class="form-element col-lg-6" appearance="fill" *ngIf="showDetails">
             <mat-label>Physician</mat-label>
-            <!-- <mat-select formControlName="physician" required>
-              <mat-option value="Harry">{{patientData[0].name}}</mat-option>
-              <mat-option value="Matt-Murdock">{{patientData[1].name}}</mat-option>
-              <mat-option value="Frank-Castle">{{patientData[2].name}}</mat-option>
-              <mat-option value="Bruce-Banner">{{patientData[3].name}}</mat-option>
-            </mat-select> -->
-            <mat-select formControlName="physician" required>
-              <mat-option *ngFor="let item of patientData">
-                {{item.name}}
+            <mat-select formControlName="physician" required [ngModel]="selectPhysician.name" (change)="onSelect($event.target)">
+              <mat-option *ngFor="let physician of physicians; index as i" [value]="physician.name">
+                {{physician.name}} {{i}} 
               </mat-option>
-              <!-- <mat-option>{{item.availableDate}}</mat-option> -->
             </mat-select>
             <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
               Please select physician
@@ -58,8 +51,8 @@
           <mat-form-field class="form-element" appearance="fill">
             <mat-label>Please select the date of appointment</mat-label>
             <mat-select formControlName="date" required>
-              <mat-option *ngFor="let item of patientData">
-                {{item.availableDate}}
+              <mat-option *ngFor="let date of dates" [value]="date.availableDate">
+               {{date.availableDate}}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
@@ -70,7 +63,7 @@
           <mat-form-field class="form-element" appearance="fill">
             <mat-label>Please select the time of appointment</mat-label>
             <mat-select formControlName="time" required>
-              <mat-option *ngFor="let item of patientData">
+              <mat-option *ngFor="let item of patientData.availabletime" [value]="item.availabletime">
                 {{item.availabletime}}
               </mat-option>
             </mat-select>
@@ -91,8 +84,8 @@
           </mat-form-field>
 
           <div class="btn-position col-lg-12">
-            <button class="bookAppointment" mat-raised-button color="accent" (click)="submitPhysicianForm()"
-              [disabled]="!physicianForm.valid">Book Appointment</button>
+            <button class="bookAppointment" mat-raised-button color="accent" type="submit"
+              [disabled]="!physicianForm.valid" matTooltip="Book Appointment">Book Appointment</button>
             <!-- <button class="bookAppointment" mat-raised-button color="accent" (click)="onClose()">Cancel</button> -->
           </div>
 
@@ -101,85 +94,3 @@
     </mat-card-content>
   </div>
 </div>
-
-<!-- <mat-form-field class="form-element" appearance="fill">
-            <mat-label>Please select the date of appointment</mat-label>
-            <mat-select formControlName="date" required>
-              <mat-option value="20/02/2022">{{patientData[0].availableDate[0]}}</mat-option>
-              <mat-option value="09/03/2022">{{patientData[0].availableDate[1]}}</mat-option>
-              <mat-option value="11/03/2022">{{patientData[0].availableDate[2]}}</mat-option>
-              <mat-option value="20/03/2022">{{patientData[0].availableDate[3]}}</mat-option>
-
-              <mat-option value="20/02/2022">{{patientData[1].availableDate[0]}}</mat-option>
-              <mat-option value="09/03/2022">{{patientData[1].availableDate[1]}}</mat-option>
-              <mat-option value="11/03/2022">{{patientData[1].availableDate[2]}}</mat-option>
-              <mat-option value="20/03/2022">{{patientData[1].availableDate[3]}}</mat-option>
-
-              <mat-option value="20/02/2022">{{patientData[2].availableDate[0]}}</mat-option>
-              <mat-option value="09/03/2022">{{patientData[2].availableDate[1]}}</mat-option>
-              <mat-option value="11/03/2022">{{patientData[2].availableDate[2]}}</mat-option>
-              <mat-option value="20/03/2022">{{patientData[2].availableDate[3]}}</mat-option>
-
-              <mat-option value="20/02/2022">{{patientData[3].availableDate[0]}}</mat-option>
-              <mat-option value="09/03/2022">{{patientData[3].availableDate[1]}}</mat-option>
-              <mat-option value="11/03/2022">{{patientData[3].availableDate[2]}}</mat-option>
-              <mat-option value="20/03/2022">{{patientData[3].availableDate[3]}}</mat-option>
-            </mat-select>
-            <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
-              Please select date of appointment
-            </mat-error>
-          </mat-form-field> -->
-
-          <!-- <mat-form-field class="form-element" appearance="fill">
-            <mat-label>Please select the time of appointment</mat-label>
-            <mat-select formControlName="time" required>
-              <mat-option value="20/02/2022">{{patientData[0].availabletime[0]}}</mat-option>
-              <mat-option value="09/03/2022">{{patientData[0].availabletime[1]}}</mat-option>
-              <mat-option value="11/03/2022">{{patientData[0].availabletime[2]}}</mat-option>
-              <mat-option value="20/03/2022">{{patientData[0].availabletime[3]}}</mat-option>
-
-              <mat-option value="20/02/2022">{{patientData[1].availabletime[0]}}</mat-option>
-              <mat-option value="09/03/2022">{{patientData[1].availabletime[1]}}</mat-option>
-              <mat-option value="11/03/2022">{{patientData[1].availabletime[2]}}</mat-option>
-              <mat-option value="20/03/2022">{{patientData[1].availabletime[3]}}</mat-option>
-
-              <mat-option value="20/02/2022">{{patientData[2].availabletime[0]}}</mat-option>
-              <mat-option value="09/03/2022">{{patientData[2].availabletime[1]}}</mat-option>
-              <mat-option value="11/03/2022">{{patientData[2].availabletime[2]}}</mat-option>
-              <mat-option value="20/03/2022">{{patientData[2].availabletime[3]}}</mat-option>
-
-              <mat-option value="20/02/2022">{{patientData[3].availabletime[0]}}</mat-option>
-              <mat-option value="09/03/2022">{{patientData[3].availabletime[1]}}</mat-option>
-              <mat-option value="11/03/2022">{{patientData[3].availabletime[2]}}</mat-option>
-              <mat-option value="20/03/2022">{{patientData[3].availabletime[3]}}</mat-option>
-            </mat-select>
-            <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
-              Please select time of appointment
-            </mat-error>
-          </mat-form-field> -->
-
-          <!-- <mat-form-field class="form-element" appearance="fill" appearance="fill">
-                <mat-label>Date (MM/DD/YYYY)</mat-label>
-                <input [matDatepicker]="dp" matInput formControlName="date" required/>
-                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-                <mat-datepicker #dp></mat-datepicker>
-                <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
-                  Please enter your Date Of Appointment
-                </mat-error>
-              </mat-form-field> -->
-
-          <!-- <mat-form-field class="form-element" appearance="fill" appearance="fill">
-            <mat-label>Please select Date and Time of appointment</mat-label>
-            <input matInput type="datetime-local" formControlName="time" required />
-            <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
-              Please enter your appointment date and time
-            </mat-error>
-          </mat-form-field> -->
-
-          <!-- <mat-form-field class="form-element" appearance="fill">
-                <mat-label>Reason</mat-label>
-                <textarea type="text" matInput formControlName="reason" required></textarea>
-                <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
-                  Please enter reason
-                </mat-error>
-              </mat-form-field> -->

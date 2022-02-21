@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AppointmentsService } from 'src/app/services/appointments.service';
+import { Appointment } from 'src/app/shared/interfaces/appointment';
 
 @Component({
   selector: 'app-schedule-appointment',
@@ -14,8 +15,14 @@ export class ScheduleAppointmentComponent implements OnInit {
 
   physicianForm!: FormGroup
   patientData: any;
-  showDetails:boolean =false
+  showDetails:boolean =false;
 
+  physicians: any;
+  dates: any;
+
+  selectPhysician: any = {
+    name: ''
+  };
 
   constructor(
     private fb:FormBuilder,
@@ -31,8 +38,11 @@ export class ScheduleAppointmentComponent implements OnInit {
       if(data){
         console.log(data);
         this.patientData = data;
-        this.showDetails = true
+        this.showDetails = true;
+        // this.availableDate = this.patientData[0].get('availableDate')
       }
+      this.showAll();
+      this.onSelect(this.selectPhysician.name);
     })
   }
 
@@ -46,6 +56,24 @@ export class ScheduleAppointmentComponent implements OnInit {
       // reason : ['', Validators.required],
       mobile : ['', [Validators.required, Validators.minLength(10), 
                      Validators.maxLength(10),Validators.pattern("^[6-9][0-9]+")]]
+    })
+  }
+
+  showAll() {
+    this.appointments.getPhysician().subscribe(
+      (data:any)=>{
+        this.physicians = data;
+        console.log(this.physicians);
+      }
+    )
+  }
+
+  onSelect(physician_name: any) {
+    this.appointments.getPhysician().subscribe((res: any)=> {
+      this.dates = res['dates'].filter(
+        (res:any)=> res.physician_name == physician_name!.value
+      ),
+      console.log(this.dates);
     })
   }
 
@@ -71,10 +99,6 @@ export class ScheduleAppointmentComponent implements OnInit {
 
   // onClose() {
   //   this.dialogRef.close();
-  // }
-
-  // openSpecialityForm() {
-
   // }
 
 }
