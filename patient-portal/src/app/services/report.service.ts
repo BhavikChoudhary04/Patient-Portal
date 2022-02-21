@@ -47,22 +47,22 @@ export class ReportService {
       if (report){
         this.userReports$.next(report[0]);
       } else {
-        this.snackBar.openFromComponent(SnackbarComponent, {
-          data: {
-            message: `Server error. Please try again.`,
-            btn: "OK",
-            action: ""
-          }
-        });
+        // this.snackBar.openFromComponent(SnackbarComponent, {
+        //   data: {
+        //     message: `Server error. Please try again.`,
+        //     btn: "OK",
+        //     action: ""
+        //   }
+        // });
       }
     } catch(err) {
-      this.snackBar.openFromComponent(SnackbarComponent, {
-        data: {
-          message: `Server error. Please try again.`,
-          btn: "OK",
-          action: ""
-        }
-      });
+      // this.snackBar.openFromComponent(SnackbarComponent, {
+      //   data: {
+      //     message: `Server error. Please try again.`,
+      //     btn: "OK",
+      //     action: ""
+      //   }
+      // });
     }
   }
 

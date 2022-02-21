@@ -33,7 +33,7 @@
       "role": "patient",
       "dob": "05/09/1999",
       "mobile": "9876543211",
-      "password": "$2a$10$atUi2Wrz7X1UjJz6MiGL0.JhWl.2uMn1qzu7XLKuGO3lCmDYBzvkS",
+      "password": "$2a$10$EG/FAJSYOQ8ljBMGsuD2Euvzr62idoQ.aDCkcsRe4ahqB3rZdLWde",
       "isAuthenticated": true
     },
     {
@@ -69,7 +69,7 @@
       "role": "patient",
       "dob": "29/01/1997",
       "mobile": "9876543215",
-      "password": "$2a$10$atUi2Wrz7X1UjJz6MiGL0.JhWl.2uMn1qzu7XLKuGO3lCmDYBzvkS",
+      "password": "$2a$10$lEB4s8x43FdfJ3oUzNrFU.EVUFL1Hts9k0jlgjyHR2YZVY0X1bSiW",
       "isAuthenticated": true
     },
     {
@@ -420,68 +420,78 @@
       "notes": "8 hours of fasting required."
     }
   ],
-
   "payment-history": [
     {
-      "id":601,
-      "invoiceNumber":"IN1278965",
+      "id": 601,
+      "invoiceNumber": "IN1278965",
       "mode": "UPI",
       "amount": "$ 249",
       "procedureCode": "001637A"
     },
     {
-      "id":602,
-      "invoiceNumber":"IN1277890",
+      "id": 602,
+      "invoiceNumber": "IN1277890",
       "mode": "Credit Card",
       "amount": "$ 394",
       "procedureCode": "001U074"
     },
     {
-      "id":603,
-      "invoiceNumber":"IN1276324",
+      "id": 603,
+      "invoiceNumber": "IN1276324",
       "mode": "Net Banking",
       "amount": "$ 702",
       "procedureCode": "005G4ZZ"
     },
     {
-      "id":604,
-      "invoiceNumber":"IN1134586",
+      "id": 604,
+      "invoiceNumber": "IN1134586",
       "mode": "Credit Card",
       "amount": "$ 126",
       "procedureCode": "00910ZZ"
     }
   ],
-
   "immunization": [
     {
       "id": 701,
       "userId": 103,
-      "vaccines": [{
-        "name": "COVID-19",
-        "doses": 2,
-        "lastDoseDate": "09/11/2021"
-      },
-      {
-        "name": "Hepatitis",
-        "doses": 1,
-        "lastDoseDate": "23/08/2020"
-      }
-    ]
+      "vaccines": [
+        {
+          "type": "COVID",
+          "name": "Pfizer",
+          "doses": 2,
+          "lastDoseDate": "09/11/2021"
+        },
+        {
+          "type": "other",
+          "name": "Hepatitis",
+          "doses": 1,
+          "lastDoseDate": "23/08/2020"
+        },
+        {
+          "type": "other",
+          "name": "Influenza",
+          "doses": 1,
+          "lastDoseDate": "13/05/2021"
+        }
+      ]
     },
     {
       "id": 702,
       "userId": 107,
-      "vaccines": [{
-        "name": "COVID-19",
-        "doses": 1,
-        "lastDoseDate": "13/12/2021"
-      },
-      {
-        "name": "Rotavirus",
-        "doses": 1,
-        "lastDoseDate": "23/01/2022"
-      }
-    ]
+      "vaccines": [
+        {
+          "type": "COVID",
+          "name": "Moderna",
+          "doses": 1,
+          "lastDoseDate": "13/12/2021"
+        },
+        {
+          "type": "other",
+          "name": "Rotavirus",
+          "doses": 1,
+          "lastDoseDate": "23/01/2022"
+        }
+      ]
     }
   ]
 }

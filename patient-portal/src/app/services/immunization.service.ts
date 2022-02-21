@@ -80,6 +80,41 @@ export class ImmunizationService {
     }
   }
 
+  async editImmunizationDetails(imDetail: Vaccine) {
+    try {
+      const vaccine = await this.http.put<Vaccine>(`${this.API_URL}/660/immunization/${imDetail.id}`, imDetail).toPromise();
+
+      if (vaccine) {
+        this.vaccine$.next(vaccine);
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          data: {
+            message: `Immunization details updated.`,
+            btn: "OK",
+            action: ""
+          }
+        });
+      } else {
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          data: {
+            message: `Server error. Please try again.`,
+            btn: "OK",
+            action: ""
+          }
+        });
+      }
+    } catch (err) {
+      this.snackBar.openFromComponent(SnackbarComponent, {
+        data: {
+          message: `Server error. Please try again.`,
+          btn: "OK",
+          action: ""
+        }
+      });
+    }
+  }
+
+  
+
   getImmunizations() {
     return this.vaccine$.asObservable()
   }

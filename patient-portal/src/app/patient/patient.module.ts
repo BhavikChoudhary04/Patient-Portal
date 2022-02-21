@@ -29,16 +29,23 @@ import { DemographicsDialogComponent } from './components/demographics-dialog/de
 import { MedicationsDialogComponent } from './components/medications-dialog/medications-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { BillingComponent } from './billing/billing.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatChipsModule} from '@angular/material/chips';
+import { ImmunizationDialogComponent } from './components/immunization-dialog/immunization-dialog.component';
 
 
 @NgModule({
-  declarations: [PatientComponent, DashboardComponent, ScheduleAppointmentComponent, ImmunizationComponent, VitalsComponent, AppointmentHistoryComponent, DemographicsComponent, MedicationAllergiesComponent, DemographicsDialogComponent, MedicationsDialogComponent, ProfileDetailsComponent, PhysicianBookAppointmentDialog],
+  declarations: [PatientComponent, DashboardComponent, ScheduleAppointmentComponent,ImmunizationDialogComponent, PhysicianBookAppointmentDialog, ImmunizationComponent, VitalsComponent, AppointmentHistoryComponent, DemographicsComponent, MedicationAllergiesComponent, DemographicsDialogComponent, MedicationsDialogComponent, ProfileDetailsComponent, BillingComponent],
   imports: [
     CommonModule,
     PatientRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     MatSelectModule,
+    MatChipsModule,
+    MatTableModule,
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
@@ -52,8 +59,13 @@ import { ProfileDetailsComponent } from './profile-details/profile-details.compo
     MatButtonModule,
     MatRadioModule,
     MatFormFieldModule,
-    MatDialogModule
+    MatDialogModule,
+    MatGridListModule
   ],
+<<<<<<< HEAD
   exports: [ScheduleAppointmentComponent, DashboardComponent, ImmunizationComponent, VitalsComponent, PhysicianBookAppointmentDialog]
+=======
+  exports: [ScheduleAppointmentComponent, DashboardComponent, ImmunizationComponent, ImmunizationDialogComponent, VitalsComponent, BillingComponent]
+>>>>>>> 2584368b0e3046ec63632b1e9496d84325cb0602
 })
 export class PatientModule { }
