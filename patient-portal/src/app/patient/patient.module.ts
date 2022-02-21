@@ -62,10 +62,6 @@ import { ImmunizationDialogComponent } from './components/immunization-dialog/im
     MatDialogModule,
     MatGridListModule
   ],
-<<<<<<< HEAD
-  exports: [ScheduleAppointmentComponent, DashboardComponent, ImmunizationComponent, VitalsComponent, PhysicianBookAppointmentDialog]
-=======
   exports: [ScheduleAppointmentComponent, DashboardComponent, ImmunizationComponent, ImmunizationDialogComponent, VitalsComponent, BillingComponent]
->>>>>>> 2584368b0e3046ec63632b1e9496d84325cb0602
 })
 export class PatientModule { }
