@@ -13,6 +13,7 @@ import { Appointment } from 'src/app/shared/interfaces/appointment';
 export class AppointmentHistoryComponent implements OnInit {
 
   apHistory!: Appointment[]
+  displayedColumns: string[] = ['date', 'time', 'physician','status', 'notes'];
 
   constructor(private apService: AppointmentsService) { }
 
