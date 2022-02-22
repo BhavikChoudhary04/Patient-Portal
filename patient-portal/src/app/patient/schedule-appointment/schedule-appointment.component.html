@@ -40,7 +40,7 @@
             <mat-label>Physician</mat-label>
             <mat-select formControlName="physician" required [ngModel]="selectPhysician.name" (change)="onSelect($event.target)">
               <mat-option *ngFor="let physician of physicians; index as i" [value]="physician.name">
-                {{physician.name}} {{i}} 
+                {{physician.name}}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
@@ -48,11 +48,23 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field class="form-element" appearance="fill">
+          <!-- <mat-form-field class="form-element" appearance="fill">
             <mat-label>Please select the date of appointment</mat-label>
             <mat-select formControlName="date" required>
               <mat-option *ngFor="let date of dates" [value]="date.availableDate">
                {{date.availableDate}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
+              Please select date of appointment
+            </mat-error>
+          </mat-form-field> -->
+
+          <mat-form-field class="form-element" appearance="fill">
+            <mat-label>Please select the date of appointment</mat-label>
+            <mat-select formControlName="date" required>
+              <mat-option *ngFor="let physician of physicians" [value]="physician.availableDate">
+               {{physician.availableDate}}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
@@ -63,8 +75,8 @@
           <mat-form-field class="form-element" appearance="fill">
             <mat-label>Please select the time of appointment</mat-label>
             <mat-select formControlName="time" required>
-              <mat-option *ngFor="let item of patientData.availabletime" [value]="item.availabletime">
-                {{item.availabletime}}
+              <mat-option *ngFor="let physician of physicians" [value]="physician.availabletime">
+                {{physician.availabletime}}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
