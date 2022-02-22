@@ -24,7 +24,7 @@ const routes: Routes = [
     {
       path: 'dashboard',
       component: PatientComponent,
-    // canActivateChild: [PatientGuard],
+      canActivateChild: [PatientGuard],
     children: [
       {
         path:'my-profile',

@@ -107,6 +107,42 @@
       "email": "JohnR@gmail.com",
       "password": "$2a$10$SjOHaRfOwDsFdHBwaJf9buSHNf5DW9Jhqn5IpyaVNLMQFkf0Uh7VO",
       "isAuthenticated": false
+    },
+    {
+      "email": "test@test.com",
+      "password": "$2a$10$IN4Ij3mhURGmMBnM34edju6LG22NNxw7d8aapOVPTq.FluvFrtzO2",
+      "firstName": "test",
+      "lastName": "test",
+      "dob": "01-02-2022",
+      "userName": "test",
+      "role": "patient",
+      "mobile": "9123456789",
+      "isAuthenticated": false,
+      "id": 110
+    },
+    {
+      "email": "demo@demo.com",
+      "password": "$2a$10$yXCeJydMYQHyDC.5MpHE3.JGjeO/.M.m7iBoX3wDTTPJTG2v429f6",
+      "firstName": "demo",
+      "lastName": "demo",
+      "dob": "01-02-2022",
+      "userName": "demo",
+      "role": "patient",
+      "mobile": "9123456789",
+      "isAuthenticated": false,
+      "id": 111
+    },
+    {
+      "email": "newuser@demo.com",
+      "password": "$2a$10$d2rm6NCyNEat0xGjCTyLVuaJrDpZyxwMVPcLADFpj3oecvp8UaHKa",
+      "firstName": "demo",
+      "lastName": "demo",
+      "dob": "22-02-2022",
+      "userName": "newuser",
+      "role": "patient",
+      "mobile": "9123456789",
+      "isAuthenticated": false,
+      "id": 112
     }
   ],
   "reports": [
@@ -195,7 +231,7 @@
   ],
   "demographics": [
     {
-      "id": 301,
+      "id": 303,
       "userId": 103,
       "firstName": "Vishalrao",
       "lastName": "Bandegar",
@@ -212,7 +248,7 @@
       "insuranceProvider": "Medicare"
     },
     {
-      "id": 302,
+      "id": 306,
       "userId": 106,
       "firstName": "Bhavik",
       "lastName": "Choudhary",
@@ -229,7 +265,7 @@
       "insuranceProvider": "Medicaid"
     },
     {
-      "id": 303,
+      "id": 307,
       "userId": 107,
       "firstName": "Luke",
       "lastName": "Cage",
@@ -278,6 +314,15 @@
       "insuranceProviders": "Medicare",
       "userId": 109,
       "id": 305
+    },
+    {
+      "id": 306
+    },
+    {
+      "id": 307
+    },
+    {
+      "id": 308
     }
   ],
   "medication-allergies": [
