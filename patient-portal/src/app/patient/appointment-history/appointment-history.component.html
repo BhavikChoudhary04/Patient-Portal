@@ -1,31 +1,38 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-8 offset-md-1 mt-5">
-            <h2>Appointment History</h2>
-            <div class="table-responsive table-hover table-striped">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Meeting Title</th>
-                            <th>Appointment Date & Time</th>
-                            <th>Physician</th>
-                            <th>Status</th>
-                            <th>Notes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let bill of apHistory">
-                            <td class="align-middle">{{bill.date}}</td>
-                            <td class="align-middle">{{bill.time}}</td>
-                            <td class="align-middle">{{bill.physician}}</td>
-                            <td class="align-middle">{{bill.status}}</td>
-                            <td class="align-middle">{{bill.notes}}</td>
-                            <td class="col-md-2 mt-2 mb-1"><button class="btn btn-3 btn-padding btn-info">Edit</button></td>
-                            <td class="col-md-2 mt-2 mb-1"><button mat-raised-button color="accent" class="btn-danger">Cancel</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+    <div class="show-initial-details">
+        <h2>APPOINTMENT HISTORY</h2>
+        <mat-divider></mat-divider>
     </div>
+
+    <table mat-table [dataSource]="app_histroy_records" matSort  class="table-responsive mat-elevation-z8">
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header > Appointment Date </th>
+            <td mat-cell *matCellDef="let element">
+                {{element.date}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="time">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header > Appointment Time </th>
+            <td mat-cell *matCellDef="let element"> {{element.time }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="physician">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header > Physician </th>
+            <td mat-cell *matCellDef="let element"> {{element.physician}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <th  matTooltip="Action" mat-header-cell *matHeaderCellDef mat-sort-header > Status </th>
+            <td  mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="notes">
+            <th  matTooltip="Action" mat-header-cell *matHeaderCellDef mat-sort-header > Notes </th>
+            <td  mat-cell *matCellDef="let element"> {{element.notes}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions] ="[5, 10, 20, 25, 100]" showFirstLastButtons></mat-paginator>
 </div>

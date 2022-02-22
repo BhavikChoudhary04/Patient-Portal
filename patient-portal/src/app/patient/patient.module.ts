@@ -18,7 +18,7 @@ import { RouterModule } from '@angular/router';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { MatButtonModule } from '@angular/material/button';
-import { ImmunizationComponent } from './immunization/immunization.component';
+import { ImmunizationComponent, ImmunizationDialogComponent } from './immunization/immunization.component';
 import { VitalsComponent } from './vitals/vitals.component';
 import { AppointmentHistoryComponent } from './appointment-history/appointment-history.component'; 
 import { DemographicsComponent } from './demographics/demographics.component';
@@ -31,10 +31,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { BillingComponent } from './billing/billing.component';
-import {MatTableModule} from '@angular/material/table';
-import {MatChipsModule} from '@angular/material/chips';
-import { ImmunizationDialogComponent } from './components/immunization-dialog/immunization-dialog.component';
-
+import { MatTableModule} from '@angular/material/table';
+import { MatChipsModule} from '@angular/material/chips';
+import { MatPaginatorModule} from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [PatientComponent, DashboardComponent, ScheduleAppointmentComponent,ImmunizationDialogComponent, PhysicianBookAppointmentDialog, ImmunizationComponent, VitalsComponent, AppointmentHistoryComponent, DemographicsComponent, MedicationAllergiesComponent, DemographicsDialogComponent, MedicationsDialogComponent, ProfileDetailsComponent, BillingComponent],
@@ -60,7 +60,9 @@ import { ImmunizationDialogComponent } from './components/immunization-dialog/im
     MatRadioModule,
     MatFormFieldModule,
     MatDialogModule,
-    MatGridListModule
+    MatGridListModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   exports: [ScheduleAppointmentComponent, DashboardComponent, ImmunizationComponent, ImmunizationDialogComponent, VitalsComponent, BillingComponent]
 })
