@@ -1,97 +1,89 @@
 <div class="my-profile-section row"  *ngIf="showDetails">
-    <h1 class="col-lg-12 header">My Profile</h1>
-    <mat-divider class="col-lg-12 pb-3"></mat-divider>
-    <div class="col-lg-4 text-center">
+    <h1 class="col-lg-12 header pt-3">My Profile</h1>
+    <mat-divider class="col-lg-12 "></mat-divider>
+    <div class="col-lg-3 text-center">
         <div class="pt-4">
             <img src="../../../assets/images/demo-user.png" alt="profile image" width="150" height="150">
         </div>
-        <div class="pt-3" >
-            <strong [ngStyle]="{'color': 'rgb(10, 94, 10)'}">{{userDetail.firstName}} {{userDetail.lastName}}</strong>
-        </div>
-        
+        <div class="pt-4" >
+            <strong [ngStyle]="{'color': 'rgb(10, 94, 10)', 'text-transform':'uppercase'}">{{userDetail.firstName}} {{userDetail.lastName}}</strong>
+        </div> 
     </div>
-    <div class="col-lg-8 pt-3" *ngIf="showDetails">
-        <form [formGroup]="profileForm" (ngSubmit)="onSaveDetails(profileForm)">
-            <div class="row p-2">
-                <div class="col-lg-2"></div>
+    <div class="col-lg-9" *ngIf="showDetails">
+        <form [formGroup]="profileForm" (ngSubmit)="onSaveDetails(profileForm)" class="row">
+            <div class="col-lg-6 row">
                 <label for="firstname" class="col-lg-4 text-left p-3">First Name: </label>
-                <div class="col-lg-6" *ngIf="showInputFields">
+                <div class="col-lg-8" *ngIf="showInputFields">
                     <mat-form-field appearance="legacy">
                         <mat-label>First Name</mat-label>
                         <input matInput name="firstname" type="text" formControlName="firstName" >
                     </mat-form-field>
                 </div>
-                <strong class="col-lg-6" *ngIf="!showInputFields">{{userDetail.firstName}}</strong>
+                <strong class="col-lg-8 p-3" *ngIf="!showInputFields">{{userDetail.firstName}}</strong>
             </div>
-            <div class="row p-2">
-                <div class="col-lg-2"></div>
+            <div class="row col-lg-6">
                 <label for="lastname" class="col-lg-4 text-left p-3">Last Name: </label>
-                <div class="col-lg-6" *ngIf="showInputFields">
+                <div class="col-lg-8" *ngIf="showInputFields">
                     <mat-form-field>
                         <mat-label>Last Name</mat-label>
                         <input matInput name="lastname" type="text" formControlName="lastName" >
                     </mat-form-field>
                 </div>           
-                <strong class="col-lg-6" *ngIf="!showInputFields">{{userDetail.lastName}}</strong>
+                <strong class="col-lg-8 p-3" *ngIf="!showInputFields">{{userDetail.lastName}}</strong>
             </div>
-            <div class="row p-2">
-                <div class="col-lg-2"></div>
+            <div class="row col-lg-6">
                 <label for="username" class="col-lg-4 text-left p-3">User Name/ID: </label>
-                <div class="col-lg-6" *ngIf="showInputFields">
+                <div class="col-lg-8" *ngIf="showInputFields">
                     <mat-form-field>
                         <mat-label>User Name</mat-label>
                         <input matInput name="username" type="text" formControlName="userName" >
                     </mat-form-field>
                 </div>           
-                <strong class="col-lg-6" *ngIf="!showInputFields">{{userDetail.userName}}</strong>
+                <strong class="col-lg-8 p-3" *ngIf="!showInputFields">{{userDetail.userName}}</strong>
             </div>
-            <div class="row p-2">
-                <div class="col-lg-2"></div>
+            <div class="col-lg-6 row">
                 <label for="email" class="col-lg-4 text-left p-3">Email: </label>
-                <div class="col-lg-6" *ngIf="showInputFields">
+                <div class="col-lg-8" *ngIf="showInputFields">
                     <mat-form-field>
                         <mat-label>Email</mat-label>
                         <input matInput name="email" type="email" formControlName="email" >
                     </mat-form-field>
                 </div>           
-                <strong class="col-lg-6" *ngIf="!showInputFields">{{userDetail.email}}</strong>
+                <strong class="col-lg-8 p-3" *ngIf="!showInputFields">{{userDetail.email}}</strong>
             </div>
-            <div class="row p-2">
-                <div class="col-lg-2"></div>
+            <div class="col-lg-6 row">
                 <label for="role" class="col-lg-4 text-left p-3 ">Role: </label>
-                <div class="col-lg-6" *ngIf="showInputFields">
+                <div class="col-lg-8" *ngIf="showInputFields">
                     <mat-form-field>
                         <mat-label>Role</mat-label>
                         <input matInput name="role" type="text" formControlName="role" >
                     </mat-form-field>
                 </div>           
-                <strong class="col-lg-6" *ngIf="!showInputFields" readonly>{{userDetail.role}}</strong>
+                <strong class="col-lg-8 p-3" *ngIf="!showInputFields" readonly>{{userDetail.role}}</strong>
             </div>
-            <div class="row p-2">
-                <div class="col-lg-2"></div>
-                <label for="dob" class="col-lg-4 text-left p-3">Date Of Borth: </label>
-                <div class="col-lg-6" *ngIf="showInputFields">
+            <div class="col-lg-6 row">
+                <label for="dob" class="col-lg-4 text-left p-3">Date Of Birth: </label>
+                <div class="col-lg-8" *ngIf="showInputFields">
                     <mat-form-field>
                         <mat-label>Date Of Birth</mat-label>
                         <input matInput name="dob" type="date" formControlName="dob" >
                     </mat-form-field>
                 </div>           
-                <strong class="col-lg-6" *ngIf="!showInputFields">{{userDetail.dob}}</strong>
+                <strong class="col-lg-8 p-3" *ngIf="!showInputFields">{{userDetail.dob}}</strong>
             </div>
-            <div class="row p-2">
-                <div class="col-lg-2"></div>
+            <div class="col-lg-6 row">
                 <label for="mobile" class="col-lg-4 text-left p-3">Mobile: </label>
-                <div class="col-lg-6" *ngIf="showInputFields">
+                <div class="col-lg-8" *ngIf="showInputFields">
                     <mat-form-field>
                         <mat-label>Mobile</mat-label>
                         <input matInput name="mobile" type="number" formControlName="mobile" >
                     </mat-form-field>
                 </div>
-                <strong class="col-lg-6" *ngIf="!showInputFields">{{userDetail.mobile}}</strong>
+                <strong class="col-lg-8 p-3" *ngIf="!showInputFields">{{userDetail.mobile}}</strong>
             </div>
-            <div class="mt-4">
-                <button mat-raised-button color="primary" type="submit" *ngIf="showInputFields" class="mr-3">Save Details</button>
-                <button mat-raised-button color="primary" (click)="editProfile()" class="mr-3" *ngIf="!showInputFields">Edit Details</button>
+            <div class="mt-4 col-lg-12">
+                <button mat-raised-button color="primary" (click)="editProfile()" class="mr-3" [disabled]="showInputFields">Edit Details</button>
+                <button mat-raised-button color="primary" type="submit" *ngIf="showInputFields" class="mr-3 bg-success">Save Details</button>
             </div>
         </form>
     </div>

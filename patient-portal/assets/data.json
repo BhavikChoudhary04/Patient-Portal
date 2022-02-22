@@ -69,7 +69,7 @@
       "role": "patient",
       "dob": "29/01/1997",
       "mobile": "9876543215",
-      "password": "$2a$10$UjckEojHK7nDcWrLRmbUNOkrV83Tmm3dLKchMq0D2UmaXoIL50Gy.",
+      "password": "$2a$10$oRI4TA4x0gzcMoPUGg9N8eFxnK8bAxowQXc/ZG7yna/.Upw3JCstm",
       "isAuthenticated": true
     },
     {
@@ -195,7 +195,7 @@
   ],
   "demographics": [
     {
-      "id": 301,
+      "id": 303,
       "userId": 103,
       "firstName": "Vishalrao",
       "lastName": "Bandegar",
@@ -212,7 +212,7 @@
       "insuranceProvider": "Medicare"
     },
     {
-      "id": 302,
+      "id": 306,
       "userId": 106,
       "firstName": "Bhavik",
       "lastName": "Choudhary",
@@ -225,11 +225,11 @@
       "address": "181 Feest Passage Suite 64",
       "medicalHistory": "Viral sinusitis (disorder",
       "familymedicalhistory": "Hypertension",
-      " surgeries": "No",
+      "surgeries": "No",
       "insuranceProvider": "Medicaid"
     },
     {
-      "id": 303,
+      "id": 307,
       "userId": 107,
       "firstName": "Luke",
       "lastName": "Cage",

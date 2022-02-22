@@ -32,55 +32,35 @@ export class DemographicsDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.demographicsForm = this.fb.group({
-      // firstName: ['', [Validators.required]],
-      // lastName: ['', Validators.required],
-      // dob: ['', Validators.required],
-      // gender: ['Male',Validators.required],
       ethnicity:['American', Validators.required],
       education: ['',Validators.required],
       occupation: ['', Validators.required],
       address: ['', Validators.required],
       mobile: ['', Validators.required],
       medicalHistory: ['', Validators.required],
-      familymedicalHistory: [''],
+      familymedicalhistory: [''],
       surgeries: [''],
-      insuranceProviders: ['', Validators.required]
+      insuranceProvider: ['', Validators.required]
     })
-    this.getDemographicsData()
+    this.setDemoForm()
+    console.log(this.data);
     
-    
   }
 
-  onSubmitClick(formdata:any){
-    alert(`Demographics Form data: ${JSON.stringify(formdata.value)}`)
-    this.userDemographicData = this.demographicsForm.value
-    if (this.userDemographicData){
-      this.addDemographicData(this.userDemographicData)
-    }
-  }
-
-  addDemographicData(userData:UserDemographic){
-    this.demoService.editDemographicData(userData)
-    console.log('pattient demographic data submitted, new userdata:', userData);
-  }
-
-  getDemographicsData (){
-    this.demoService.getAllDemographicsData().subscribe((dataDemographics)=>{
-      if(dataDemographics){
-        this.allDemographicsData = dataDemographics
-        console.log('allDemographicsData: ', this.allDemographicsData);
-      }
+  setDemoForm(){
+    this.demographicsForm.setValue({
+      ethnicity : this.data.ethnicity,
+      education : this.data.education,
+      occupation : this.data.occupation,
+      address : this.data.address,
+      mobile : this.data.mobile,
+      medicalHistory : this.data.medicalHistory,
+      familymedicalhistory : this.data.familymedicalhistory,
+      surgeries : this.data.surgeries,
+      insuranceProvider : this.data.insuranceProvider
     })
   }
 
-  // updateDemographicData(userData:UserDemographic){
-  //   this.userService.updateDemographicData(userData).subscribe(data => {
-  //     if(data){
-  //       const updatedUserData = data
-  //       console.log('updated demographics data: ', updatedUserData);
-  //     }
-  //   })
-  // }
 
   onDialogClose(){
     this.dialogRef.close()

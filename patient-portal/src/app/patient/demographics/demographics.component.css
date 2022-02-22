@@ -1,16 +1,14 @@
 .show-initial-details{
-  padding: 5%;
   text-align: center;
   color: rgb(149 154 160)
 }
 
 
 .show-demographics{
-  width: 70%;
-  margin: 32px auto;
-  padding: 3%;
+  width: 100%;
+  margin:  auto;
   background-color: rgb(219 229 242);
-  padding: 20px;
+  padding: 16px;
   
 }
 
