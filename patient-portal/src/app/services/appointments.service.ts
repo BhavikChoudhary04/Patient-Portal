@@ -219,4 +219,8 @@ export class AppointmentsService {
     return this.appointments$.asObservable();
   }
 
+  getPhysician() {
+    return this.physician$.asObservable();
+  }
+
 }
