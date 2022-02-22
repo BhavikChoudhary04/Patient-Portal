@@ -193,32 +193,32 @@ export class ImmunizationDialogComponent implements OnInit {
      });
     }
 
-    this.getDemographicsData()
+    //this.getDemographicsData()
     
     
   }
 
   onSubmitClick(formdata:any){
     // alert(`Demographics Form data: ${JSON.stringify(formdata.value)}`)
-    this.userDemographicData = this.demographicsForm.value
-    if (this.userDemographicData){
-      this.addDemographicData(this.userDemographicData)
-    }
+    // this.userDemographicData = this.demographicsForm.value
+    // if (this.userDemographicData){
+    //   this.addDemographicData(this.userDemographicData)
+    // }
   }
 
-  addDemographicData(userData:UserDemographic){
-    this.demoService.editDemographicData(userData)
-    console.log('pattient demographic data submitted, new userdata:', userData);
-  }
+  // addDemographicData(userData:UserDemographic){
+  //   this.demoService.editDemographicData(userData)
+  //   console.log('pattient demographic data submitted, new userdata:', userData);
+  // }
 
-  getDemographicsData (){
-    this.demoService.getAllDemographicsData().subscribe((dataDemographics)=>{
-      if(dataDemographics){
-        this.allDemographicsData = dataDemographics
-        console.log('allDemographicsData: ', this.allDemographicsData);
-      }
-    })
-  }
+  // getDemographicsData (){
+  //   this.demoService.getAllDemographicsData().subscribe((dataDemographics)=>{
+  //     if(dataDemographics){
+  //       this.allDemographicsData = dataDemographics
+  //       console.log('allDemographicsData: ', this.allDemographicsData);
+  //     }
+  //   })
+  // }
 
   // updateDemographicData(userData:UserDemographic){
   //   this.userService.updateDemographicData(userData).subscribe(data => {
