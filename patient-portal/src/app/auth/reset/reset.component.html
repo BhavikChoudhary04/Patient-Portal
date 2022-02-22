@@ -12,8 +12,8 @@
           Please enter a valid email Id
         </mat-error>
       </mat-form-field>
-<div>
-      <button class="btn-align" mat-button type="reset" (click)="backToLogin()">Cancel</button>
+<div class="text-center">
+      <button class="btn-align text-danger" mat-button type="reset" (click)="backToLogin()">Cancel</button>
       <button [disabled]="emailId.invalid" class="btn-align" mat-raised-button color="primary" type="submit">Submit</button>
     </div>
     </form>

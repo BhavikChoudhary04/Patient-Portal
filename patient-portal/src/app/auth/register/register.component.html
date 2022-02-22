@@ -1,4 +1,4 @@
-<div class="registrationForm">
+<div class="registrationForm mt-5">
   <mat-card>
     <mat-card-title>Register Here</mat-card-title>
     <mat-card-content>
@@ -103,8 +103,8 @@
           </mat-form-field>
 
           <div class="btn-position">
-            <button mat-raised-button color="accent" (click)="submitRegisterForm()" [disabled]="!registerForm.valid">Submit</button>
-            <button class="btn-align" mat-button type="reset" (click)="backToLogin()">Cancel</button>
+            <button class="btn-align text-danger mr-4" mat-button type="reset" (click)="backToLogin()">Cancel</button>
+            <button mat-raised-button color="primary" (click)="submitRegisterForm()" [disabled]="!registerForm.valid">Submit</button>
           </div>
           
         </div>
