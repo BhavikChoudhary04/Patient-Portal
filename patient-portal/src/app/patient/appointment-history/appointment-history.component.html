@@ -1,10 +1,10 @@
 <div class="container-fluid">
     <div class="show-initial-details">
-        <h2 [ngStyle]="{'text-transform': 'uppercase'}">Appointment History</h2>
+        <h2>APPOINTMENT HISTORY</h2>
         <mat-divider></mat-divider>
     </div>
 
-    <table mat-table [dataSource]="apHistory" matSort  class="table-responsive mat-elevation-z8">
+    <table mat-table [dataSource]="app_histroy_records" matSort  class="table-responsive mat-elevation-z8">
         <ng-container matColumnDef="date">
             <th mat-header-cell *matHeaderCellDef mat-sort-header > Appointment Date </th>
             <td mat-cell *matCellDef="let element">
@@ -34,5 +34,5 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-    <!-- <mat-paginator [pageSizeOptions] ="[10, 20, 25, 100]" showFirstLastButtons></mat-paginator> -->
+    <mat-paginator [pageSizeOptions] ="[5, 10, 20, 25, 100]" showFirstLastButtons></mat-paginator>
 </div>

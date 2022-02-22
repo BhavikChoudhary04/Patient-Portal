@@ -92,13 +92,13 @@ export class ImmunizationComponent implements OnInit {
     // The user can't close the dialog by clicking outside its body
     dialogConfig.disableClose = true;
     dialogConfig.id = "modal-component";
-    dialogConfig.height = "200px";
-    dialogConfig.width = "350px";
+    dialogConfig.height = "220px";
+    dialogConfig.width = "360px";
     dialogConfig.data = {
       name: "DeleteCovidVaccineRecord",
-      title: "Are you sure you want to delete this record?",
-      // description: ":)",
-      actionButtonText: "Delete"
+      title: "Are you sure? ",
+      description: "You want to delete this record ?",
+      actionButtonText: "Yes, delete it!"
     }
     const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
   }
@@ -109,7 +109,19 @@ export class ImmunizationComponent implements OnInit {
   }
 
   deleteOtherVaccineRecord(row:any){
-
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "220px";
+    dialogConfig.width = "370px";
+    dialogConfig.data = {
+      name: "DeleteOtherVaccineRecord",
+      title: "Are you sure? ",
+      description: "You want to delete this record ?",
+      actionButtonText: "Yes, delete it!"
+    }
+    const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
   }
 
   editCovidVaccineDetails(vaccineRecord:any){

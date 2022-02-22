@@ -31,10 +31,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { BillingComponent } from './billing/billing.component';
-import {MatTableModule} from '@angular/material/table';
-import {MatChipsModule} from '@angular/material/chips';
-
-
+import { MatTableModule} from '@angular/material/table';
+import { MatChipsModule} from '@angular/material/chips';
+import { MatPaginatorModule} from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [PatientComponent, DashboardComponent, ScheduleAppointmentComponent,ImmunizationDialogComponent, PhysicianBookAppointmentDialog, ImmunizationComponent, VitalsComponent, AppointmentHistoryComponent, DemographicsComponent, MedicationAllergiesComponent, DemographicsDialogComponent, MedicationsDialogComponent, ProfileDetailsComponent, BillingComponent],
@@ -60,7 +60,9 @@ import {MatChipsModule} from '@angular/material/chips';
     MatRadioModule,
     MatFormFieldModule,
     MatDialogModule,
-    MatGridListModule
+    MatGridListModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   exports: [ScheduleAppointmentComponent, DashboardComponent, ImmunizationComponent, ImmunizationDialogComponent, VitalsComponent, BillingComponent]
 })

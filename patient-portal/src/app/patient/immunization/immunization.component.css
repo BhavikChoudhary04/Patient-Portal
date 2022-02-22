@@ -19,7 +19,8 @@ mat-list-item{
 }
 
 table{
-  width: 100%;
+  width: 90%;
+  margin: auto;
 }
 
 .mat-column-name {
@@ -84,10 +85,12 @@ table{
 .mat-header-cell{
   font-size: 14px;
   font-weight: 500;
+  color: #000;
 }
 
 .icon-cursor{
   cursor: pointer;
+  color: lightslategrey;
 }
 
 

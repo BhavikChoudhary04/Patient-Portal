@@ -57,3 +57,14 @@
 	text-align: center;
 	color: rgb(149 154 160)
 }
+
+table{
+    width: 90%;
+    margin: auto;
+}
+
+.mat-header-cell{
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+  }
