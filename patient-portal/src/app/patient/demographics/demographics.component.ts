@@ -14,37 +14,40 @@ import { DemographicsDialogComponent } from '../components/demographics-dialog/d
 })
 export class DemographicsComponent implements OnInit {
 
-  showDemographicDetails: boolean = false
-  userDetailFields:[{firstName:string, lastName: string, dob: string, gender: string}]= [
-    {
-      firstName: 'Admin',
-      lastName: 'Dan',
-      dob: '28/01/1999',
-      gender: 'male'
-    }
-  ]
-  userDemographicsValues:[{ethnicity:string, education: string, occupation: string, address: string, mobile: string, medicalHistory: string, familymedicalHistory: string, surgeries: string, insuranceProviders: string}] = [
-    {
-      ethnicity:'',
-      education: '',
-      occupation: '',
-      address: '',
-      mobile: '',
-      medicalHistory: '',
-      familymedicalHistory: '',
-      surgeries: '',
-      insuranceProviders: '',
-    }
-  ]
 
-  constructor(private fb:FormBuilder, private demoService:DemographicService, public dialog: MatDialog) {}
+  demographicsData!:UserDemographic;
+  showDetails:boolean = false
+
+  constructor(private fb:FormBuilder, private demoService:DemographicService, public dialog: MatDialog, private userService: UserService) {}
 
   ngOnInit(): void {
+    this.getUserId()
   }
+
+  getUserId(){
+    this.userService.getLoggedInUser().subscribe((user)=>{
+      if(user){
+        console.log('user:', user);
+        
+        this.getDemographicDetail(user.id)
+      }
+    })
+  }
+
+  getDemographicDetail(id:number|undefined){
+    this.demoService.fetchDemoData(id).subscribe(data =>{
+      if (data){
+        this.demographicsData = data
+        console.log('this.demographicsData: ', this.demographicsData);
+        this.showDetails = true
+      }
+    })
+  }
+
   openEditDemoDialog(): void{
     const dialogRef = this.dialog.open(DemographicsDialogComponent, {
       width: '60%',
-      data: this.userDetailFields[0]
+      data: this.demographicsData
     })
 
     dialogRef.afterClosed().subscribe(result => {
@@ -52,10 +55,23 @@ export class DemographicsComponent implements OnInit {
       const newDetails = result
       console.log('new patient demographics details: ', result);
       if (result){
-        this.userDemographicsValues[0] = result
-        console.log('userDemographicsValues', this.userDemographicsValues[0]);
-        this.showDemographicDetails = true
+        this.updateDemoDetails(result)
       }
     })
+  }
+
+  updateDemoDetails(updatedUser:UserDemographic){
+    this.demographicsData.ethnicity = updatedUser.ethnicity
+    this.demographicsData.education = updatedUser.education
+    this.demographicsData.occupation = updatedUser.occupation
+    this.demographicsData.address = updatedUser.address
+    this.demographicsData.mobile = updatedUser.mobile
+    this.demographicsData.medicalHistory = updatedUser.medicalHistory
+    this.demographicsData.familymedicalhistory = updatedUser.familymedicalhistory
+    this.demographicsData.surgeries = updatedUser.surgeries
+    this.demographicsData.insuranceProvider = updatedUser.insuranceProvider
+
+    this.demoService.updateDemoData(this.demographicsData)
+    
   }
 }
