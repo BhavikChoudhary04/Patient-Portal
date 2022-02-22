@@ -7,6 +7,16 @@
     transform: translateX(-50%) translateY(-50%);
 }
 
+.bg-image{
+    background-image: url('../../../assets/images/patient-portal.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+mat-card {
+  background : rgb(112, 128, 153,0.7)
+}
+
 .login-card{
   width: 420px;
   height: auto;

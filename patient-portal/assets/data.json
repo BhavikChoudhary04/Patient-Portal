@@ -18,7 +18,7 @@
       "lastName": "Raina",
       "userName": "SuperMayur01",
       "email": "mayur.raina@citiustech.com",
-      "role": "physician",
+      "role": "patient",
       "dob": "15/07/2000",
       "mobile": "9876543210",
       "password": "$2a$10$oRI4TA4x0gzcMoPUGg9N8eFxnK8bAxowQXc/ZG7yna/.Upw3JCstm",
@@ -69,7 +69,7 @@
       "role": "patient",
       "dob": "29/01/1997",
       "mobile": "9876543215",
-      "password": "$2a$10$lEB4s8x43FdfJ3oUzNrFU.EVUFL1Hts9k0jlgjyHR2YZVY0X1bSiW",
+      "password": "$2a$10$UjckEojHK7nDcWrLRmbUNOkrV83Tmm3dLKchMq0D2UmaXoIL50Gy.",
       "isAuthenticated": true
     },
     {
