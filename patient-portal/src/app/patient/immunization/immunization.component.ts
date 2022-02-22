@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DemographicService } from 'src/app/services/demographic.service';
 import { ImmunizationService } from 'src/app/services/immunization.service';
-import { ImmunizationDialogComponent } from '../components/immunization-dialog/immunization-dialog.component';
+import { UserDemographic } from 'src/app/shared/interfaces/user';
+import { ModalComponent } from 'src/app/shared/modal/modal.component';
 
 @Component({
   selector: 'app-immunization',
@@ -41,7 +42,7 @@ export class ImmunizationComponent implements OnInit {
     }
   ]
 
-  constructor(private immunizationService: ImmunizationService, private fb:FormBuilder, private demoService:DemographicService, public dialog: MatDialog) {}
+  constructor(private matDialog: MatDialog, private immunizationService: ImmunizationService, private fb:FormBuilder, private demoService:DemographicService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     let sessionUser:any = sessionStorage.getItem('user');
@@ -82,26 +83,42 @@ export class ImmunizationComponent implements OnInit {
     })
   }
 
-  editCovidVaccineDetails(row:any){
+  // editCovidVaccineDetails(row:any){
 
-  }
+  // }
 
   deleteCovidVaccineRecord(row:any){
-
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "200px";
+    dialogConfig.width = "350px";
+    dialogConfig.data = {
+      name: "DeleteCovidVaccineRecord",
+      title: "Are you sure you want to delete this record?",
+      // description: ":)",
+      actionButtonText: "Delete"
+    }
+    const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
   }
 
-  editOtherVaccineDetails(row:any){
 
+  editOtherVaccineDetails(row:any){
+    
   }
 
   deleteOtherVaccineRecord(row:any){
 
   }
 
-  openEditDemoDialog(): void{
+  editCovidVaccineDetails(vaccineRecord:any){
     const dialogRef = this.dialog.open(ImmunizationDialogComponent, {
       width: '60%',
-      data: this.userDetailFields[0]
+      // data: this.userDetailFields[0],
+      data: {
+        covidVaccinationRecord: vaccineRecord
+      }
     })
 
     dialogRef.afterClosed().subscribe(result => {
@@ -115,4 +132,94 @@ export class ImmunizationComponent implements OnInit {
       }
     })
   }
+}
+
+
+@Component({
+  selector: 'app-immunization-dialog',
+  templateUrl: './immunization-dialog.component.html',
+  styleUrls: ['./immunization.component.css']
+})
+
+export class ImmunizationDialogComponent implements OnInit {
+
+  demographicsForm!:FormGroup;
+  dosesOptions:any=[
+    { name: 1 , value : 1},
+    { name: 2 , value : 2}
+  ];
+  allDemographicsData?:UserDemographic[]
+  userDemographicData?:UserDemographic
+
+  hideInput:boolean = true
+
+
+  constructor(
+    private fb:FormBuilder,
+    private demoService:DemographicService,
+    public dialogRef:MatDialogRef<ImmunizationDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {console.log(data);}
+
+  ngOnInit(): void {
+    this.demographicsForm = this.fb.group({
+      // firstName: ['', [Validators.required]],
+      vaccineName: ['',Validators.required],
+      vaccineNumberOfDoses: [''],
+      dateOfLastVaccine: ['']
+      // anyOtherVaccines: [''],
+      // surgeries: [''],
+    })
+
+    if (this.data.covidVaccinationRecord) {
+      // this.isEdited = true;
+      console.log("this. data --->", this.data)
+      this.demographicsForm.setValue({
+        vaccineName : this.data.covidVaccinationRecord['name'],
+        vaccineNumberOfDoses : this.data.covidVaccinationRecord['doses'],
+        dateOfLastVaccine : this.data.covidVaccinationRecord['lastDoseDate']
+     });
+    }
+
+    this.getDemographicsData()
+    
+    
+  }
+
+  onSubmitClick(formdata:any){
+    // alert(`Demographics Form data: ${JSON.stringify(formdata.value)}`)
+    this.userDemographicData = this.demographicsForm.value
+    if (this.userDemographicData){
+      this.addDemographicData(this.userDemographicData)
+    }
+  }
+
+  addDemographicData(userData:UserDemographic){
+    this.demoService.editDemographicData(userData)
+    console.log('pattient demographic data submitted, new userdata:', userData);
+  }
+
+  getDemographicsData (){
+    this.demoService.getAllDemographicsData().subscribe((dataDemographics)=>{
+      if(dataDemographics){
+        this.allDemographicsData = dataDemographics
+        console.log('allDemographicsData: ', this.allDemographicsData);
+      }
+    })
+  }
+
+  // updateDemographicData(userData:UserDemographic){
+  //   this.userService.updateDemographicData(userData).subscribe(data => {
+  //     if(data){
+  //       const updatedUserData = data
+  //       console.log('updated demographics data: ', updatedUserData);
+  //     }
+  //   })
+  // }
+
+  onDialogClose(){
+    this.dialogRef.close()
+  }
+
+
 }

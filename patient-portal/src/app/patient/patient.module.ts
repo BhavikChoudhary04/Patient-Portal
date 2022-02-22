@@ -18,7 +18,7 @@ import { RouterModule } from '@angular/router';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { MatButtonModule } from '@angular/material/button';
-import { ImmunizationComponent } from './immunization/immunization.component';
+import { ImmunizationComponent, ImmunizationDialogComponent } from './immunization/immunization.component';
 import { VitalsComponent } from './vitals/vitals.component';
 import { AppointmentHistoryComponent } from './appointment-history/appointment-history.component'; 
 import { DemographicsComponent } from './demographics/demographics.component';
@@ -33,7 +33,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { BillingComponent } from './billing/billing.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatChipsModule} from '@angular/material/chips';
-import { ImmunizationDialogComponent } from './components/immunization-dialog/immunization-dialog.component';
+
 
 
 @NgModule({

@@ -1,5 +1,9 @@
 <div class="container-fluid">
-    <h2 class="title">Appointment History</h2>
+    <div class="show-initial-details">
+        <h2 [ngStyle]="{'text-transform': 'uppercase'}">Appointment History</h2>
+        <mat-divider></mat-divider>
+    </div>
+
     <table mat-table [dataSource]="apHistory" matSort  class="table-responsive mat-elevation-z8">
         <ng-container matColumnDef="date">
             <th mat-header-cell *matHeaderCellDef mat-sort-header > Appointment Date </th>
