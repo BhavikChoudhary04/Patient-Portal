@@ -1,48 +1,77 @@
+<div class="container-fluid">
+    <!-- <h2 class="title">Immunization Details</h2> -->
 
-<div class="show-initial-details" *ngIf="true">
-  <h1 [ngStyle]="{'text-transform': 'uppercase'}">Immunization Details</h1>
-  <mat-divider></mat-divider>
-  <div class="show-demographics">
-      <mat-list *ngFor="let user of userDetailFields">
-          <mat-list-item class="row">
-              <div class="col-lg-3"></div>
-              <mat-label class="col-lg-5">Covid Vaccine Name </mat-label>
-              <div class="col-lg-5">
-                  <strong>{{user.vaccineName}}</strong>
-              </div>
-          </mat-list-item>
-          <mat-list-item class="row">
-              <div class="col-lg-3"></div>
-              <mat-label class="col-lg-5">Covid Vaccine Number of Doses </mat-label>
-              <div class="col-lg-5">
-                  <strong>{{user.vaccineNumberOfDoses}}</strong>
-              </div>
-          </mat-list-item>
-          <mat-list-item class="row">
-              <div class="col-lg-3"></div>
-              <mat-label class="col-lg-5">Date Of Last Covid Vaccine </mat-label>
-              <div class="col-lg-5">
-                  <strong>{{user.dateOfLastVaccine}}</strong>
-              </div>
-          </mat-list-item>
-          <mat-list-item class="row">
-              <div class="col-lg-3"></div>
-              <mat-label class="col-lg-5">Any Other Vaccines </mat-label>
-              <div class="col-lg-5">
-                  <strong>{{user.anyOtherVaccines}}</strong>
-              </div>
-          </mat-list-item>
-      </mat-list>
-      
-      
-      
-  </div>
-  <div class="buttons-footer row">
-      <div class="col-lg-4"></div>
-      <div class="col-lg-4">
-          <button mat-raised-button color="primary" class="demo-btn" (click)="openEditDemoDialog()">Edit Details</button>
-      </div>
-      <div class="col-lg-4"></div>
-  </div>
+    <div class="show-initial-details">
+        <h1 [ngStyle]="{'text-transform': 'uppercase'}">COVID Vaccination Details</h1>
+        <mat-divider></mat-divider>
+    </div>
+    <table mat-table [dataSource]="covidVaccinationDetails" matSort  class="table-responsive mat-elevation-z8">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header > COVID Vaccine </th>
+            <td mat-cell *matCellDef="let element">
+                {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="doses">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header > Number of Doses </th>
+            <td mat-cell *matCellDef="let element"> {{ element.doses }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastDoseDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header > Date Of Last Covid Vaccine </th>
+            <td mat-cell *matCellDef="let element"> {{ element.lastDoseDate}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header > Action </th>
+            <td mat-cell *matCellDef="let element"> <mat-icon class="icon-cursor" (click)="editCovidVaccineDetails(element)" >edit</mat-icon> </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header > </th>
+            <td mat-cell *matCellDef="let element"> <mat-icon class="icon-cursor" (click)="deleteCovidVaccineRecord(element)" >delete</mat-icon> </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <div class="show-initial-details">
+        <h1 [ngStyle]="{'text-transform': 'uppercase'}">Other Vaccination Details</h1>
+        <mat-divider></mat-divider>
+    </div>
+
+    <table mat-table [dataSource]="otherVaccinationDetails" matSort  class="table-responsive mat-elevation-z8">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header > Other Vaccine </th>
+            <td mat-cell *matCellDef="let element">
+                {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="doses">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header > Number of Doses </th>
+            <td mat-cell *matCellDef="let element"> {{ element.doses }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastDoseDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header > Date Of Last Covid Vaccine </th>
+            <td mat-cell *matCellDef="let element"> {{ element.lastDoseDate}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header > Action </th>
+            <td mat-cell *matCellDef="let element"> <mat-icon class="icon-cursor" (click)="editOtherVaccineDetails(element)" >edit</mat-icon> </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header > </th>
+            <td mat-cell *matCellDef="let element"> <mat-icon class="icon-cursor" (click)="deleteOtherVaccineRecord(element)" >delete</mat-icon> </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="otherVaccineColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: otherVaccineColumns;"></tr>
+    </table>
+
+    <!-- <mat-paginator [pageSizeOptions] ="[10, 20, 25, 100]" showFirstLastButtons></mat-paginator> -->
 </div>
-
