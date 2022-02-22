@@ -113,4 +113,16 @@ export class DemographicService {
     return this.userDemographic$.asObservable();
   }
 
+  fetchDemoData(id:number | undefined):Observable<UserDemographic>{
+    const newId = id !+ 200
+    return this.http.get<UserDemographic>(`${this.API_URL_DEMOGRAPHICS}/600/demographics/${newId}`)
+  }
+
+  updateDemoData(newData:UserDemographic){
+    this.http.put<UserDemographic>(`${this.API_URL_DEMOGRAPHICS}/600/demographics/${newData.id}`, newData).subscribe(data=>{
+      console.log('data:', data);
+      this.userDemographic$.next(newData)
+    })
+  }
+
 }
