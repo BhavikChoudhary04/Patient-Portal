@@ -10,6 +10,7 @@ import { PatientComponent } from './patient.component';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 import { ScheduleAppointmentComponent } from './schedule-appointment/schedule-appointment.component';
 import { VitalsComponent } from './vitals/vitals.component';
+import { BillingComponent } from './billing/billing.component';
 
 // const routes: Routes = [{ path: '', component: PatientComponent }];
 
@@ -56,6 +57,10 @@ const routes: Routes = [
       {
         path: 'vitals',
         component: VitalsComponent
+      },
+      {
+        path: 'billing',
+        component: BillingComponent
       }
     ]
   }
