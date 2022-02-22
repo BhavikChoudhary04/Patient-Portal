@@ -5,8 +5,8 @@
     <!-- <section>
         <p>{{ modalData.description }}</p>
     </section> -->
-    <footer class="footer-content">
-        <button mat-raised-button color="primary" (click)= "actionFunction()">{{ modalData.actionButtonText }}</button>
-        <button mat-raised-button color="warn" class= "cancel-btn" (click)= "closeModal()">Cancel</button>
+    <footer class="footer-content mt-4">
+        <button class= "btn text-danger cancel-btn m-3" (click)= "closeModal()">Cancel</button>
+        <button mat-raised-button color="primary" class="m-3" (click)= "actionFunction()">{{ modalData.actionButtonText }}</button>
     </footer>
 </div>

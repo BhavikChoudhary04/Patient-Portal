@@ -1,6 +1,7 @@
 
 mat-sidenav{
     width: 18%;
+    background-color: aliceblue;
 }
 
 .list-item{
@@ -11,6 +12,8 @@ mat-sidenav{
 
 mat-toolbar{
     padding: 1%;
+    background-color: skyblue; 
+    color: white;
 }
 
 button{

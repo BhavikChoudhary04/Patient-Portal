@@ -35,46 +35,7 @@ export class LoginComponent implements OnInit {
     const user: LoginUser = this.loginForm.value
 
     this.userService.loginUser(user)
-    let loggedInUser = {}
-
-    this.userService.getLoggedInUser().subscribe(user => {
-      if (Object.keys(user)) {
-        if (user.firstName != "") {
-          loggedInUser = user
-          // navigate according to role
-          if (user.role === "admin") {
-            this.router.navigateByUrl('/admin/dashboard')
-          }
-          else if (user.role === "patient") {
-            this.router.navigateByUrl('/patient/dashboard')
-          }
-          else if (user.role === "physician") {
-            this.router.navigateByUrl('/physician/dashboard')
-          }
-          else {
-            this.snackBar.openFromComponent(SnackbarComponent, {
-              data: {
-                message: `Invalid user. Retry login.`,
-                btn: "OK",
-                action: "reset"
-              }
-            });
-          }
-        }
-      }
-    })
-
-    if(!Object.keys(loggedInUser)){
-
-      this.snackBar.openFromComponent(SnackbarComponent, {
-        data: {
-          message: `User is either not authenticated or does not exist.`,
-          btn: "OK",
-          action: "reset"
-        }
-      });
-    }
-
+  
   }
 
 }

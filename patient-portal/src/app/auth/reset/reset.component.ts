@@ -52,35 +52,7 @@ export class ResetComponent implements OnInit {
 
     if (this.emailId.invalid) return
 
-    let allregisteredUser:RegisterUser[];
-
-    //get all registered user list
-    this.userService.getUsers().subscribe(data=> {
-      allregisteredUser = data;
-    });
-
-     //check is user exist
-    let checkIsUserExist:any = allregisteredUser !.filter(u => {
-      return u.email === this.emailId.value
-    })[0]
-
-    let message:string = '';
-
-    if(checkIsUserExist){
-        message = `${this.data} has been sent to you by mail`;
-    }else{
-      message = `We can't find a user with that e-mail address`;
-    }
-
-
-    this.snackBar.openFromComponent(SnackbarComponent,{
-      data: {
-        message : message,
-        btn: "OK",
-        action: message === `${this.data} has been sent to you by mail` ? "reset" : ''
-      }
-    });
-
+    this.userService.checkResetUser(this.emailId.value)
   }
 
 }

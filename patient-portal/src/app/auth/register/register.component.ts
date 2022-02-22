@@ -101,34 +101,34 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.invalid) return
 
     let userDetails = this.registerForm.value;
-    let allregisteredUser:RegisterUser[];
+    // let allregisteredUser:RegisterUser[];
 
     //get all registered user list
-    this.userService.getUsers().subscribe(data=> {
-      allregisteredUser = data;
-    });
+    // this.userService.getUsers().subscribe(data=> {
+    //   allregisteredUser = data;
+    // });
 
      //check is user exist
-    let checkIsUserExist:any = allregisteredUser !.filter(u => {
-      return u.userName === userDetails.userName || u.email === userDetails.email;
-    })[0]
+    // let checkIsUserExist:any = allregisteredUser !.filter(u => {
+    //   return u.userName === userDetails.userName || u.email === userDetails.email;
+    // })[0]
 
-    let message:string = '';
-    let registerMessage = 'User has been registered successfully';
-    //validation for user login
-    if(checkIsUserExist){
-      if(checkIsUserExist.userName === userDetails.userName){
-        message = 'Someone already has that username. Try another?';
-      }else if(checkIsUserExist.email === userDetails.email){
-        message = 'This email is already associated with an account.';
-      }else if(checkIsUserExist.isAuthenticated == false){
-        message = 'User not authenticated yet. Please try again later';
-      }
-    }else{
-      message = registerMessage;
-    }
+    // let message:string = '';
+    // let registerMessage = 'User has been registered successfully';
+    // //validation for user login
+    // if(checkIsUserExist){
+    //   if(checkIsUserExist.userName === userDetails.userName){
+    //     message = 'Someone already has that username. Try another?';
+    //   }else if(checkIsUserExist.email === userDetails.email){
+    //     message = 'This email is already associated with an account.';
+    //   }else if(checkIsUserExist.isAuthenticated == false){
+    //     message = 'User not authenticated yet. Please try again later';
+    //   }
+    // }else{
+    //   message = registerMessage;
+    // }
 
-    if(message == registerMessage){
+    // if(message == registerMessage){
       // modified DOB in dd-mm-yyyy format
       userDetails.dob = this.datePipe.transform(userDetails.dob, 'dd-MM-yyyy');
 
@@ -138,15 +138,15 @@ export class RegisterComponent implements OnInit {
       console.log(user);
       
       this.userService.registerUser(user);
-    }
+    // }
 
-    this.snackBar.openFromComponent(SnackbarComponent,{
-      data: {
-        message : message,
-        btn: "OK",
-        action: message === registerMessage ? "reset" : ''
-      }
-    });
+    // this.snackBar.openFromComponent(SnackbarComponent,{
+    //   data: {
+    //     message : message,
+    //     btn: "OK",
+    //     action: message === registerMessage ? "reset" : ''
+    //   }
+    // });
   }
 
   backToLogin(){
