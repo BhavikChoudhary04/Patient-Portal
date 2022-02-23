@@ -1,0 +1,7 @@
+.dashboard {
+    box-shadow: 5px 10px 8px 10px antiquewhite;
+    background: aliceblue;
+}
+.table-responsive {
+    border: 1px solid darkgray;
+}

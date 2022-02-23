@@ -34,6 +34,11 @@
     background: #32cd32;
 } */
 
+.scheduleAppointmentForm .physicianForm .container {
+    box-shadow: 5px 10px 8px 10px antiquewhite;
+    background: aliceblue;
+}
+
 mat-card.physicianForm {
     box-shadow: none;
 }

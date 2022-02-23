@@ -1,25 +1,38 @@
 .login-position{
-    position: absolute;
+    /* position: absolute;
     top: 50%;
     left: 50%;
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%); */
+
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10% 25% 10% 10%;
 }
 
-.bg-image{
+/* .bg-image{
     background-image: url('../../../assets/images/patient-portal.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-}
+} */
 
-mat-card {
+/* mat-card {
   background : rgb(112, 128, 153,0.7)
-}
+} */
 
 .login-card{
-  width: 420px;
-  height: auto;
+  /* width: 420px; */
+    height: auto;
+    width: 60%;
+    padding: 3% 5%;
+    /* background: linear-gradient(45deg, black, transparent); */
+    /* background: repeating-linear-gradient(45deg, darkcyan, transparent 100px); */
+    background: content-box;
+    box-shadow: 5px 10px 8px 10px darkcyan;
+    border: 1px solid darkcyan;
 }
 
 .form-element {

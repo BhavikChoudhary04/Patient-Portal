@@ -11,10 +11,14 @@
 .mat-drawer-inner-container {
     overflow: hidden !important;
 }
-/* body{
-    background-image: url('./assets/images/patient-portal.jpg');
+body{
+    background-image: url('./assets/images/bg-doctor.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+/* app-root {
+    background: url('./assets/images/bg-schedule-form.jpeg');
 } */
 
 .mat-card {

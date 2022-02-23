@@ -9,7 +9,9 @@
   width: 70%;
   margin: 32px auto;
   padding: 3%;
-  background-color: rgb(219 229 242);
+  /* background-color: rgb(219 229 242); */
+  background: aliceblue;
+  box-shadow: 5px 10px 8px 10px antiquewhite;
   padding: 20px;
   
 }

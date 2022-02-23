@@ -12,9 +12,9 @@
 <div class="scheduleAppointmentForm">
   <div class="physicianForm">
     <mat-card-content>
-      <form [formGroup]="physicianForm" autocomplete="off" (ngSubmit)="submitPhysicianForm()">
-        <div class="container row">
-          <mat-form-field class="form-element col-lg-6" appearance="fill">
+      <form class="d-flex justify-content-center align-items-center" [formGroup]="physicianForm" autocomplete="off" (ngSubmit)="submitPhysicianForm()">
+        <div class="container row col-lg-10 m-4 p-2">
+          <mat-form-field class="form-element col-lg-5" appearance="fill">
             <mat-label>Meeting title</mat-label>
             <input type="text" matInput formControlName="meetingTitle" required />
             <!-- <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
@@ -28,7 +28,7 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field class="form-element col-lg-6" appearance="fill">
+          <mat-form-field class="form-element col-lg-5" appearance="fill">
             <mat-label>Description</mat-label>
             <textarea type="text" matInput formControlName="description" required></textarea>
             <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
@@ -36,7 +36,7 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field class="form-element col-lg-6" appearance="fill" *ngIf="showDetails">
+          <mat-form-field class="form-element col-lg-5" appearance="fill" *ngIf="showDetails">
             <mat-label>Physician</mat-label>
             <mat-select formControlName="physician" required [ngModel]="selectPhysician.name" (change)="onSelect($event.target)">
               <mat-option *ngFor="let physician of physicians; index as i" [value]="physician.name">
@@ -48,7 +48,7 @@
             </mat-error>
           </mat-form-field>
 
-          <!-- <mat-form-field class="form-element" appearance="fill">
+          <!-- <mat-form-field class="form-element col-lg-5" appearance="fill">
             <mat-label>Please select the date of appointment</mat-label>
             <mat-select formControlName="date" required>
               <mat-option *ngFor="let date of dates" [value]="date.availableDate">
@@ -60,7 +60,7 @@
             </mat-error>
           </mat-form-field> -->
 
-          <mat-form-field class="form-element" appearance="fill">
+          <mat-form-field class="form-element col-lg-5" appearance="fill">
             <mat-label>Please select the date of appointment</mat-label>
             <mat-select formControlName="date" required>
               <mat-option *ngFor="let physician of physicians" [value]="physician.availableDate">
@@ -72,7 +72,7 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field class="form-element" appearance="fill">
+          <mat-form-field class="form-element col-lg-5" appearance="fill">
             <mat-label>Please select the time of appointment</mat-label>
             <mat-select formControlName="time" required>
               <mat-option *ngFor="let physician of physicians" [value]="physician.availabletime">
@@ -84,7 +84,7 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field class="form-element col-lg-6" appearance="fill">
+          <mat-form-field class="form-element col-lg-5" appearance="fill">
             <mat-label>Contact</mat-label>
             <input matInput formControlName="mobile" required />
             <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
