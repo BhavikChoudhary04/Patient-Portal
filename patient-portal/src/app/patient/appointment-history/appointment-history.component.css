@@ -8,11 +8,6 @@
     word-break: break-word;
 }
 
-.appointment-history {
-    box-shadow: 5px 10px 8px 10px antiquewhite;
-    background: aliceblue;
-}
-
 .appointment-history-table.table {
     border: 1px solid lightgray;
 }
