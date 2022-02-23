@@ -1,44 +1,27 @@
 <div class="section-demographics-form" *ngIf="true">
-    <!-- <mat-card class="demographics-card">
-        <mat-card-title class="title">Patient Demographics</mat-card-title>
-        <mat-card-content>
-            
-        </mat-card-content>
-    </mat-card> -->
     <h1 class="title">Patient Demographics Form</h1>
-    <form [formGroup]="demographicsForm" (ngSubmit)="onSubmitClick(demographicsForm)">
+    <form [formGroup]="demographicsForm">
         <div class="row">
-            <!-- <div class="input-fields col-lg-6" *ngIf="!hideInput">
-                <mat-form-field  class="form-element" appearance="legacy">
-                    <mat-label>First Name:</mat-label>
-                    <input matInput formControlName="firstName" placeholder="Enter First Name">
-                    <mat-error *ngIf="(demographicsForm.get('firstName')) !.errors?.required">First Name is required</mat-error>
-                </mat-form-field>
-            </div> -->
-            <div class=" col-lg-6 p-4">
+            <div class=" col-lg-4 p-4">
                 <mat-label class="col-lg-6">First Name </mat-label>
                 <strong>{{data.firstName}}</strong>
             </div>
-            <div class=" col-lg-6 p-4">
+            <div class=" col-lg-4 p-4">
                 <mat-label class="col-lg-6">Last Name </mat-label>
                 <strong>{{data.lastName}}</strong>
             </div>
-            <div class="input-fields col-lg-6 p-4">
-                <mat-label class="col-lg-6">Date Of Birth </mat-label>
-                <strong>{{data.dob}}</strong>
-            </div>
-            <div class="input-fields col-lg-6 p-4">
+            <div class="input-fields col-lg-4 p-4">
                 <mat-label class="col-lg-6">Gender </mat-label>
                 <strong>{{data.gender}}</strong>
             </div>
-            <div class="input-fields col-lg-6" *ngIf="!hideInput">
+            <div class="input-fields col-lg-4" *ngIf="!hideInput">
                 <mat-form-field  class="form-element" appearance="legacy">
                     <mat-label>Last Name:</mat-label>
                     <input matInput formControlName="lastName" placeholder="Enter Last Name">
                     <mat-error *ngIf="(demographicsForm.get('lastName')) !.errors?.required">Last Name is required</mat-error>
                 </mat-form-field>
             </div>
-            <div class="input-fields col-lg-6" *ngIf="!hideInput">
+            <div class="input-fields col-lg-4" *ngIf="!hideInput">
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Choose your birthdate</mat-label>
                     <input matInput [matDatepicker]="picker" formControlName="dob" >
@@ -49,14 +32,14 @@
                     <mat-error *ngIf="(demographicsForm.get('dob')) !.errors?.required">Date Of Birth is required</mat-error>
                 </mat-form-field>
             </div>
-            <div class="input-fields col-lg-6" *ngIf="!hideInput">
+            <div class="input-fields col-lg-4" *ngIf="!hideInput">
                 <label for="gender">Gender:</label>
                 <mat-radio-group name="gender" formControlName="gender">
                     <mat-radio-button value="Male">Male</mat-radio-button>
                     <mat-radio-button  value="Female">Female</mat-radio-button>
                 </mat-radio-group>
             </div> 
-            <div class="input-fields col-lg-6">
+            <div class="input-fields col-lg-4">
                 <mat-form-field class="form-element" appearance="legacy">
                     <mat-label>Ethnicity</mat-label>
                     <mat-select formControlName="ethnicity">
@@ -66,28 +49,28 @@
                     </mat-select>
                 </mat-form-field>
             </div>  
-            <div class="input-fields col-lg-6">
+            <div class="input-fields col-lg-4">
                 <mat-form-field  class="form-element" appearance="legacy">
                     <mat-label>Education:</mat-label>
                     <input matInput formControlName="education" placeholder="Enter Education Details">
                     <mat-error *ngIf="(demographicsForm.get('education')) !.errors?.required">Education is required</mat-error>
                 </mat-form-field>
             </div> 
-            <div class="input-fields col-lg-6">
+            <div class="input-fields col-lg-4">
                 <mat-form-field  class="form-element" appearance="legacy">
                     <mat-label>Occupation:</mat-label>
                     <input matInput formControlName="occupation" placeholder="Enter Occupation Details">
                     <mat-error *ngIf="(demographicsForm.get('occupation')) !.errors?.required">Occupation is required</mat-error>
                 </mat-form-field>
             </div>
-            <div class="input-fields col-lg-6">
+            <div class="input-fields col-lg-4">
                 <mat-form-field  class="form-element" appearance="legacy">
                     <mat-label>Address:</mat-label>
                     <input matInput formControlName="address" placeholder="Enter Address">
                     <mat-error *ngIf="(demographicsForm.get('address')) !.errors?.required">Address is required</mat-error>
                 </mat-form-field>
             </div>
-            <div class="input-fields col-lg-6">
+            <div class="input-fields col-lg-4">
                 <mat-form-field  class="form-element" appearance="legacy">
                     <mat-label>Contact Info:</mat-label>
                     <input matInput formControlName="mobile" placeholder="Enter Contact Info">
@@ -95,7 +78,7 @@
         
                 </mat-form-field>
             </div> 
-            <div class="input-fields col-lg-6">
+            <div class="input-fields col-lg-4">
                 <mat-form-field  class="form-element" appearance="legacy">
                     <mat-label>Medical History:</mat-label>
                     <input matInput formControlName="medicalHistory" placeholder="Enter Medical History">
@@ -103,23 +86,23 @@
         
                 </mat-form-field>
             </div>
-            <div class="input-fields col-lg-6">
+            <div class="input-fields col-lg-4">
                 <mat-form-field  class="form-element" appearance="legacy">
                     <mat-label>Famil Medical History:</mat-label>
-                    <input matInput formControlName="familymedicalHistory" placeholder="Enter Family Medical History">
+                    <input matInput formControlName="familymedicalhistory" placeholder="Enter Family Medical History">
                 </mat-form-field>
             </div> 
-            <div class="input-fields col-lg-6">
+            <div class="input-fields col-lg-4">
                 <mat-form-field  class="form-element" appearance="legacy">
                     <mat-label>Surgeries:</mat-label>
                     <input matInput formControlName="surgeries" placeholder="Enter Surgeries Details">
                 </mat-form-field>
             </div> 
-            <div class="input-fields col-lg-6">
+            <div class="input-fields col-lg-4">
                 <mat-form-field  class="form-element" appearance="legacy">
                     <mat-label>Insurance Providers:</mat-label>
-                    <input matInput formControlName="insuranceProviders" placeholder="Enter Insurance Providers">
-                    <mat-error *ngIf="(demographicsForm.get('insuranceProviders')) !.errors?.required">Insurance Providers is required</mat-error>
+                    <input matInput formControlName="insuranceProvider" placeholder="Enter Insurance Providers">
+                    <mat-error *ngIf="(demographicsForm.get('insuranceProvider')) !.errors?.required">Insurance Providers is required</mat-error>
                 </mat-form-field>
             </div> 
         </div>

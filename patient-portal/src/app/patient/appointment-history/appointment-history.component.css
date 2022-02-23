@@ -1,7 +1,11 @@
-.btn-3 {
-    background : rgba(255, 206, 86);
-    color: white;
-    width: 80px;
+.mat-column-date {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 28% !important;
+    width: 20% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .appointment-history {
@@ -12,3 +16,63 @@
 .appointment-history-table.table {
     border: 1px solid lightgray;
 }
+.mat-column-time {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 28% !important;
+    width: 20% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.mat-column-physician {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 28% !important;
+    width: 20% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.mat-column-status {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 28% !important;
+    width: 20% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.mat-column-notes {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 28% !important;
+    width: 20% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.title{
+    text-align: center;
+}
+
+.show-initial-details{
+	padding: 3%;
+	text-align: center;
+	color: rgb(149 154 160)
+}
+
+table{
+    width: 90%;
+    margin: auto;
+}
+
+.mat-header-cell{
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+  }

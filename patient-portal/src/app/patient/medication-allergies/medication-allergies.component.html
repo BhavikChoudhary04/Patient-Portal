@@ -2,6 +2,9 @@
     <h1 [ngStyle]="{'text-transform': 'uppercase'}">Medications And Allergies</h1>
     <mat-divider></mat-divider>
     <div class="show-medications">
+        <ng-container *ngIf ="!showMedicationDetails">
+            No Medication Details Found
+        </ng-container>
         
         <ng-container *ngIf="showMedicationDetails">
             <mat-list *ngFor="let medidetail of userMedicationValues">

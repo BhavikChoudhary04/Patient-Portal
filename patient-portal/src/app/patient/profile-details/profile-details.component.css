@@ -1,6 +1,7 @@
 .my-profile-section{
-    padding: 3%;
+    padding: 16px;
     text-align: center;
+ 
 }
 
 .header{
@@ -30,3 +31,8 @@ button .mat-primary{
 .mat-drawer-inner-container::-webkit-scrollbar {
     display: none;
 }
+
+form{
+    padding: 16px;
+}
+

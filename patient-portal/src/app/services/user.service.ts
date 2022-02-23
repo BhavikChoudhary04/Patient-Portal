@@ -163,6 +163,14 @@ export class UserService {
         this.allUsers$.next(users.concat(user));
         this.loggedInUser$.next(user)
         this.demoService.createUserDemographic(user);
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          data: {
+            message: `User registered successfully`,
+            btn: "OK",
+            action: "reset"
+          }
+        });
+      
       }
     } catch (err) {
       this.snackBar.openFromComponent(SnackbarComponent, {

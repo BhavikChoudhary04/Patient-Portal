@@ -1,99 +1,94 @@
-<div class="show-initial-details" *ngIf="true">
-    <h1 [ngStyle]="{'text-transform': 'uppercase'}">Patient Demographics Details</h1>
+<div class="show-initial-details">
+    <h1 [ngStyle]="{'text-transform': 'uppercase'}" class="pt-3">Patient Demographics Details</h1>
     <mat-divider></mat-divider>
-    <div class="show-demographics">
-        <mat-list *ngFor="let user of userDetailFields">
-            <mat-list-item class="row">
-                <div class="col-lg-3"></div>
-                <mat-label class="col-lg-3">First Name </mat-label>
-                <div class="col-lg-3">
-                    <strong>{{user.firstName}}</strong>
-                </div>
-            </mat-list-item>
-            <mat-list-item class="row">
-                <div class="col-lg-3"></div>
-                <mat-label class="col-lg-3">Last Name </mat-label>
-                <div class="col-lg-3">
-                    <strong>{{user.lastName}}</strong>
-                </div>
-            </mat-list-item>
-            <mat-list-item class="row">
-                <div class="col-lg-3"></div>
-                <mat-label class="col-lg-3">Date Of Birth </mat-label>
-                <div class="col-lg-3">
-                    <strong>{{user.dob}}</strong>
-                </div>
-            </mat-list-item>
-            <mat-list-item class="row">
-                <div class="col-lg-3"></div>
-                <mat-label class="col-lg-3">Gender: </mat-label>
-                <div class="col-lg-3">
-                    <strong>{{user.gender}}</strong>
-                </div>
-            </mat-list-item>
-        </mat-list>
-        <ng-container *ngIf="showDemographicDetails">
-            <mat-list *ngFor="let demodetail of userDemographicsValues">
-                <mat-list-item class="row">
-                    <div class="col-lg-3"></div>
-                    <mat-label class="col-lg-3">Ethnicity </mat-label>
-                    <div class="col-lg-3">
-                        <strong>{{demodetail.ethnicity}}</strong>
-                    </div>
-                </mat-list-item>
-                <mat-list-item class="row">
-                    <div class="col-lg-3"></div>
-                    <mat-label class="col-lg-3">Education </mat-label>
-                    <div class="col-lg-3">
-                        <strong>{{demodetail.education}}</strong>
-                    </div>
-                </mat-list-item>
-                <mat-list-item class="row">
-                    <div class="col-lg-3"></div>
-                    <mat-label class="col-lg-3">Occupation </mat-label>
-                    <div class="col-lg-3">
-                        <strong>{{demodetail.occupation}}</strong>
-                    </div>
-                </mat-list-item>
-                <mat-list-item class="row">
-                    <div class="col-lg-3"></div>
-                    <mat-label class="col-lg-3">Contact Info </mat-label>
-                    <div class="col-lg-3">
-                        <strong>{{demodetail.mobile}}</strong>
-                    </div>
-                </mat-list-item>
-                <mat-list-item class="row">
-                    <div class="col-lg-3"></div>
-                    <mat-label class="col-lg-3">Medical History </mat-label>
-                    <div class="col-lg-3">
-                        <strong>{{demodetail.medicalHistory}}</strong>
-                    </div>
-                </mat-list-item>
-                <mat-list-item class="row">
-                    <div class="col-lg-3"></div>
-                    <mat-label class="col-lg-3">Famil Medical History </mat-label>
-                    <div class="col-lg-3">
-                        <strong>{{demodetail.familymedicalHistory}}</strong>
-                    </div>
-                </mat-list-item>
-                <mat-list-item class="row">
-                    <div class="col-lg-3"></div>
-                    <mat-label class="col-lg-3">Surgeries </mat-label>
-                    <div class="col-lg-3">
-                        <strong>{{demodetail.surgeries}}</strong>
-                    </div>
-                </mat-list-item>
-                <mat-list-item class="row">
-                    <div class="col-lg-3"></div>
-                    <mat-label class="col-lg-3">Insurance Providers </mat-label>
-                    <div class="col-lg-3">
-                        <strong>{{demodetail.insuranceProviders}}</strong>
-                    </div>
-                </mat-list-item>
-            </mat-list>
-        </ng-container>
+    <div class="show-demographics" *ngIf="showDetails">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="header-basic-details">Basic Details</h2>
+                <mat-list>
+                    <mat-list-item class="row">
+                        <mat-label class="col-lg-4">First Name </mat-label>
+                        <div class="col-lg-8">
+                            <strong>{{demographicsData.firstName}}</strong>
+                        </div>
+                    </mat-list-item>
+                    <mat-list-item class="row">
+                        <mat-label class="col-lg-4">Last Name </mat-label>
+                        <div class="col-lg-8">
+                            <strong>{{demographicsData.lastName}}</strong>
+                        </div>
+                    </mat-list-item>
+                    <mat-list-item class="row">
+                        <mat-label class="col-lg-4">Date Of Birth </mat-label>
+                        <div class="col-lg-8">
+                            <strong>{{demographicsData.dob}}</strong>
+                        </div>
+                    </mat-list-item>
+                    <mat-list-item class="row">
+                        <mat-label class="col-lg-4">Gender: </mat-label>
+                        <div class="col-lg-8">
+                            <strong>{{demographicsData.gender}}</strong>
+                        </div>
+                    </mat-list-item>
+                </mat-list>
+            </div>
+            <div class="col-lg-6">
+                <h2>Demographics Details</h2>
+                <mat-list>
+                    <mat-list-item class="row">
+                        <mat-label class="col-lg-4">Ethnicity </mat-label>
+                        <div class="col-lg-8">
+                            <strong>{{demographicsData.ethnicity}}</strong>
+                        </div>
+                    </mat-list-item>
+                    <mat-list-item class="row">
+                        <mat-label class="col-lg-4">Education </mat-label>
+                        <div class="col-lg-8">
+                            <strong>{{demographicsData.education}}</strong>
+                        </div>
+                    </mat-list-item>
+                    <mat-list-item class="row">
+                        <mat-label class="col-lg-4">Occupation </mat-label>
+                        <div class="col-lg-8">
+                            <strong>{{demographicsData.occupation}}</strong>
+                        </div>
+                    </mat-list-item>
+                    <mat-list-item class="row">
+                        <mat-label class="col-lg-4">Contact Info </mat-label>
+                        <div class="col-lg-8">
+                            <strong>{{demographicsData.mobile}}</strong>
+                        </div>
+                    </mat-list-item>
+                    <mat-list-item class="row">
+                        <mat-label class="col-lg-4">Medical History </mat-label>
+                        <div class="col-lg-8">
+                            <strong>{{demographicsData.medicalHistory}}</strong>
+                        </div>
+                    </mat-list-item>
+                    <mat-list-item class="row">
+                        <mat-label class="col-lg-4">Famil Medical History </mat-label>
+                        <div class="col-lg-8">
+                            <strong>{{demographicsData.familymedicalhistory}}</strong>
+                        </div>
+                    </mat-list-item>
+                    <mat-list-item class="row">
+                        <mat-label class="col-lg-4">Surgeries </mat-label>
+                        <div class="col-lg-8">
+                            <strong>{{demographicsData.surgeries}}</strong>
+                        </div>
+                    </mat-list-item>
+                    <mat-list-item class="row">
+                        <mat-label class="col-lg-4">Insurance Providers </mat-label>
+                        <div class="col-lg-8">
+                            <strong>{{demographicsData.insuranceProvider}}</strong>
+                        </div>
+                    </mat-list-item>
+                </mat-list>
+            </div>
+        </div>
     </div>
-    <div class="buttons-footer row">
+        
+    <div class="buttons-footer row mt-3">
         <div class="col-lg-4"></div>
         <div class="col-lg-4">
             <button mat-raised-button color="primary" class="demo-btn" (click)="openEditDemoDialog()">Edit Details</button>

@@ -1,37 +1,37 @@
 .section-demographics-form{
-    padding: 3%;
-  }
+  padding: 3%;
+}
+
+.form-element {
+  width: 90%;
+  margin: auto;
+}
+
+.link{
+  color: rgba(255,255,255,.7);
+}
+
+.btn-position{
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn-width{
   
-  .form-element {
-    width: 90%;
-    margin: auto;
-  }
-  
-  .link{
-    color: rgba(255,255,255,.7);
-  }
-  
-  .btn-position{
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  .btn-width{
-    
-  }
-  
-  .title{
-    text-align: center;
-    margin-bottom: 32px
-  }
-  
-  .input-fields{
-    display: block;
-    width: 64%;
-    padding: 10px 2%;
-    margin: 0 auto;
-  }
-  
-  mat-radio-button{
-    margin-left: 0.7rem;
-  }
+}
+
+.title{
+  text-align: center;
+  margin-bottom: 32px
+}
+
+.input-fields{
+  display: block;
+  width: 64%;
+  padding: 10px 2%;
+  margin: 0 auto;
+}
+
+mat-radio-button{
+  margin-left: 0.7rem;
+}

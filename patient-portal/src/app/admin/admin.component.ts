@@ -26,19 +26,19 @@ export class AdminComponent implements OnInit {
  }
 
  openLogoutModal() {
-   const dialogConfig = new MatDialogConfig();
-   // The user can't close the dialog by clicking outside its body
-   dialogConfig.disableClose = true;
-   dialogConfig.id = "modal-component";
-   dialogConfig.height = "180px";
-   dialogConfig.width = "350px";
-   dialogConfig.data = {
-     name: "logout",
-     title: "Are you sure you want to logout?",
-     // description: ":)",
-     actionButtonText: "Logout"
-   }
-   const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
- }
+  const dialogConfig = new MatDialogConfig();
+  // The user can't close the dialog by clicking outside its body
+  dialogConfig.disableClose = true;
+  dialogConfig.id = "modal-component";
+  dialogConfig.height = "220px";
+  dialogConfig.width = "370px";
+  dialogConfig.data = {
+    name: "logout",
+    title: "Are you sure? ",
+    description: "You want to logout?",
+    actionButtonText: "Logout"
+  }
+  const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
+}
 
 }
