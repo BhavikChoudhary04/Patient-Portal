@@ -143,6 +143,30 @@
       "mobile": "9123456789",
       "isAuthenticated": false,
       "id": 112
+    },
+    {
+      "email": "bhavik11@mail.com",
+      "password": "$2a$10$zoOyDMfMhltttsnmsXT80OVc60aKBETucg/kB9z62alrQA4ayJwZ2",
+      "firstName": "BhavikNewUser",
+      "lastName": "Choudhary",
+      "dob": "03-02-2022",
+      "userName": "Bhavik1223",
+      "role": "patient",
+      "mobile": "7879900987",
+      "isAuthenticated": false,
+      "id": 113
+    },
+    {
+      "email": "bob@mail.com",
+      "password": "$2a$10$/GeMeTHSTmXQmQ2zTJpsLuoALdVUFzqKrUO/piAKkwb4ZgDRv4fL2",
+      "firstName": "DJ",
+      "lastName": "Bob",
+      "dob": "16-02-2022",
+      "userName": "Djbob",
+      "role": "patient",
+      "mobile": "9098899098",
+      "isAuthenticated": false,
+      "id": 114
     }
   ],
   "reports": [
@@ -314,15 +338,6 @@
       "insuranceProviders": "Medicare",
       "userId": 109,
       "id": 305
-    },
-    {
-      "id": 306
-    },
-    {
-      "id": 307
-    },
-    {
-      "id": 308
     }
   ],
   "medication-allergies": [

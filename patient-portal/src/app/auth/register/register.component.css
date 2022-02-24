@@ -1,24 +1,22 @@
-:host {
+/* :host {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
+} */
 
 .registrationForm{
-  width: 70%;
-  position: relative;
-  display: flex;
-  /* margin: 0 auto; */
-  justify-content: flex-start;
-  margin-left: 3%;
+  width: 45%;
+  margin: 3% 0 0 14%;
 }
 
 .registrationForm mat-card {
-  padding: 32px;
-  background: content-box;
-  box-shadow: 5px 10px 8px 0px darkcyan;
+  padding: 5% 4%;
+  border-radius: 2%;
+  background: #fff;
+  color: black;
+  /* box-shadow: 5px 10px 8px 0px darkcyan; */
   /* background: repeating-linear-gradient(45deg, darkcyan, transparent 100px); */
-  border: 1px solid darkcyan;
+  /* border: 1px solid darkcyan; */
 }
 
 .form-element {
@@ -26,11 +24,14 @@
 }
 
 .link{
-  color: rgba(255,255,255,.7);
+  color: rgba(4, 3, 7, 0.7);
+  font-size: 11px;
+  text-decoration: underline;
+  text-transform: uppercase;
 }
 
 .btn-position{
-  margin-top: 20px;
+  padding: 2% 0 4%;
   text-align: center;
 }
 
@@ -53,16 +54,27 @@
 
 .mat-form-field {
   display: inline-block;
-  width: 45%;
-  margin: 1% 5% 1% 0;
+  width: 50%;
+  padding: 0.5% 3%;
+  
 }
 
-.btn-align{
-  margin: 0 8px 0 8px;
+.submit-btn{
+  background: #008641;
 }
 
-mat-card {
-  background : rgb(112, 128, 153,0.7)
+mat-card-title{
+  padding: 3% 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+mat-card-content{
+  padding-top: 2%;
+}
+
+mat-label{
+  color: black;
 }
 
   
