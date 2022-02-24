@@ -119,54 +119,6 @@
       "mobile": "9123456789",
       "isAuthenticated": false,
       "id": 110
-    },
-    {
-      "email": "demo@demo.com",
-      "password": "$2a$10$yXCeJydMYQHyDC.5MpHE3.JGjeO/.M.m7iBoX3wDTTPJTG2v429f6",
-      "firstName": "demo",
-      "lastName": "demo",
-      "dob": "01-02-2022",
-      "userName": "demo",
-      "role": "patient",
-      "mobile": "9123456789",
-      "isAuthenticated": false,
-      "id": 111
-    },
-    {
-      "email": "newuser@demo.com",
-      "password": "$2a$10$d2rm6NCyNEat0xGjCTyLVuaJrDpZyxwMVPcLADFpj3oecvp8UaHKa",
-      "firstName": "demo",
-      "lastName": "demo",
-      "dob": "22-02-2022",
-      "userName": "newuser",
-      "role": "patient",
-      "mobile": "9123456789",
-      "isAuthenticated": false,
-      "id": 112
-    },
-    {
-      "email": "bhavik11@mail.com",
-      "password": "$2a$10$zoOyDMfMhltttsnmsXT80OVc60aKBETucg/kB9z62alrQA4ayJwZ2",
-      "firstName": "BhavikNewUser",
-      "lastName": "Choudhary",
-      "dob": "03-02-2022",
-      "userName": "Bhavik1223",
-      "role": "patient",
-      "mobile": "7879900987",
-      "isAuthenticated": false,
-      "id": 113
-    },
-    {
-      "email": "bob@mail.com",
-      "password": "$2a$10$/GeMeTHSTmXQmQ2zTJpsLuoALdVUFzqKrUO/piAKkwb4ZgDRv4fL2",
-      "firstName": "DJ",
-      "lastName": "Bob",
-      "dob": "16-02-2022",
-      "userName": "Djbob",
-      "role": "patient",
-      "mobile": "9098899098",
-      "isAuthenticated": false,
-      "id": 114
     }
   ],
   "reports": [
