@@ -48,18 +48,18 @@
             </mat-error>
           </mat-form-field>
 
-          <!-- <mat-form-field class="form-element col-lg-5" appearance="fill">
+          <mat-form-field class="form-element col-lg-5" appearance="fill">
             <mat-label>Please select the date of appointment</mat-label>
             <mat-select formControlName="date" required>
-              <mat-option *ngFor="let date of dates" [value]="date.availableDate">
-               {{date.availableDate}}
+              <mat-option *ngFor="let date of currentDate" [value]="date">
+               {{date}}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
               Please select date of appointment
             </mat-error>
-          </mat-form-field> -->
-
+          </mat-form-field>
+<!-- 
           <mat-form-field class="form-element col-lg-5" appearance="fill">
             <mat-label>Please select the date of appointment</mat-label>
             <mat-select formControlName="date" required>
@@ -70,13 +70,13 @@
             <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
               Please select date of appointment
             </mat-error>
-          </mat-form-field>
+          </mat-form-field> -->
 
           <mat-form-field class="form-element col-lg-5" appearance="fill">
             <mat-label>Please select the time of appointment</mat-label>
             <mat-select formControlName="time" required>
-              <mat-option *ngFor="let physician of physicians" [value]="physician.availabletime">
-                {{physician.availabletime}}
+              <mat-option *ngFor="let time of currentTime" [value]="time">
+                {{time}}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">

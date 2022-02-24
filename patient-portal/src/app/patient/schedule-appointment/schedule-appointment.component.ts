@@ -24,6 +24,11 @@ export class ScheduleAppointmentComponent implements OnInit {
     name: ''
   };
 
+  index:number =0
+  currentPhysician!:any
+  currentDate!:[]
+  currentTime!:[]
+
   constructor(
     private fb:FormBuilder,
     private router:Router,
@@ -70,11 +75,19 @@ export class ScheduleAppointmentComponent implements OnInit {
 
   onSelect(physician_name: any) {
     this.appointments.getPhysician().subscribe((res: any)=> {
-      this.dates = res['dates'].filter(
-        (res:any)=> res.physician_name == physician_name!.value
-      ),
-      console.log(this.dates);
+      console.log(`res `, res);
+
+      this.currentPhysician = res[this.index]
+      console.log('this.currentPhysician: ', this.currentPhysician);
+      this.currentDate = this.currentPhysician.availableDate
+      this.currentTime = this.currentPhysician.availabletime
+      // this.dates = res['dates'].filter(
+      //   (res:any)=> res.physician_name == physician_name!.value
+      // ),
+      // console.log(this.dates);
     })
+
+
   }
 
   // openPhysicianForm() {
@@ -99,6 +112,10 @@ export class ScheduleAppointmentComponent implements OnInit {
 
   // onClose() {
   //   this.dialogRef.close();
+  // }
+
+  // onSelectPhysician(){
+
   // }
 
 }
