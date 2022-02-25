@@ -12,7 +12,7 @@
       <span class="mr-4">FROM:</span>
 
       <mat-form-field class="form-element" appearance="fill" appearance="fill">
-        <mat-label>DOB (DD/MM/YYYY)</mat-label>
+        <mat-label>(DD/MM/YYYY)</mat-label>
         <input [matDatepicker]="startdp" matInput (ngModelChange)="assignStartDate($event)"  [(ngModel)]="startDate" readonly/>
         <!-- [min]="minDate" [max]="maxDate" -->
         <mat-datepicker-toggle matSuffix [for]="startdp" class="text-warning"></mat-datepicker-toggle>
@@ -28,7 +28,7 @@
       <span class="mr-4">TO:</span>
 
       <mat-form-field class="form-element" appearance="fill" appearance="fill">
-        <mat-label>DOB (DD/MM/YYYY)</mat-label>
+        <mat-label>(DD/MM/YYYY)</mat-label>
         <input [matDatepicker]="enddp" matInput (ngModelChange)="assignEndDate($event)" [(ngModel)]="endDate" readonly/>
         <!-- [min]="minDate" [max]="maxDate" -->
         <mat-datepicker-toggle matSuffix [for]="enddp" class="text-warning"></mat-datepicker-toggle>
