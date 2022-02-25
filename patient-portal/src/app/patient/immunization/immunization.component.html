@@ -19,7 +19,7 @@
 
         <ng-container matColumnDef="lastDoseDate">
             <th mat-header-cell *matHeaderCellDef mat-sort-header > Date Of Last Covid Vaccine </th>
-            <td mat-cell *matCellDef="let element"> {{ element.lastDoseDate}} </td>
+            <td mat-cell *matCellDef="let element"> {{ element.lastDoseDate | date: 'dd/M/yy'}} </td>
         </ng-container>
 
 
@@ -36,6 +36,12 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+
+    <ng-container *ngIf="showLabel">
+        <div class="no-records-msg" *ngIf="covidVaccinationDetails.length == 0">
+          <h3>No record(s) found ! </h3>
+        </div>
+    </ng-container>
 
     <div class="show-initial-details">
         <h2 [ngStyle]="{'text-transform': 'uppercase'}">Other Vaccination Details</h2>
@@ -56,22 +62,29 @@
 
         <ng-container matColumnDef="lastDoseDate">
             <th mat-header-cell *matHeaderCellDef mat-sort-header > Date Of Last Covid Vaccine </th>
-            <td mat-cell *matCellDef="let element"> {{ element.lastDoseDate}} </td>
+            <td mat-cell *matCellDef="let element"> {{ element.lastDoseDate | date: 'dd/M/yy'}} </td>
         </ng-container>
 
         <ng-container matColumnDef="edit">
             <th mat-header-cell *matHeaderCellDef  > Action </th>
-            <td mat-cell *matCellDef="let element"> <mat-icon class="icon-cursor" (click)="editOtherVaccineDetails(element)" >edit</mat-icon> </td>
+            <td mat-cell *matCellDef="let element"> <mat-icon class="icon-cursor" (click)="editCovidVaccineDetails(element)" >edit</mat-icon> </td>
         </ng-container>
 
         <ng-container matColumnDef="delete">
             <th mat-header-cell *matHeaderCellDef  > </th>
-            <td mat-cell *matCellDef="let element"> <mat-icon class="icon-cursor" (click)="deleteOtherVaccineRecord(element)" >delete</mat-icon> </td>
+            <td mat-cell *matCellDef="let element"> <mat-icon class="icon-cursor" (click)="deleteCovidVaccineRecord(element)" >delete</mat-icon> </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="otherVaccineColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: otherVaccineColumns;"></tr>
     </table>
-
+    <ng-container *ngIf="showLabel">
+        <div class="no-records-msg" *ngIf="otherVaccinationDetails.length == 0">
+          <h3>No record(s) found ! </h3>
+        </div>
+    </ng-container>
     <!-- <mat-paginator [pageSizeOptions] ="[10, 20, 25, 100]" showFirstLastButtons></mat-paginator> -->
+    <div class="btn-position" >
+        <button mat-raised-button color="primary" class="demo-btn" (click)="addVaccineDetails()">Add Immunization Details</button>
+    </div>
 </div>
