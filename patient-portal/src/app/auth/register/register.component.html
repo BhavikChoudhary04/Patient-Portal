@@ -103,8 +103,8 @@
           </mat-form-field>
 
           <div class="btn-position">
-            <button class="btn-align text-danger mr-4" mat-raised-button type="reset" (click)="backToLogin()">Cancel</button>
-            <button class="submit-btn" mat-raised-button color="primary" (click)="submitRegisterForm()" [disabled]="!registerForm.valid">Submit</button>
+            <button class="btn-align text-danger mr-4 text-white" color="warn" mat-raised-button type="reset" (click)="backToLogin()"><span class="text-white">Cancel</span></button>
+            <button class="submit-btn text-white"  mat-raised-button color="primary" (click)="submitRegisterForm()" [disabled]="!registerForm.valid"><span class="text-white">Submit</span></button>
           </div>
           
         </div>

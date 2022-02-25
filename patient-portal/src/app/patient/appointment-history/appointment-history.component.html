@@ -4,7 +4,7 @@
         <mat-divider></mat-divider>
     </div>
 
-    <table mat-table [dataSource]="app_histroy_records" matSort  class="table-responsive mat-elevation-z8">
+    <table mat-table [dataSource]="app_histroy_records" matSort  class="appointment-table table-responsive mat-elevation-z8">
         <ng-container matColumnDef="date">
             <th mat-header-cell *matHeaderCellDef mat-sort-header > Appointment Date </th>
             <td mat-cell *matCellDef="let element">

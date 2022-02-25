@@ -70,4 +70,10 @@ table{
     font-size: 14px;
     font-weight: 500;
     color: black;
-  }
+}
+
+table.appointment-table,
+mat-paginator {
+    background: antiquewhite;
+    box-shadow: 5px 10px 8px 10px darksalmon;
+}
