@@ -17,14 +17,6 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field class="form-element col-lg-5" appearance="fill">
-            <mat-label>Description</mat-label>
-            <textarea type="text" matInput formControlName="description" required></textarea>
-            <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
-              Please enter description
-            </mat-error>
-          </mat-form-field>
-
           <mat-form-field class="form-element col-lg-5" appearance="fill" *ngIf="showDetails">
             <mat-label>Physician</mat-label>
             <mat-select formControlName="physician" required [ngModel]="selectPhysician.name"  (selectionChange)="onSelect($event.value)">
@@ -72,10 +64,18 @@
                 </mat-error> -->
           </mat-form-field>
 
+          <mat-form-field class="form-element col-lg-5" appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea type="text" matInput formControlName="description" required></textarea>
+            <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
+              Please enter description
+            </mat-error>
+          </mat-form-field>
+
           <div class="btn-position col-lg-12">
             <button class="bookAppointment btn-success text-white" color="primary" mat-raised-button type="submit"
               [disabled]="!physicianForm.valid" matTooltip="Book Appointment">Book Appointment</button>
-            <button class="bookAppointment text-white" color="warn" mat-raised-button (click)="onClose()">Cancel</button>
+            <button class="bookAppointment Cancel-btn text-white" color="warn" mat-raised-button (click)="onClose()">Cancel</button>
           </div>
 
         </div>

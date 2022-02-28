@@ -8,23 +8,38 @@
 
     position: relative;
     width: 100%;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 .reset-card{
     /* width: 400px;
     margin: 16px; */
-    width: 30%;
+    width: 33%;
     display: block;
     position: relative;
-    margin: 10% auto 0;
+    /* margin: 10% auto 0; */
+    margin: 5% 0 0 20%;
     text-align: center;
     background: content-box;
     box-shadow: 5px 10px 8px 10px darkcyan;
     border: 1px solid darkcyan;
-    padding: 2%;
+    /* padding: 2%; */
+    padding: 4% 3%;
+    background: #fff;
+    color: #333;
+    border-radius: 2%;
+}
+
+button.Cancel-btn {
+    background: #f44336;
+    color: #fff;
+}
+
+button.Submit-btn {
+    background: #008641;
+    color: #fff;
 }
 
 .mat-form-field {

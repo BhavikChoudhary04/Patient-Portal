@@ -33,9 +33,14 @@ mat-form-field mat-select {
     margin-bottom: 20px;
 }
 
-.bookAppointment.btn-success {
+.bookAppointment {
  background: #008641;
  color: #fff;
+}
+
+.bookAppointment.Cancel-btn {
+    background: #f44336;
+    color: #fff;
 }
 
 /* media query  */
