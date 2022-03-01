@@ -1,0 +1,14 @@
+mat-toolbar{
+    background-color: #fff;
+    width: 100%;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.mat-toolbar-row{
+    padding: 0;
+    width: 95%;
+    margin: auto;
+}

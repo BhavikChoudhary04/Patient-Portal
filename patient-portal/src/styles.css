@@ -2,30 +2,10 @@
 /* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-.mat-sidenav-container{
-    height: 86vh !important;
-    white-space: nowrap;
-    display: flex;
-}
-
-.mat-drawer-inner-container {
-    overflow: hidden !important;
-}
 body{
+    min-height: 100vh;
     background-image: url('./assets/images/bg-doctor.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-/* app-root {
-    background: url('./assets/images/bg-schedule-form.jpeg');
-} */
-
-.mat-card {
-    background:linear-gradient(45deg, #212D3F, transparent);
-    color:white;
-}
-
-button {
-    opacity:0.9;
-}
