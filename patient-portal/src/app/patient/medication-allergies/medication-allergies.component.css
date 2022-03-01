@@ -1,7 +1,8 @@
 .show-initial-details{
-  padding: 5%;
   text-align: center;
-  color: rgb(149 154 160)
+  color: rgb(149 154 160);
+  width: 90%;
+  margin: auto;
 }
 
 
@@ -12,4 +13,11 @@
   background-color: rgb(219 229 242);
   padding: 20px;
   
+}
+
+.header{
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(149 154 160);
+  font-size: 22px;
 }

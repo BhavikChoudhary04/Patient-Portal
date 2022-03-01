@@ -135,3 +135,10 @@ table{
 mat-radio-button{
   margin-left: 0.7rem;
 }
+
+.header{
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(149 154 160);
+  font-size: 22px;
+}

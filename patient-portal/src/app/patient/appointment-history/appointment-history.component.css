@@ -55,11 +55,11 @@
     text-align: center;
 }
 
-.show-initial-details{
+/* .show-initial-details{
 	padding: 3%;
 	text-align: center;
 	color: rgb(149 154 160)
-}
+} */
 
 table{
     width: 90%;
@@ -72,8 +72,15 @@ table{
     color: black;
 }
 
-table.appointment-table,
+/* table.appointment-table,
 mat-paginator {
     background: antiquewhite;
     box-shadow: 5px 10px 8px 10px darksalmon;
+} */
+
+.header{
+    text-align: center;
+    text-transform: uppercase;
+    color: rgb(149 154 160);
+    font-size: 22px;
 }

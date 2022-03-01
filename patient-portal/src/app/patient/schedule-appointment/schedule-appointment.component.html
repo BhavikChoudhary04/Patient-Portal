@@ -1,5 +1,10 @@
+<h3 class="header pb-3">
+  Schedule Appointment
+</h3>
+<mat-divider></mat-divider>
 <div class="scheduleAppointmentForm">
   <div class="physicianForm">
+
     <mat-card-content>
       <form class="d-flex justify-content-center align-items-center" [formGroup]="physicianForm" autocomplete="off" (ngSubmit)="submitPhysicianForm()">
         <div class="container row col-lg-10 m-4 p-2">
@@ -73,9 +78,9 @@
           </mat-form-field>
 
           <div class="btn-position col-lg-12">
-            <button class="bookAppointment btn-success text-white" color="primary" mat-raised-button type="submit"
-              [disabled]="!physicianForm.valid" matTooltip="Book Appointment">Book Appointment</button>
-            <button class="bookAppointment Cancel-btn text-white" color="warn" mat-raised-button (click)="onClose()">Cancel</button>
+            <button mat-raised-button  color="primary" type="submit" class="text-white mr-3" [ngStyle]="{'background-color':'#3f51b5'}"
+              [disabled]="!physicianForm.valid">Book Appointment</button>
+            <button class="Cancel-btn text-white" color="warn" mat-raised-button (click)="onClose()">Cancel</button>
           </div>
 
         </div>
