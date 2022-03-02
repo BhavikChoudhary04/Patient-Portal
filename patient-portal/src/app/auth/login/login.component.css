@@ -1,6 +1,15 @@
+.bg-image {
+  background: url('/assets/images/Patient-Portal-bg.jpg');
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+   height: 700px;
+}
 .login-position{
-   width: 33%;
-   margin:5% 0 0 20%;
+   /* width: 33%; */
+   /* margin:5% 0 0 20%; */
+   /* margin: 10% 0 0 4%; */
+   width: 38%;
+   padding: 12% 0 0 4%;
 }
 
 .login-card{

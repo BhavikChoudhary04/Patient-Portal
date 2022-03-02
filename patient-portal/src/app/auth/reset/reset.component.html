@@ -1,21 +1,29 @@
-<div class="reset-card-position">
-  <mat-card class="reset-card">
-    <mat-card-header>
-      <mat-card-title>Forgot {{data}}</mat-card-title>
-    </mat-card-header>
-
-    <form (submit)="reset($event)">
-      <mat-form-field class="" appearance="fill">
-        <mat-label>Email</mat-label>
-        <input type="text" matInput [formControl]="emailId">
-        <mat-error *ngIf="emailId.invalid">
-          Please enter a valid email Id
-        </mat-error>
-      </mat-form-field>
-<div class="text-center">
-      <button class="Cancel-btn btn-align" mat-button type="reset" (click)="backToLogin()">Cancel</button>
-      <button [disabled]="emailId.invalid" class="Submit-btn btn-align" mat-raised-button color="primary" type="submit">Submit</button>
+<!-- <div class="reset-card-bg-img"> -->
+  <div class="reset-card-position">
+    <mat-card class="reset-card">
+      <mat-card-header>
+        <mat-card-title>Forgot {{data}}</mat-card-title>
+      </mat-card-header>
+  
+      <form (submit)="reset($event)">
+        <mat-form-field class="" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input type="text" matInput [formControl]="emailId">
+          <mat-error *ngIf="emailId.invalid">
+            Please enter a valid email Id
+          </mat-error>
+        </mat-form-field>
+        <div class="text-center">
+          <button class="Cancel-btn btn-align" mat-button type="reset" (click)="backToLogin()">Cancel</button>
+          <button [disabled]="emailId.invalid" class="Submit-btn btn-align" mat-raised-button color="primary"
+            type="submit">Submit</button>
+        </div>
+      </form>
+    </mat-card>
+  
+    <div class="reset-card-bg-img">
+      <!-- <img src="/assets/images/forgot-username.jpg" alt="forgot-username-img" width="400px" height="400px"> -->
+      <img src="/assets/images/forgot-username.jpg" alt="forgot-username-img" width="75%" height="60%"/>
     </div>
-    </form>
-  </mat-card>
-</div>
+  </div>
+<!-- </div> -->

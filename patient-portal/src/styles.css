@@ -12,7 +12,8 @@
     overflow: hidden !important;
 }
 body{
-    background-image: url('./assets/images/bg-doctor.jpg');
+    /* background-image: url('./assets/images/bg-doctor.jpg'); */
+    /* background: url('./assets/images/Patient-Portal-bg.jpg'); */
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -28,4 +29,8 @@ body{
 
 button {
     opacity:0.9;
+}
+
+mat-sidenav-content {
+    background: url('./assets/images/bg-doctor.jpg');
 }

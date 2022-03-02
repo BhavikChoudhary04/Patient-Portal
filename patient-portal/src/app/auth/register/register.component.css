@@ -4,9 +4,18 @@
   align-items: flex-start;
 } */
 
+.register-form-bg-img {
+  /* background: url('/assets/images/PCC-Portal-Announcement-2019.jpg'); */
+  background: url('/assets/images/bg-doctor.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
 .registrationForm{
   width: 45%;
-  margin: 3% 0 0 14%;
+  /* margin: 3% 0 0 14%; */
+  padding: 3% 3%;
+  margin: 0 10%;
 }
 
 .registrationForm mat-card {

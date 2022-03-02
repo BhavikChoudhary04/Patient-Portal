@@ -1,3 +1,15 @@
+.reset-card-bg-img {
+   /* background: url('/assets/images/forgot-username.jpg');
+   background-repeat: no-repeat;
+   background-size: contain; */
+   position: relative;
+   display: inline-block;
+   width: 60%;
+}
+
+.reset-card-bg-img img {
+    margin: 10% 15%;
+}
 .reset-card-position{
     /* position: absolute;
     top: 150px;
@@ -11,19 +23,23 @@
     /* display: flex;
     justify-content: center;
     align-items: center; */
+    background: #333;
 }
 
 .reset-card{
     /* width: 400px;
     margin: 16px; */
     width: 33%;
-    display: block;
+    /* display: block; */
+    display: inline-block;
     position: relative;
     /* margin: 10% auto 0; */
-    margin: 5% 0 0 20%;
+    /* margin: 5% 0 0 20%; */
+    margin: 10% 0 0 4%;
     text-align: center;
     background: content-box;
-    box-shadow: 5px 10px 8px 10px darkcyan;
+    /* box-shadow: 5px 10px 8px 10px darkcyan; */
+    box-shadow: 5px 10px 8px 10px #333;
     border: 1px solid darkcyan;
     /* padding: 2%; */
     padding: 4% 3%;
