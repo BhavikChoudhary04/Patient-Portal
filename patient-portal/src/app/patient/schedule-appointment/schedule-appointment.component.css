@@ -1,9 +1,7 @@
-.scheduleAppointmentForm .physicianForm .container {
-    /* box-shadow: 5px 10px 8px 10px antiquewhite;
-    background: aliceblue; */
+/* .scheduleAppointmentForm .physicianForm .container {
     background: antiquewhite;
     box-shadow: 5px 10px 8px 10px darksalmon;
-}
+} */
 
 mat-card.physicianForm {
     box-shadow: none;
@@ -24,14 +22,14 @@ mat-form-field mat-select {
 .physicianForm .btn-position {
     text-align: center;
 }
-.physicianForm .btn-position .bookAppointment {
+/* .physicianForm .btn-position .bookAppointment {
     padding: 2px 30px;
     margin-right: 10px;
     border-radius: 20px;
     border: 1px solid black;
     cursor: pointer;
     margin-bottom: 20px;
-}
+} */
 
 .bookAppointment {
  background: #008641;
@@ -52,4 +50,11 @@ mat-form-field mat-select {
         display: block;
         width: 100%;
     }
+}
+
+.header{
+    text-align: center;
+    text-transform: uppercase;
+    color: rgb(149 154 160);
+    font-size: 22px;
 }

@@ -1,13 +1,14 @@
 .my-profile-section{
-    padding: 16px;
     text-align: center;
- 
+    width: 100%;
+    padding: 0 20px;
 }
 
 .header{
     text-align: center;
     text-transform: uppercase;
-    color: rgb(149 154 160)
+    color: rgb(149 154 160);
+    font-size: 22px;
 }
 
 .img-div{

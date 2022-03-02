@@ -1,10 +1,79 @@
+.card-overiew{
+    padding-right: 0;
+}
+
 .dashboard {
-    /* box-shadow: 5px 10px 8px 10px antiquewhite;
-    background: aliceblue; */
-    /* background: rgb(219, 130, 14); */
-    background: antiquewhite;
-    box-shadow: 5px 10px 8px 10px darksalmon;
+    min-height: 100%;
+    width: 100%;
+    padding: 0 1rem 1rem 1rem;
 }
 .table-responsive {
-    border: 1px solid darkgray;
+    width: 100%;   
+}
+
+.select-range-text{
+    text-align: right;
+    padding-top: 8px;
+}
+
+.rangeLabel{
+    position: relative;
+    top: -6px;
+    width: 30%;
+    font-size: 13px;
+}
+
+.mat-form-field{
+    width: 70%;
+    padding-left: 20px;
+}
+::ng-deep .mat-form-field-flex { padding: 0px 0px 0px 8px !important;}
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0px 0px !important;}
+::ng-deep .mat-form-field-label-wrapper { top: -1em; }
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75);
+    width: 133.33333%;
+}
+.mat-card{
+    padding-left: 2.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.mat-card-subtitle{
+    margin-bottom: 6px;
+}
+
+.mat-card-content{
+    display: inline-block;
+    width: 33.33%;
+    margin-bottom: 0;
+}
+
+.card-content-patient{
+    display: inline-block;
+    width: 66.67%;
+    padding-left: 8px;
+    position: relative;
+    top: 8px;
+}
+
+.icons{
+    font-size: 1.5rem;
+    padding: 13px;
+    color: white;
+    border-radius: 50%;
+}
+
+.group-icon{
+    background-color: tomato;
+}
+
+.appoinment-icon{
+    background-color: #007FFF;
+}
+.vehicle-icon{
+    background-color: #77dd77;
+}
+.staff-icon{
+    background-color: #fff44f;
 }

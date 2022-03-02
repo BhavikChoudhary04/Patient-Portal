@@ -2,8 +2,7 @@
     <!-- <h2 class="title">Immunization Details</h2> -->
 
     <div class="show-initial-details">
-        <h2 [ngStyle]="{'text-transform': 'uppercase'}">COVID Vaccination Details</h2>
-        <mat-divider></mat-divider>
+        <h2 class="header">Covid Vaccination Details</h2>
     </div>
     <table mat-table [dataSource]="covidVaccinationDetails" matSort  class="table-responsive mat-elevation-z8">
         <ng-container matColumnDef="name">
@@ -38,8 +37,7 @@
     </table>
 
     <div class="show-initial-details">
-        <h2 [ngStyle]="{'text-transform': 'uppercase'}">Other Vaccination Details</h2>
-        <mat-divider></mat-divider>
+        <h2 class="header">Other Vaccination Details</h2>
     </div>
 
     <table mat-table [dataSource]="otherVaccinationDetails" matSort  class="table-responsive mat-elevation-z8">
