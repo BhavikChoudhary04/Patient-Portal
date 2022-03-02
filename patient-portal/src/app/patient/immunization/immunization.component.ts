@@ -30,7 +30,6 @@ export class ImmunizationComponent implements OnInit {
 
     if (this.sessionUser){
       this.sessionUser = JSON.parse(this.sessionUser);
-      console.log("immunization sessionUser--->",this.sessionUser)
       this.immunizationService.getImmunizationDetails(this.sessionUser!.id).then( x =>{
         this.getUserImmunizationDetail();
       })
@@ -41,10 +40,8 @@ export class ImmunizationComponent implements OnInit {
   getUserImmunizationDetail(){
     this.immunizationService.getImmunizations().subscribe((response:any)=>{
       if(response.length > 0){
-        console.log("response--->",response)
-
         let allVaccinesDetails = response[0].vaccines;
-        
+
         this.covidVaccinationDetails= allVaccinesDetails.filter((record:any) => {
             return record.type === 'COVID';
         });
@@ -60,7 +57,44 @@ export class ImmunizationComponent implements OnInit {
     })
   }
 
-  deleteCovidVaccineRecord(row:any){
+  addVaccineDetails(){
+    const dialogRef = this.dialog.open(ImmunizationDialogComponent, {
+          width: '60%',
+        })
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result){
+        console.log("afterClosed result--->",result)
+        let vaccineRecord:any = [];
+        vaccineRecord.push(result);
+        let requestPayload= {
+          userId : this.sessionUser.id,
+          vaccines : vaccineRecord
+        };
+        this.immunizationService.createImmunizationDetails(requestPayload);
+      }
+    })
+  }
+
+  editVaccineDetails(vaccineRecord:any){
+    const dialogRef = this.dialog.open(ImmunizationDialogComponent, {
+      width: '60%',
+      data: {
+        covidVaccinationRecord: vaccineRecord
+      }
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('the edit demographic dialog was closed');
+      const newDetails = result
+      console.log('new patient demographics details: ', result);
+      if (result){
+
+      }
+    })
+  }
+
+  deleteVaccineRecord(row:any){
     const dialogConfig = new MatDialogConfig();
     // The user can't close the dialog by clicking outside its body
     dialogConfig.disableClose = true;
@@ -74,57 +108,6 @@ export class ImmunizationComponent implements OnInit {
       actionButtonText: "Yes, delete it!"
     }
     const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
-  }
-
-  deleteOtherVaccineRecord(row:any){
-    const dialogConfig = new MatDialogConfig();
-    // The user can't close the dialog by clicking outside its body
-    dialogConfig.disableClose = true;
-    dialogConfig.id = "modal-component";
-    dialogConfig.height = "220px";
-    dialogConfig.width = "370px";
-    dialogConfig.data = {
-      name: "DeleteOtherVaccineRecord",
-      title: "Are you sure? ",
-      description: "You want to delete this record ?",
-      actionButtonText: "Yes, delete it!"
-    }
-    const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
-  }
-
-  addVaccineDetails(){
-    const dialogRef = this.dialog.open(ImmunizationDialogComponent, {
-          width: '60%',
-        })
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   if (result){
-    //     console.log("afterClosed result--->",result)
-    //     let vaccineRecord:any = [];
-    //     vaccineRecord.push(result);
-    //     let requestPayload= {
-    //       userId : this.sessionUser.id,
-    //       vaccines : vaccineRecord
-    //     };
-    //     this.immunizationService.createImmunizationDetails(requestPayload);
-  }
-
-  editCovidVaccineDetails(vaccineRecord:any){
-    const dialogRef = this.dialog.open(ImmunizationDialogComponent, {
-      width: '60%',
-      data: {
-        covidVaccinationRecord: vaccineRecord
-      }
-    })
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('the edit demographic dialog was closed');
-      const newDetails = result
-      console.log('new patient demographics details: ', result);
-      if (result){
-        this.showDemographicDetails = true
-      }
-    })
   }
 }
 
