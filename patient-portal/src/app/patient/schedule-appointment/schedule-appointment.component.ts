@@ -18,11 +18,16 @@ export class ScheduleAppointmentComponent implements OnInit {
   showDetails:boolean =false;
 
   physicians: any;
-  dates: any;
 
   selectPhysician: any = {
     name: ''
   };
+
+  index:number =0
+  currentPhysician!:any
+  currentDate!:[]
+  currentTime!:[]
+  selectedPhysician: [] = []
 
   constructor(
     private fb:FormBuilder,
@@ -39,10 +44,8 @@ export class ScheduleAppointmentComponent implements OnInit {
         console.log(data);
         this.patientData = data;
         this.showDetails = true;
-        // this.availableDate = this.patientData[0].get('availableDate')
       }
       this.showAll();
-      this.onSelect(this.selectPhysician.name);
     })
   }
 
@@ -69,42 +72,30 @@ export class ScheduleAppointmentComponent implements OnInit {
   }
 
   onSelect(physician_name: any) {
-    this.appointments.getPhysician().subscribe((res: any)=> {
-      this.dates = res['dates'].filter(
-        (res:any)=> res.physician_name == physician_name!.value
-      ),
-      console.log(this.dates);
-    })
+    console.log(physician_name)
+    this.patientData.forEach((element: any) => {
+      if(element.name === physician_name) {
+        console.log(element)
+        this.currentPhysician = element
+        console.log('this.currentPhysician: ', this.currentPhysician);
+        this.currentDate = this.currentPhysician.availableDate
+        this.currentTime = this.currentPhysician.availabletime
+      }
+    });
   }
-
-  // openPhysicianForm() {
-  //   const dialogConfig = new MatDialogConfig();
-  //   dialogConfig.disableClose = true;
-  //   dialogConfig.autoFocus = true;
-  //   dialogConfig.width = '100%';
-  //   dialogConfig.height = '100%';
-  //   this.dialog.open(PhysicianBookAppointmentDialog, dialogConfig);
-  // }
 
   submitPhysicianForm(){
     if (this.physicianForm.invalid) return
       // this.router.navigateByUrl('/auth/login');
-      console.log(this.physicianForm.value);
       // alert(this.physicianForm.value);
       // this.onClose();
-      this.physicianForm.reset();
+      console.log(this.physicianForm.value);
       this.appointments.createAppointment(this.physicianForm.value);
-      const dialogRef = this.dialog.open(PhysicianBookAppointmentDialog);
+      // const dialogRef = this.dialog.open(PhysicianBookAppointmentDialog);
+      this.physicianForm.reset();
   }
 
-  // onClose() {
-  //   this.dialogRef.close();
-  // }
-
+  onClose() {
+    this.physicianForm.reset();
+  }
 }
-
-@Component({
-  selector: 'physician-book-appointment-dialog',
-  templateUrl: 'physician-book-appointment-dialog.html',
-})
-export class PhysicianBookAppointmentDialog {}

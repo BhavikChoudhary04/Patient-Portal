@@ -69,7 +69,7 @@
       "role": "patient",
       "dob": "29/01/1997",
       "mobile": "9876543215",
-      "password": "$2a$10$oRI4TA4x0gzcMoPUGg9N8eFxnK8bAxowQXc/ZG7yna/.Upw3JCstm",
+      "password": "$2a$10$z.FR2.YcW7sNfgfeeVyOKelW4u2OTjiLbLkx25dRvN3XxuCeXIeJa",
       "isAuthenticated": true
     },
     {
@@ -119,30 +119,6 @@
       "mobile": "9123456789",
       "isAuthenticated": false,
       "id": 110
-    },
-    {
-      "email": "demo@demo.com",
-      "password": "$2a$10$yXCeJydMYQHyDC.5MpHE3.JGjeO/.M.m7iBoX3wDTTPJTG2v429f6",
-      "firstName": "demo",
-      "lastName": "demo",
-      "dob": "01-02-2022",
-      "userName": "demo",
-      "role": "patient",
-      "mobile": "9123456789",
-      "isAuthenticated": false,
-      "id": 111
-    },
-    {
-      "email": "newuser@demo.com",
-      "password": "$2a$10$d2rm6NCyNEat0xGjCTyLVuaJrDpZyxwMVPcLADFpj3oecvp8UaHKa",
-      "firstName": "demo",
-      "lastName": "demo",
-      "dob": "22-02-2022",
-      "userName": "newuser",
-      "role": "patient",
-      "mobile": "9123456789",
-      "isAuthenticated": false,
-      "id": 112
     }
   ],
   "reports": [
@@ -314,15 +290,6 @@
       "insuranceProviders": "Medicare",
       "userId": 109,
       "id": 305
-    },
-    {
-      "id": 306
-    },
-    {
-      "id": 307
-    },
-    {
-      "id": 308
     }
   ],
   "medication-allergies": [

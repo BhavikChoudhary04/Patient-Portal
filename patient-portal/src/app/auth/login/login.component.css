@@ -1,38 +1,22 @@
+.bg-image {
+  background: url('/assets/images/Patient-Portal-bg.jpg');
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+   height: 700px;
+}
 .login-position{
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%); */
-
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin: 10% 25% 10% 10%;
+   /* width: 33%; */
+   /* margin:5% 0 0 20%; */
+   /* margin: 10% 0 0 4%; */
+   width: 38%;
+   padding: 12% 0 0 4%;
 }
 
-/* .bg-image{
-    background-image: url('../../../assets/images/patient-portal.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-} */
-
-/* mat-card {
-  background : rgb(112, 128, 153,0.7)
-} */
-
 .login-card{
-  /* width: 420px; */
-    height: auto;
-    width: 60%;
-    padding: 3% 5%;
-    /* background: linear-gradient(45deg, black, transparent); */
-    /* background: repeating-linear-gradient(45deg, darkcyan, transparent 100px); */
-    background: content-box;
-    box-shadow: 5px 10px 8px 10px darkcyan;
-    border: 1px solid darkcyan;
+  padding: 7% 3%;
+  background: #fff;
+  color: black;
+  border-radius: 2%;
 }
 
 .form-element {
@@ -40,27 +24,42 @@
 }
 
 .link{
-  color: rgba(255,255,255,.7);
+  color: rgba(4, 3, 7, 0.7);
+  font-size: 11px;
+  text-decoration: underline;
+  text-transform: uppercase;
 }
 
 .btn-position{
-  margin-top: 20px;
+  padding: 6% 0 4%;
+  text-align: center;
+}
+
+.create-account{
+  padding: 4% 0 1%;
   text-align: center;
 }
 
 .btn-width{
   width: 30%;
+  background: #008641;
+  color: white;
 }
 
 .center{
   text-align: center;
 }
 
-.forgot-password{
-  margin-top: 10px;
+mat-label{
+  color: black;
 }
 
-.create-account{
-  text-align: center;
-  margin-top: 10px;
+mat-card-title{
+  padding-bottom: 8%;
+  padding-top: 5%;
+  text-transform: uppercase;
+}
+
+div.input-field{
+  padding: 2% 10%;
 }

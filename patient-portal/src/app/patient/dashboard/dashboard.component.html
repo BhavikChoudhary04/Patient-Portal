@@ -1,69 +1,114 @@
-<div class="container-fluid">
-  <div class="dashboard row m-4 p-3 text-center">
-
-    <div class="col-md-12">
-      <h2 class="font-weight-bold">My Appointments</h2>
-    </div>
-
-    <div class="col-md-12">
-      <h3>Select date range</h3>
-    </div>
-    <div class="col-md-6 mt-3">
-      <span class="mr-4">FROM:</span>
-
-      <mat-form-field class="form-element" appearance="fill" appearance="fill">
-        <mat-label>DOB (DD/MM/YYYY)</mat-label>
-        <input [matDatepicker]="startdp" matInput (ngModelChange)="assignStartDate($event)"  [(ngModel)]="startDate" readonly/>
-        <!-- [min]="minDate" [max]="maxDate" -->
-        <mat-datepicker-toggle matSuffix [for]="startdp" class="text-warning"></mat-datepicker-toggle>
-        <mat-datepicker #startdp></mat-datepicker>
-        <!-- <mat-error *ngIf="registerForm.invalid || registerForm.touched">
-          Please enter your Date Of Birth
-        </mat-error> -->
-      </mat-form-field>
-    </div>
-
-
-    <div class="col-md-6 mt-3">
-      <span class="mr-4">TO:</span>
-
-      <mat-form-field class="form-element" appearance="fill" appearance="fill">
-        <mat-label>DOB (DD/MM/YYYY)</mat-label>
-        <input [matDatepicker]="enddp" matInput (ngModelChange)="assignEndDate($event)" [(ngModel)]="endDate" readonly/>
-        <!-- [min]="minDate" [max]="maxDate" -->
-        <mat-datepicker-toggle matSuffix [for]="enddp" class="text-warning"></mat-datepicker-toggle>
-        <mat-datepicker #enddp></mat-datepicker>
-        <!-- <mat-error *ngIf="registerForm.invalid || registerForm.touched">
-          Please enter your Date Of Birth
-        </mat-error> -->
-      </mat-form-field>
-    </div>
-
-    <div class="col-md-12 mt-5 text-left">
-      <h3 class="text-info text-center font-weight-bold">Appointment Details</h3>
-      <div class="table-responsive table-hover table-striped">
-          <table class="table">
-              <thead>
-                  <tr>
-                      <th>Appointment Date</th>
-                      <th>Appointment Time</th>
-                      <th>Physician</th>
-                      <th>Status</th>
-                      <th>Notes</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr *ngFor="let bill of displayAppointments">
-                      <td class="align-middle">{{bill.date}}</td>
-                      <td class="align-middle">{{bill.time}}</td>
-                      <td class="align-middle">{{bill.physician}}</td>
-                      <td class="align-middle">{{bill.status}}</td>
-                      <td class="align-middle">{{bill.notes}}</td>
-                  </tr>
-              </tbody>
-          </table>
+<div class="row dashboard">
+  <div class="col-lg-3 card-overiew">
+    <mat-card class="example-card">
+      <mat-card-content>
+        <span class="large material-icons icons group-icon">
+          groups
+        </span>
+      </mat-card-content>
+      <div class="card-content-patient">
+        <mat-card-subtitle>Total Patients</mat-card-subtitle>
+        <mat-card-title>2400</mat-card-title>
       </div>
+    </mat-card>
   </div>
+  <div class="col-lg-3 card-overiew">
+    <mat-card class="example-card">
+      <mat-card-content>
+        <span class="material-icons icons appoinment-icon">
+          schedule_send
+        </span>
+      </mat-card-content>
+      <div class="card-content-patient">
+        <mat-card-subtitle>Appoinments</mat-card-subtitle>
+        <mat-card-title>225</mat-card-title>
+      </div>
+    </mat-card>
+  </div>
+  <div class="col-lg-3 card-overiew">
+    <mat-card class="example-card">
+      <mat-card-content>
+        <span class="material-icons icons vehicle-icon">
+          drive_eta
+        </span>
+      </mat-card-content>
+      <div class="card-content-patient">
+        <mat-card-subtitle>Total Vehicles</mat-card-subtitle>
+        <mat-card-title>50</mat-card-title>
+      </div>
+    </mat-card>
+  </div>
+  <div class="col-lg-3 card-overiew">
+    <mat-card class="example-card">
+      <mat-card-content>
+        <span class="large material-icons icons staff-icon">
+          person
+        </span>
+      </mat-card-content>
+      <div class="card-content-patient">
+        <mat-card-subtitle>Staff Members</mat-card-subtitle>
+        <mat-card-title>150</mat-card-title>
+      </div>
+    </mat-card>
+  </div>
+</div>
 
+<div class="row dashboard mt-4">
+  <div class="col-lg-3 text-center pt-2">
+    <h5>Current Appoinment</h5>
+  </div>
+  <div class="col-lg-3 select-range-text">
+    <span [ngStyle]="{'font-size':'13px'}">Select date range</span>
+  </div>
+  <div class="col-lg-3">
+    <span class="rangeLabel">FROM:</span>
+    <mat-form-field class="form-element" appearance="fill" appearance="fill">
+      <mat-label [ngStyle]="{'font-size':'13px'}">(DD/MM/YYYY)</mat-label>
+      <input [matDatepicker]="startdp" matInput (ngModelChange)="assignStartDate($event)"  [(ngModel)]="startDate" readonly/>
+      <!-- [min]="minDate" [max]="maxDate" -->
+      <mat-datepicker-toggle matSuffix [for]="startdp" class="text-warning"></mat-datepicker-toggle>
+      <mat-datepicker #startdp></mat-datepicker>
+      <!-- <mat-error *ngIf="registerForm.invalid || registerForm.touched">
+        Please enter your Date Of Birth
+      </mat-error> -->
+    </mat-form-field>
+  </div>
+  <div class="col-lg-3">
+    <span class="rangeLabel">TO:</span>
+    <mat-form-field class="form-element" appearance="fill" appearance="fill">
+      <mat-label [ngStyle]="{'font-size':'13px'}" >(DD/MM/YYYY)</mat-label>
+      <input [matDatepicker]="enddp" matInput (ngModelChange)="assignEndDate($event)" [(ngModel)]="endDate" readonly/>
+      <!-- [min]="minDate" [max]="maxDate" -->
+      <mat-datepicker-toggle matSuffix [for]="enddp" class="text-warning"></mat-datepicker-toggle>
+      <mat-datepicker #enddp></mat-datepicker>
+      <!-- <mat-error *ngIf="registerForm.invalid || registerForm.touched">
+        Please enter your Date Of Birth
+      </mat-error> -->
+    </mat-form-field>
+  </div>
+  <div class="col-md-12 text-left pl-5">
+    <!-- <h3 class="text-center font-weight-bold">Appointment Details</h3> -->
+    <div class="table-responsive table-hover table-striped">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Appointment Date</th>
+                    <th>Appointment Time</th>
+                    <th>Physician</th>
+                    <th>Status</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let bill of displayAppointments">
+                    <td class="align-middle">{{bill.date}}</td>
+                    <td class="align-middle">{{bill.time}}</td>
+                    <td class="align-middle">{{bill.physician}}</td>
+                    <td class="align-middle">{{bill.status}}</td>
+                    <td class="align-middle">{{bill.notes}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
   </div>
 </div>

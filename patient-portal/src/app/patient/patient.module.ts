@@ -9,7 +9,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
-import {  PhysicianBookAppointmentDialog, ScheduleAppointmentComponent } from './schedule-appointment/schedule-appointment.component';
+import { ScheduleAppointmentComponent } from './schedule-appointment/schedule-appointment.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatIconModule } from '@angular/material/icon';
@@ -35,9 +35,10 @@ import { MatTableModule} from '@angular/material/table';
 import { MatChipsModule} from '@angular/material/chips';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
-  declarations: [PatientComponent, DashboardComponent, ScheduleAppointmentComponent,ImmunizationDialogComponent, PhysicianBookAppointmentDialog, ImmunizationComponent, VitalsComponent, AppointmentHistoryComponent, DemographicsComponent, MedicationAllergiesComponent, DemographicsDialogComponent, MedicationsDialogComponent, ProfileDetailsComponent, BillingComponent],
+  declarations: [PatientComponent, DashboardComponent, ScheduleAppointmentComponent,ImmunizationDialogComponent, ImmunizationComponent, VitalsComponent, AppointmentHistoryComponent, DemographicsComponent, MedicationAllergiesComponent, DemographicsDialogComponent, MedicationsDialogComponent, ProfileDetailsComponent, BillingComponent, HeaderComponent],
   imports: [
     CommonModule,
     PatientRoutingModule,
@@ -55,7 +56,6 @@ import { MatSortModule } from '@angular/material/sort';
     RouterModule,
     MatToolbarModule,
     MatListModule,
-    MatIconModule,
     MatButtonModule,
     MatRadioModule,
     MatFormFieldModule,

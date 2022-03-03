@@ -1,69 +1,72 @@
-<!-- <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
-<mat-sidenav-container>
-  <mat-sidenav class="mat-side-nav-background" opened="true" #sidenav role="navigation" mode="side">
-    
-    <app-sidenav (sidenavClose)="sidenav.close()"></app-sidenav>
-  </mat-sidenav>
-  
-  <mat-sidenav-content class="mat-side-nav-content-background">
-   
-
-    <h2 style="text-align: center;">Patient Dashboard </h2>
-  </mat-sidenav-content>
-</mat-sidenav-container> -->
-
-<mat-toolbar>
-    <mat-toolbar-row>
-      <button mat-icon-button>
-        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
-      </button>
-      <h1>Patient Portal</h1>
-      <span class="menu-spacer">Welcome {{name}}</span>
-      <div class="logout-btn">
-        <button mat-raised-button color="warn" (click)= "openLogoutModal()">Logout</button>
-      </div>
-    </mat-toolbar-row>
-  </mat-toolbar>
-  
+<div>
   <mat-sidenav-container >
     <mat-sidenav #sidenav opened mode="side">
+      <h2 class="home">
+        <i class='fa fa-heartbeat fa-1x' style='color:#007fff'></i>
+        <strong class="app-name">PatPor</strong>
+      </h2>
       <mat-nav-list>
-         <div class="list-item">
-            <a mat-list-item [routerLink]="['/patient/dashboard']">Dashboard</a>
+        <div class="list-item">
+          <a mat-list-item routerLinkActive="active" [routerLink]="['/patient/dashboard']" [routerLinkActiveOptions]="{exact: true}">
+            <i class="material-icons" style="font-size: 24px;">dashboard</i>
+            <span class="main-route-title">Dashboard</span>
+          </a>
         </div>
         <div class="list-item">
-          <a mat-list-item [routerLink]="['my-profile']">My Profile</a>
+          <a mat-list-item routerLinkActive="active" [routerLink]="['my-profile']">
+            <span class="material-icons" style="font-size: 24px;">person</span>
+            <span class="main-route-title">Profile</span>
+          </a>
         </div>
         <div class="list-item">
-            <a mat-list-item [routerLink]="['schedule-appointment']">Schedule Appoinment</a>
+          <a mat-list-item routerLinkActive="active" [routerLink]="['schedule-appointment']">
+            <span class="material-icons">calendar_today</span>
+            <span class="main-route-title">Appoinment</span>
+          </a>
         </div>
         <div class="list-item">
-            <a mat-list-item [routerLink]="['appointment-history']">Appoinment History</a>
+          <a mat-list-item routerLinkActive="active" [routerLink]="['appointment-history']">
+            <span class="material-icons">history</span>
+            <span class="main-route-title">History</span>
+          </a>
         </div>
         <div class="list-item">
-            <a mat-list-item [routerLink]="['demographics']">Demographics</a>
-  
+          <a mat-list-item routerLinkActive="active" [routerLink]="['demographics']">
+            <span class="material-icons" style="font-size: 24px;">analytics</span>
+            <span class="main-route-title">Demographics</span>
+          </a>
         </div>
         <div class="list-item">
-            <a mat-list-item [routerLink]="['medications-allergies']">Medication and Allergies</a>
-  
+          <a mat-list-item routerLinkActive="active" [routerLink]="['medications-allergies']">
+            <span class="material-icons" style="font-size: 24px;">medication</span>
+            <span class="main-route-title">Medications</span>
+          </a>
         </div>
         <div class="list-item">
-            <a mat-list-item [routerLink]="['immunization']">Immunization Details</a>
-  
+          <a mat-list-item routerLinkActive="active" [routerLink]="['immunization']">
+            <span class="material-icons" style="font-size: 24px;">vaccines</span>
+            <span class="main-route-title">Immunization</span>
+          </a>
         </div>
         <div class="list-item">
-            <a mat-list-item [routerLink]="['vitals']">Patient Vitals</a>
+          <a mat-list-item routerLinkActive="active" [routerLink]="['vitals']">
+            <span class="material-icons" style="font-size: 24px;">info</span>
+            <span class="main-route-title">Patient Vitals</span>
+          </a>
         </div>
-        
         <div class="list-item">
-          <a mat-list-item [routerLink]="['billing']">Billing</a>
+          <a mat-list-item routerLinkActive="active" [routerLink]="['billing']">
+            <span class="material-icons" style="font-size: 24px;">payments</span>
+            <span class="main-route-title">Billing</span>
+          </a>
         </div>
   
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
+        <app-header></app-header>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container> 
   
+ </div>

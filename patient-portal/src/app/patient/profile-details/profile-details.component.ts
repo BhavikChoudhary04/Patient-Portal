@@ -12,7 +12,7 @@ export class ProfileDetailsComponent implements OnInit {
 
   showDetails:boolean = false;
   showInputFields:boolean = false;
-  userDetail!:RegisterUser
+  userDetail!:RegisterUser;
   profileForm!:FormGroup;
 
   constructor(private userService: UserService, private fb:FormBuilder) { }

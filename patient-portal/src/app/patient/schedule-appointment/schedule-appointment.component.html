@@ -1,16 +1,10 @@
-<!-- <div class="bg-image img-fluid">
-  <div class="scheduleAppointment">
-    <h2>Schedule Appointment</h2>
-
-    <div class="d-flex justify-content-left mx-4">
-      <button class="physician" mat-button (click)="openPhysicianForm()">Physician</button>
-      <button class="speciality" mat-button (click)="openSpecialityForm()" disabled>Speciality</button>
-    </div>
-  </div>
-</div> -->
-
+<h3 class="header pb-3">
+  Schedule Appointment
+</h3>
+<mat-divider></mat-divider>
 <div class="scheduleAppointmentForm">
   <div class="physicianForm">
+
     <mat-card-content>
       <form class="d-flex justify-content-center align-items-center" [formGroup]="physicianForm" autocomplete="off" (ngSubmit)="submitPhysicianForm()">
         <div class="container row col-lg-10 m-4 p-2">
@@ -28,17 +22,9 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field class="form-element col-lg-5" appearance="fill">
-            <mat-label>Description</mat-label>
-            <textarea type="text" matInput formControlName="description" required></textarea>
-            <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
-              Please enter description
-            </mat-error>
-          </mat-form-field>
-
           <mat-form-field class="form-element col-lg-5" appearance="fill" *ngIf="showDetails">
             <mat-label>Physician</mat-label>
-            <mat-select formControlName="physician" required [ngModel]="selectPhysician.name" (change)="onSelect($event.target)">
+            <mat-select formControlName="physician" required [ngModel]="selectPhysician.name"  (selectionChange)="onSelect($event.value)">
               <mat-option *ngFor="let physician of physicians; index as i" [value]="physician.name">
                 {{physician.name}}
               </mat-option>
@@ -48,23 +34,11 @@
             </mat-error>
           </mat-form-field>
 
-          <!-- <mat-form-field class="form-element col-lg-5" appearance="fill">
-            <mat-label>Please select the date of appointment</mat-label>
-            <mat-select formControlName="date" required>
-              <mat-option *ngFor="let date of dates" [value]="date.availableDate">
-               {{date.availableDate}}
-              </mat-option>
-            </mat-select>
-            <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
-              Please select date of appointment
-            </mat-error>
-          </mat-form-field> -->
-
           <mat-form-field class="form-element col-lg-5" appearance="fill">
             <mat-label>Please select the date of appointment</mat-label>
             <mat-select formControlName="date" required>
-              <mat-option *ngFor="let physician of physicians" [value]="physician.availableDate">
-               {{physician.availableDate}}
+              <mat-option *ngFor="let date of currentDate" [value]="date">
+               {{date}}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
@@ -75,8 +49,8 @@
           <mat-form-field class="form-element col-lg-5" appearance="fill">
             <mat-label>Please select the time of appointment</mat-label>
             <mat-select formControlName="time" required>
-              <mat-option *ngFor="let physician of physicians" [value]="physician.availabletime">
-                {{physician.availabletime}}
+              <mat-option *ngFor="let time of currentTime" [value]="time">
+                {{time}}
               </mat-option>
             </mat-select>
             <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
@@ -95,10 +69,18 @@
                 </mat-error> -->
           </mat-form-field>
 
+          <mat-form-field class="form-element col-lg-5" appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea type="text" matInput formControlName="description" required></textarea>
+            <mat-error *ngIf="physicianForm.invalid || physicianForm.touched">
+              Please enter description
+            </mat-error>
+          </mat-form-field>
+
           <div class="btn-position col-lg-12">
-            <button class="bookAppointment" mat-raised-button color="accent" type="submit"
-              [disabled]="!physicianForm.valid" matTooltip="Book Appointment">Book Appointment</button>
-            <!-- <button class="bookAppointment" mat-raised-button color="accent" (click)="onClose()">Cancel</button> -->
+            <button mat-raised-button  color="primary" type="submit" class="text-white mr-3" [ngStyle]="{'background-color':'#3f51b5'}"
+              [disabled]="!physicianForm.valid">Book Appointment</button>
+            <button class="Cancel-btn text-white" color="warn" mat-raised-button (click)="onClose()">Cancel</button>
           </div>
 
         </div>

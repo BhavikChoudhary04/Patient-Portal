@@ -9,11 +9,18 @@
   margin: 32px auto;
   padding: 3%;
   /* background-color: rgb(219 229 242); */
-  background: aliceblue;
-  box-shadow: 5px 10px 8px 10px antiquewhite;
-  
+  /* background: aliceblue;
+  box-shadow: 5px 10px 8px 10px antiquewhite; */
+  /* background: antiquewhite;
+  box-shadow: 5px 10px 8px 10px darksalmon; */
 }
 
 mat-list-item{
   text-align: left;
+}
+.header{
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(149 154 160);
+  font-size: 22px;
 }

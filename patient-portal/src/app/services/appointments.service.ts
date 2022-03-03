@@ -185,6 +185,7 @@ export class AppointmentsService {
       const appointment = await this.http.post<Appointment>(`${this.API_URL}/appointment-history`, app).toPromise();
 
       if (appointment) {
+        console.log('appointment:', appointment)
         const apps = this.appointments$.getValue();
         this.appointments$.next(apps.concat(appointment))
         this.snackBar.openFromComponent(SnackbarComponent, {

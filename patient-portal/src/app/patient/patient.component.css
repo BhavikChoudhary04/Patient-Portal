@@ -1,46 +1,48 @@
+mat-sidenav-container{
+    min-height: 100vh;
+    background: #fff;
+}
 
 mat-sidenav{
-    width: 18%;
-    background-color: aliceblue;
+    width: 15%;
+}
+mat-sidenav-content{
+    width: 85%;
+}
+
+.app-name{
+    position: relative;
+    top: -8px;
+}
+
+h2{
+    text-transform: uppercase;
+    padding: 2.5rem 0 0 2rem;
+}
+
+mat-nav-list{
+    padding: 1.5rem 0;
+}
+
+a{
+    padding: 1%;
+}
+
+strong{
+    font-size: medium;
+    padding-left: 0.6rem;
+    color: #007fff;
 }
 
 .list-item{
-    padding: 3% 3%;
-  
-
+    padding-left: 0.5rem;
 }
 
-mat-toolbar{
-    padding: 1%;
-    background-color: skyblue; 
-    color: white;
+.main-route-title{
+    padding-left: 16px;
+    font-size: 17px;
 }
 
-button{
-    margin: 0 16px;
+.active{
+    color: #007fff;
 }
-
-h1{
-    margin: 0 16px;
-}
-
-.logout-btn{
-    position: fixed;
-    right: 5%;
-
-}
-
-.menu-spacer{
-    position: fixed;
-   left: 35%;
-}
-
-/* mat-toolbar{
-    background-color: rgb(140, 117, 247);
-    color: azure;
-}
-
-mat-sidenav{
-    background-color: rgb(157, 193, 228);
-    color: azure;
-} */
