@@ -19,6 +19,9 @@ export class ScheduleAppointmentComponent implements OnInit {
 
   physicians: any;
 
+  minDate!: Date;
+  maxDate!: Date;
+
   selectPhysician: any = {
     name: ''
   };
@@ -28,6 +31,7 @@ export class ScheduleAppointmentComponent implements OnInit {
   currentDate!:[]
   currentTime!:[]
   selectedPhysician: [] = []
+  currentYear!: number;
 
   constructor(
     private fb:FormBuilder,
@@ -47,6 +51,10 @@ export class ScheduleAppointmentComponent implements OnInit {
       }
       this.showAll();
     })
+
+    const currentYear = new Date().getFullYear();
+    this.minDate = new Date(currentYear - 0, 2, 3);
+    this.maxDate = new Date(currentYear + 0, 3, 29);
   }
 
   createPhysicianForm(){
@@ -98,4 +106,14 @@ export class ScheduleAppointmentComponent implements OnInit {
   onClose() {
     this.physicianForm.reset();
   }
+
+  myFilter = (d: Date | null): boolean => {
+    const day = (d || new Date()).getDay();
+    // Prevent Saturday and Sunday from being selected.
+    return day !== 0 && day !== 6;
+
+    // const currentYear = new Date().getFullYear();
+    // const year = (d || new Date()).getFullYear();
+    // return year >= this.currentYear -1 && year <= this.currentYear + 1;
+  };
 }
