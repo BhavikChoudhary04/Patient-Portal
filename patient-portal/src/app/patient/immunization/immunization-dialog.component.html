@@ -1,61 +1,59 @@
 <div class="section-demographics-form" >
   
-    <h1 class="header">Edit Immunization Details</h1>
-    <form [formGroup]="demographicsForm" (ngSubmit)="onSubmitClick(demographicsForm)">
+    <h1 class="title">{{ modalTitle }}</h1>
+    <form [formGroup]="vaccineDetailsForm" (ngSubmit)="onSubmitClick(vaccineDetailsForm)">
         <div class="row">
             
             <div class="input-fields col-lg-6">
                 <mat-form-field  class="form-element" appearance="legacy">
-                    <mat-label>Covid Vaccine Name:</mat-label>
-                    <input matInput formControlName="vaccineName" placeholder="Enter Vaccine Name">
-                    <mat-error *ngIf="(demographicsForm.get('vaccineName')) !.errors?.required">Vaccine Name is required</mat-error>
-                </mat-form-field>
-            </div> 
-            <div class="input-fields col-lg-6">
-                <mat-form-field class="form-element" appearance="legacy">
-                    <mat-label>Number of Doses</mat-label>
-                    <mat-select formControlName="vaccineNumberOfDoses">
-                      <mat-option *ngFor="let item of dosesOptions" [value]="item.value">
-                        {{item.value}}
-                      </mat-option>
-                      <!-- <mat-option value="1">1</mat-option>
-                      <mat-option value="2">2</mat-option> -->
-                    </mat-select>
-                </mat-form-field>
-            </div>  
-
-            <div class="input-fields col-lg-6">
-                <mat-form-field class="form-element" appearance="legacy">
-                    <mat-label>Date of Last Covid Vaccine</mat-label>
-                    <input matInput [matDatepicker]="picker" formControlName="dateOfLastVaccine" readonly="readonly">
-                    <mat-datepicker-toggle matSuffix [for]="picker">
-                      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
-                    </mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-label>Vaccine Name:</mat-label>
+                    <input matInput formControlName="name" placeholder="Enter Vaccine Name">
+                    <mat-error *ngIf="(vaccineDetailsForm.get('name')) !.errors?.required">Vaccine Name is required</mat-error>
                 </mat-form-field>
             </div>
 
-            <!-- <div class="input-fields col-lg-6">
-                <mat-form-field  class="form-element" appearance="legacy">
-                    <mat-label>Any Other Vaccinations:</mat-label>
-                    <input matInput formControlName="anyOtherVaccines" placeholder="Any Other Vaccinations">
+            <div class="input-fields col-lg-6">
+                <mat-form-field class="form-element" appearance="legacy">
+                    <mat-label>Type of vaccine </mat-label>
+                    <mat-select formControlName="type">
+                      <mat-option *ngFor="let item of vaccineNumberOfDoses" [value]="item.value">
+                        {{item.type}}
+                      </mat-option>
+                    </mat-select>
                 </mat-form-field>
-            </div> -->
-            
-            
+            </div>
+
+            <div class="input-fields col-lg-6">
+                <mat-form-field class="form-element" appearance="legacy">
+                    <mat-label>Number of Doses</mat-label>
+                    <mat-select formControlName="doses">
+                      <mat-option *ngFor="let item of dosesOptions" [value]="item.value">
+                        {{item.value}}
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="input-fields col-lg-6">
+                <mat-form-field class="form-element" appearance="fill">
+                    <mat-label>Date of Last Vaccination </mat-label>
+                    <input matInput [matDatepicker]="picker" [min]="minDate" [max]="maxDate" formControlName="lastDoseDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
         </div>
-    
+
         <div class="btn-position">
             <button mat-raised-button (click)="onDialogClose()">Cancel</button>&nbsp;&nbsp;
             <button 
                 mat-raised-button
                 class="btn-width"
                 color="primary"
-                type="submit" 
-                [disabled]="!demographicsForm.valid" 
-                [mat-dialog-close]="demographicsForm.value"
-            >
-                Update Details
+                type="submit"
+                [disabled]="!vaccineDetailsForm.valid"
+                [mat-dialog-close]="vaccineDetailsForm.value">
+                {{ buttonName }}
             </button>
         </div>
     </form>

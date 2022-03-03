@@ -4,6 +4,12 @@
   color: rgb(149 154 160)
 }
 
+.no-records-msg {
+  padding-top: 2%;
+  text-align: center;
+  color: rgb(149 154 160);
+}
+
 
 .show-demographics{
   width: 70%;
@@ -116,10 +122,6 @@ table{
   text-align: center;
 }
 
-.btn-width{
-  
-}
-
 .title{
   text-align: center;
   margin-bottom: 32px
@@ -136,9 +138,6 @@ mat-radio-button{
   margin-left: 0.7rem;
 }
 
-.header{
+.btn-position{
   text-align: center;
-  text-transform: uppercase;
-  color: rgb(149 154 160);
-  font-size: 22px;
 }
