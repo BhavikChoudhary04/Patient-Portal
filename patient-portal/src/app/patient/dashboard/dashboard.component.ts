@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.apService.fetchAllAppointments();
     this.apService.getAppointments().subscribe(app => {
-      console.log('dashboard app: ' ,app)
+      // console.log('dashboard app: ' ,app)
       this.allAppointments = app
       this.displayAppointments = this.allAppointments.filter(e => {
         const date = new Date(e.date.split('/').reverse().join('/'));        

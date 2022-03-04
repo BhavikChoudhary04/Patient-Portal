@@ -1,48 +1,61 @@
-.section-demographics-form{
-    padding: 3%;
-  }
-  
-  .form-element {
-    width: 50%;
-    margin: auto;
-  }
-  
-  
-  .link{
-    color: rgba(255,255,255,.7);
-  }
-  
-  .btn-position{
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  
-  .title{
-    text-align: center;
-    margin-bottom: 32px;
-    font-size: 32px;
-  }
-  
-  .input-fields{
-    display: block;
-    width: 64%;
-    padding: 10px 2%;
-    margin: 0 auto;
-  }
+.section-billing-form{
+  padding: 3%;
+}
 
-  .col-lg-12{
-    text-align: center;
-  }
+.header{
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(149 154 160);
+  font-size: 22px;
+}
 
-  table {
-    margin: 0px auto;
-    width: 60%;
-  }
+.btn-position{
 
-  .header{
-    text-align: center;
-    text-transform: uppercase;
-    color: rgb(149 154 160);
-    font-size: 22px;
-  }
+  margin: 2px auto 4px auto;
+}
+
+.left-align{
+  width: 40%;
+  margin-bottom: 3px; 
+  float: left;
+}
+
+.right-align{
+  width: 60%;
+  float: right;
+}
+
+.payment-history-title{
+  text-align: center;
+  text-decoration: underline;
+}
+
+.bill-details-title{
+  margin: auto;
+  text-decoration: underline;
+}
+
+table{
+  margin: auto;
+  width: 100%;
+}
+
+.inner-form{
+  width: 80%; 
+  margin: auto;
+}
+
+.inner-table{
+  width: 80%;
+  margin: auto;
+}
+
+.inner-table-header{
+  /* padding-left: 8px; */
+  padding: 8px 5px;
+  font-weight: normal;
+}
+
+.inner-table-data{
+  font-weight: bold;
+}

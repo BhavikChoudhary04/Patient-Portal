@@ -42,10 +42,10 @@
       "lastName": "Mondal",
       "userName": "PreetiM011",
       "email": "preeti.mondal@citiustech.com",
-      "role": "lab assistant",
+      "role": "patient",
       "dob": "09/11/1995",
       "mobile": "9876543212",
-      "password": "$2a$10$ycAmWEb5uG/qXlVJSEUF5efiKuQkit0czOeqczuEnpemz36YBKdgK",
+      "password": "$2a$10$oRI4TA4x0gzcMoPUGg9N8eFxnK8bAxowQXc/ZG7yna/.Upw3JCstm",
       "isAuthenticated": true
     },
     {
@@ -54,10 +54,10 @@
       "lastName": "Sarkar",
       "userName": "Rajibsk09",
       "email": "rajib.sarkar@citiustech.com",
-      "role": "physician",
+      "role": "patient",
       "dob": "23/04/1990",
       "mobile": "9876543213",
-      "password": "$2a$10$UoR3Ch1/iuk7R6Q3IQ3y7OUjUMejzS3WoJqybu5BqzUNvyXH7XzZy",
+      "password": "$2a$10$oRI4TA4x0gzcMoPUGg9N8eFxnK8bAxowQXc/ZG7yna/.Upw3JCstm",
       "isAuthenticated": true
     },
     {
@@ -69,7 +69,7 @@
       "role": "patient",
       "dob": "29/01/1997",
       "mobile": "9876543215",
-      "password": "$2a$10$z.FR2.YcW7sNfgfeeVyOKelW4u2OTjiLbLkx25dRvN3XxuCeXIeJa",
+      "password": "$2a$10$oRI4TA4x0gzcMoPUGg9N8eFxnK8bAxowQXc/ZG7yna/.Upw3JCstm",
       "isAuthenticated": true
     },
     {
@@ -144,7 +144,7 @@
     },
     {
       "id": 202,
-      "userId": 106,
+      "userId": 104,
       "vitals": {
         "bloodPressure": "140/90",
         "pulse": "80 bpm",
@@ -165,7 +165,7 @@
     },
     {
       "id": 203,
-      "userId": 107,
+      "userId": 105,
       "vitals": {
         "bloodPressure": "120/80",
         "pulse": "72 bpm",
@@ -186,7 +186,7 @@
     },
     {
       "id": 204,
-      "userId": 108,
+      "userId": 106,
       "vitals": {
         "bloodPressure": "110/75",
         "pulse": "60 bpm",
@@ -489,7 +489,31 @@
     },
     {
       "id": 702,
-      "userId": 107,
+      "userId": 104,
+      "vaccines": [
+        {
+          "type": "COVID",
+          "name": "Covishield",
+          "doses": 2,
+          "lastDoseDate": "09/09/2021"
+        },
+        {
+          "type": "other",
+          "name": "Anthrax",
+          "doses": 1,
+          "lastDoseDate": "23/08/2020"
+        },
+        {
+          "type": "other",
+          "name": "Cholera",
+          "doses": 1,
+          "lastDoseDate": "13/05/2021"
+        }
+      ]
+    },
+    {
+      "id": 703,
+      "userId": 105,
       "vaccines": [
         {
           "type": "COVID",
@@ -502,6 +526,30 @@
           "name": "Rotavirus",
           "doses": 1,
           "lastDoseDate": "23/01/2022"
+        }
+      ]
+    },
+    {
+      "id": 704,
+      "userId": 106,
+      "vaccines": [
+        {
+          "type": "COVID",
+          "name": "Sputnik V",
+          "doses": 2,
+          "lastDoseDate": "09/11/2021"
+        },
+        {
+          "type": "other",
+          "name": "Mumps",
+          "doses": 1,
+          "lastDoseDate": "23/08/2020"
+        },
+        {
+          "type": "other",
+          "name": "Measles",
+          "doses": 1,
+          "lastDoseDate": "13/05/2021"
         }
       ]
     }

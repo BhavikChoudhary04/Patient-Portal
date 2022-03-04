@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   getUserId(){
     this.userService.getLoggedInUser().subscribe((user)=>{
       if(user){
-        console.warn('logged in user id: ', user.id);
+        // console.warn('logged in user id: ', user.id);
         this.getUserDetail(user.id)
       }
     })

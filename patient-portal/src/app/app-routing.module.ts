@@ -32,14 +32,6 @@ const routes: Routes = [
 
   },
   {
-    path: 'immunization',
-    component: ImmunizationComponent
-  },
-  {
-    path: 'billing',
-    component: BillingComponent
-  },
-  {
     path: '**', component: LoginComponent
   }
 ];
