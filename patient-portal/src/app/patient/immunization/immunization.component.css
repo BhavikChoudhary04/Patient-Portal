@@ -11,16 +11,14 @@
 }
 
 
-.show-demographics{
+/* .show-demographics{
   width: 70%;
   margin: 32px auto;
   padding: 3%;
-  /* background-color: rgb(219 229 242); */
   background: aliceblue;
   box-shadow: 5px 10px 8px 10px antiquewhite;
   padding: 20px;
-  
-}
+} */
 
 mat-list-item{
   text-align: left;
