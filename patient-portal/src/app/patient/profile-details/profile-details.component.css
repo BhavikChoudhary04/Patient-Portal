@@ -37,3 +37,20 @@ form{
     padding: 16px;
 }
 
+.form-element {
+    width: 90%;
+    margin: auto;
+}
+
+::ng-deep .mat-form-field-flex { padding: 0 0.5em 0.5em 0.5em !important;}
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0 0 0 0.5em !important;}
+::ng-deep .mat-form-field-wrapper { background-color: #fff !important;}
+
+.disabled{
+    
+    background-color: rgba(0,0,0,.04);
+}
+
+.mat-input-element:disabled{
+    color: #000;
+}

@@ -16,6 +16,7 @@ import { MatSelectModule} from '@angular/material/select/';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [AuthComponent, ResetComponent, RegisterComponent, LoginComponent],
@@ -32,7 +33,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatSnackBarModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatRadioModule
   ],
   exports: [RegisterComponent, ResetComponent],
   providers: [DatePipe]

@@ -80,6 +80,7 @@ export class RegisterComponent implements OnInit {
       lastName : ['', [Validators.required,Validators.maxLength(20), Validators.pattern('^[a-zA-Z ]*$')]],
       dob : ['', Validators.required],
       userName : ['', [Validators.required,  Validators.pattern('^[A-Za-z0-9_]{3,12}$')]],
+      gender: ['Male', Validators.required],
       role : ['', Validators.required],
       email : ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       mobile : ['', [Validators.required, Validators.minLength(10), 

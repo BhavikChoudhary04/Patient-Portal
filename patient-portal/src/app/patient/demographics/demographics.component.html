@@ -3,87 +3,89 @@
     <mat-divider></mat-divider>
     <div class="show-demographics" *ngIf="showDetails">
         <div class="row">
-            <div class="col-lg-5">
-                <h2 class="header-basic-details header">Basic Details</h2>
-                <mat-list>
-                    <mat-list-item class="row">
-                        <mat-label class="col-lg-5">First Name </mat-label>
-                        <div class="col-lg-7">
-                            <strong>{{demographicsData.firstName}}</strong>
-                        </div>
-                    </mat-list-item>
-                    <mat-list-item class="row">
-                        <mat-label class="col-lg-5">Last Name </mat-label>
-                        <div class="col-lg-7">
-                            <strong>{{demographicsData.lastName}}</strong>
-                        </div>
-                    </mat-list-item>
-                    <mat-list-item class="row">
-                        <mat-label class="col-lg-5">Date Of Birth </mat-label>
-                        <div class="col-lg-7">
-                            <strong>{{demographicsData.dob}}</strong>
-                        </div>
-                    </mat-list-item>
-                    <mat-list-item class="row">
-                        <mat-label class="col-lg-5">Gender: </mat-label>
-                        <div class="col-lg-7">
-                            <strong>{{demographicsData.gender}}</strong>
-                        </div>
-                    </mat-list-item>
-                </mat-list>
+            <div class="col-lg-12 pt-3 pb-3">
+                <h2 class="sub-header basic-details pb-3">Basic Details</h2>
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-basicDetails">
+
+                    <!--- Note that these columns can be defined in any order.
+                          The actual rendered columns are set as a property on the row definition" -->
+                  
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="firstName">
+                      <th mat-header-cell *matHeaderCellDef> First Name </th>
+                      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+                    </ng-container>
+                  
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="lastName">
+                      <th mat-header-cell *matHeaderCellDef> Last Name </th>
+                      <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+                    </ng-container>
+                  
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="dob">
+                      <th mat-header-cell *matHeaderCellDef> Date of Birth </th>
+                      <td mat-cell *matCellDef="let element"> {{element.dob}} </td>
+                    </ng-container>
+                  
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="gender">
+                      <th mat-header-cell *matHeaderCellDef> Gender </th>
+                      <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+                    </ng-container>
+                  
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  </table>
             </div>
-            <div class="col-lg-6">
-                <h2 class="header">Demographics Details</h2>
-                <mat-list>
-                    <mat-list-item class="row">
-                        <mat-label class="col-lg-5">Ethnicity </mat-label>
-                        <div class="col-lg-7">
-                            <strong>{{demographicsData.ethnicity}}</strong>
-                        </div>
-                    </mat-list-item>
-                    <mat-list-item class="row">
-                        <mat-label class="col-lg-5">Education </mat-label>
-                        <div class="col-lg-7">
-                            <strong>{{demographicsData.education}}</strong>
-                        </div>
-                    </mat-list-item>
-                    <mat-list-item class="row">
-                        <mat-label class="col-lg-5">Occupation </mat-label>
-                        <div class="col-lg-7">
-                            <strong>{{demographicsData.occupation}}</strong>
-                        </div>
-                    </mat-list-item>
-                    <mat-list-item class="row">
-                        <mat-label class="col-lg-5">Contact Info </mat-label>
-                        <div class="col-lg-7">
-                            <strong>{{demographicsData.mobile}}</strong>
-                        </div>
-                    </mat-list-item>
-                    <mat-list-item class="row">
-                        <mat-label class="col-lg-5">Medical History </mat-label>
-                        <div class="col-lg-7">
-                            <strong>{{demographicsData.medicalHistory}}</strong>
-                        </div>
-                    </mat-list-item>
-                    <mat-list-item class="row">
-                        <mat-label class="col-lg-5">Famil Medical History </mat-label>
-                        <div class="col-lg-7">
-                            <strong>{{demographicsData.familymedicalhistory}}</strong>
-                        </div>
-                    </mat-list-item>
-                    <mat-list-item class="row">
-                        <mat-label class="col-lg-5">Surgeries </mat-label>
-                        <div class="col-lg-7">
-                            <strong>{{demographicsData.surgeries}}</strong>
-                        </div>
-                    </mat-list-item>
-                    <mat-list-item class="row">
-                        <mat-label class="col-lg-5">Insurance Providers </mat-label>
-                        <div class="col-lg-7">
-                            <strong>{{demographicsData.insuranceProvider}}</strong>
-                        </div>
-                    </mat-list-item>
-                </mat-list>
+            <div class="col-lg-12 pt-3 pb-3 pt-4">
+                <h2 class="sub-header pb-3">Demographics Details</h2>
+                <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8 table-demoDetails">
+
+                    <!--- Note that these columns can be defined in any order.
+                          The actual rendered columns are set as a property on the row definition" -->
+                  
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="ethnicity">
+                      <th mat-header-cell *matHeaderCellDef> Ethnicity </th>
+                      <td mat-cell *matCellDef="let element"> {{element.ethnicity}} </td>
+                    </ng-container>
+                  
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="education">
+                      <th mat-header-cell *matHeaderCellDef> Education </th>
+                      <td mat-cell *matCellDef="let element"> {{element.education}} </td>
+                    </ng-container>
+                  
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="occupation">
+                      <th mat-header-cell *matHeaderCellDef> Occupation </th>
+                      <td mat-cell *matCellDef="let element"> {{element.occupation}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="medicalHistory">
+                        <th mat-header-cell *matHeaderCellDef> Medical History </th>
+                        <td mat-cell *matCellDef="let element"> {{element.medicalHistory}} </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="familymedicalhistory">
+                        <th mat-header-cell *matHeaderCellDef> Family Medical History </th>
+                        <td mat-cell *matCellDef="let element"> {{element.familymedicalhistory}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="surgeries">
+                        <th mat-header-cell *matHeaderCellDef> Surgeries </th>
+                        <td mat-cell *matCellDef="let element"> {{element.surgeries}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="insuranceProvider">
+                        <th mat-header-cell *matHeaderCellDef> Insurance Providers </th>
+                        <td mat-cell *matCellDef="let element"> {{element.insuranceProvider}} </td>
+                    </ng-container>
+                  
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+                </table>
             </div>
         </div>
     </div>

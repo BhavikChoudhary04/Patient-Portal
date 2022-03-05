@@ -1,13 +1,13 @@
 .show-initial-details{
   text-align: center;
-  color: rgb(149 154 160)
+  color: rgb(149 154 160);
+  width:98%;
 }
 
 
 .show-demographics{
-  width: 90%;
-  margin: 32px auto;
-  padding: 3%;
+  width: 94%;
+  margin: auto;
   /* background-color: rgb(219 229 242); */
   /* background: aliceblue;
   box-shadow: 5px 10px 8px 10px antiquewhite; */
@@ -23,4 +23,22 @@ mat-list-item{
   text-transform: uppercase;
   color: rgb(149 154 160);
   font-size: 22px;
+}
+
+table{
+  width: 100%;
+}
+
+.table-basicDetails {
+  width: 66%;
+  margin: auto;
+}
+
+th.mat-header-cell {
+  text-align: center; 
+}
+
+.sub-header{
+  font-size: 24px;
+  color: #111;
 }

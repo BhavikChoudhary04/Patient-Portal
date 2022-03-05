@@ -35,8 +35,6 @@ export class DemographicsDialogComponent implements OnInit {
       ethnicity:['American', Validators.required],
       education: ['',Validators.required],
       occupation: ['', Validators.required],
-      address: ['', Validators.required],
-      mobile: ['', Validators.required],
       medicalHistory: ['', Validators.required],
       familymedicalhistory: [''],
       surgeries: [''],

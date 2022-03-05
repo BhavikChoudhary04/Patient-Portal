@@ -15,8 +15,12 @@ import { DemographicsDialogComponent } from '../components/demographics-dialog/d
 export class DemographicsComponent implements OnInit {
 
 
-  demographicsData!:UserDemographic;
-  showDetails:boolean = false
+  demographicsData:UserDemographic[]=[];
+  showDetails:boolean = false;
+  displayedColumns: string[] = ['firstName', 'lastName', 'dob', 'gender'];
+  dataSource:any = this.demographicsData
+  displayedColumns2: string[] = ['ethnicity', 'education', 'occupation', 'medicalHistory', 'familymedicalhistory', 'surgeries', 'insuranceProvider'];
+  dataSource2:any = this.demographicsData
 
   constructor(private fb:FormBuilder, private demoService:DemographicService, public dialog: MatDialog, private userService: UserService) {}
 
@@ -37,9 +41,14 @@ export class DemographicsComponent implements OnInit {
   getDemographicDetail(id:number|undefined){
     this.demoService.fetchDemoData(id).subscribe(data =>{
       if (data){
-        this.demographicsData = data
+        console.log(data);
+        console.log(this.demographicsData);
+        
+        this.demographicsData.push(data)
         console.log('this.demographicsData: ', this.demographicsData);
         this.showDetails = true
+        this.dataSource = this.demographicsData
+        console.log(this.dataSource);
       }
     })
   }
@@ -47,7 +56,7 @@ export class DemographicsComponent implements OnInit {
   openEditDemoDialog(): void{
     const dialogRef = this.dialog.open(DemographicsDialogComponent, {
       width: '60%',
-      data: this.demographicsData
+      data: this.demographicsData[0]
     })
 
     dialogRef.afterClosed().subscribe(result => {
@@ -61,17 +70,15 @@ export class DemographicsComponent implements OnInit {
   }
 
   updateDemoDetails(updatedUser:UserDemographic){
-    this.demographicsData.ethnicity = updatedUser.ethnicity
-    this.demographicsData.education = updatedUser.education
-    this.demographicsData.occupation = updatedUser.occupation
-    this.demographicsData.address = updatedUser.address
-    this.demographicsData.mobile = updatedUser.mobile
-    this.demographicsData.medicalHistory = updatedUser.medicalHistory
-    this.demographicsData.familymedicalhistory = updatedUser.familymedicalhistory
-    this.demographicsData.surgeries = updatedUser.surgeries
-    this.demographicsData.insuranceProvider = updatedUser.insuranceProvider
+    this.demographicsData[0].ethnicity = updatedUser.ethnicity
+    this.demographicsData[0].education = updatedUser.education
+    this.demographicsData[0].occupation = updatedUser.occupation
+    this.demographicsData[0].medicalHistory = updatedUser.medicalHistory
+    this.demographicsData[0].familymedicalhistory = updatedUser.familymedicalhistory
+    this.demographicsData[0].surgeries = updatedUser.surgeries
+    this.demographicsData[0].insuranceProvider = updatedUser.insuranceProvider
 
-    this.demoService.updateDemoData(this.demographicsData)
+    this.demoService.updateDemoData(this.demographicsData[0])
     
   }
 }

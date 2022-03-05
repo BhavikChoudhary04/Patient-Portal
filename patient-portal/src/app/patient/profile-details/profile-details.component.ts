@@ -19,15 +19,6 @@ export class ProfileDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserId()
-    this.profileForm = this.fb.group({
-      firstName: [''],
-      lastName: [''],
-      userName: [''],
-      email: [''],
-      role: [''],
-      dob: [''],
-      mobile: ['']
-    })
     
   }
   getUserId(){
@@ -45,21 +36,23 @@ export class ProfileDetailsComponent implements OnInit {
         this.userDetail = data
         console.log('userDetail', this.userDetail);
         this.showDetails = true
+        this.showInputFields = true
+        this.profileForm = this.fb.group({
+          firstName: [{value: this.userDetail.firstName,disabled: this.showInputFields}],
+          lastName: [{value: this.userDetail.lastName,disabled: this.showInputFields}],
+          userName: [{value: this.userDetail.userName,disabled: this.showInputFields}],
+          email: [{value: this.userDetail.email,disabled: this.showInputFields}],
+          role: [{value: this.userDetail.role,disabled: this.showInputFields}],
+          dob: [{value: this.userDetail.dob,disabled: this.showInputFields}],
+          mobile: [{value: this.userDetail.mobile,disabled: this.showInputFields}]
+        })
       }
     })
   }
 
   editProfile(){
-    this.profileForm.setValue({
-      firstName: this.userDetail.firstName,
-      lastName: this.userDetail.lastName,
-      userName: this.userDetail.userName,
-      email: this.userDetail.email,
-      role: this.userDetail.role,
-      dob: this.userDetail.dob,
-      mobile: this.userDetail.mobile
-    })
-    this.showInputFields = true
+    this.profileForm.enable()
+    this.showInputFields = false
   }
 
   onSaveDetails(profileForm:any){
@@ -72,13 +65,18 @@ export class ProfileDetailsComponent implements OnInit {
       this.userDetail.dob = profileForm.value.dob
       this.userDetail.mobile = profileForm.value.mobile
       
-      console.log(this.userDetail);
+      console.log('this.userDetail', this.userDetail);
       
       if (this.userDetail){
         this.userService.updateUser(this.userDetail)
       }
       this.showInputFields = false
     }
+  }
+  onCancelClick(){
+    this.showInputFields = true
+    console.log(this.showInputFields);
+    
   }
 
 }
