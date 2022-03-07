@@ -9,7 +9,7 @@
             <strong [ngStyle]="{'font-size':'0.85rem', 'text-transform':'uppercase'}">{{userDetail.userName}}</strong>
         </div> 
     </div>
-    <div class="col-lg-9" *ngIf="showDetails">
+    <div class="col-lg-9 profileDetails" *ngIf="showDetails">
         <form [formGroup]="profileForm"  class="row">
             <div class="col-lg-6 row">
                 <label for="firstname" class="col-lg-3 text-left pt-3 ">First Name: </label>

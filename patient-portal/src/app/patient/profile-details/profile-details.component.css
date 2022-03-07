@@ -42,9 +42,9 @@ form{
     margin: auto;
 }
 
-::ng-deep .mat-form-field-flex { padding: 0 0.5em 0.5em 0.5em !important;}
-::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0 0 0 0.5em !important;}
-::ng-deep .mat-form-field-wrapper { background-color: #fff !important;}
+.profileDetails ::ng-deep .mat-form-field-flex { padding: 0 0.5em 0.5em 0.5em !important;}
+.profileDetails ::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0 0 0 0.5em !important;}
+.profileDetails ::ng-deep .mat-form-field-wrapper { background-color: #fff !important;}
 
 .disabled{
     
